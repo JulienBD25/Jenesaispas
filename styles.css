@@ -64,25 +64,6 @@ main {
     margin: 2rem auto;
 }
 
-.bienvenue, .weekly-highlight, .carousel {
-    margin-bottom: 2rem;
-}
-
-.carousel-container {
-    display: flex;
-    gap: 1rem;
-}
-
-.carousel-slide {
-    min-width: 200px;
-    text-align: center;
-}
-
-.carousel-slide img {
-    width: 100%;
-    border-radius: 10px;
-}
-
 footer {
     background-color: #333;
     color: white;
