@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Medicare - Se Connecter  </title>
+<title>Medicare - Créer Compte  </title>
 <meta charset="utf-8">
 <style>
-body {
-    background-color: #eeeeee;
-}
 h1 {
     text-align: center;
     color: white;
@@ -134,17 +131,51 @@ body {
         </nav>
     </header>
 
-<h1>Medicare - Se Connecter</h1>
+<h1>Medicare - Créer Compte</h1>
 <tr>
             <table border="1">
-                <tr><td><label>Adresse Mail</label></td>
+                <tr><td><label>Carte Vitale</label></td>
+                    <td><input type="number" id="carte_vitale" name="carte_vitale" required><br></td></tr>
+
+                    <tr><td><label>Nom_Prenom</label></td>
+                    <td><input  type="text" id="Nom_Prenom" name="Nom_Prenom" required>  <br></td></tr>
+
+                 <tr><td><label>Adresse Mail</label></td>
                     <td><input type="email" id="email" name="email" required><br></td></tr>
 
-                    <tr><td><label>Mot de Passe</label></td>
+                    <tr><td><label>Mot_De_Passe</label></td>
                     <td><input  type="password" id="password" name="password" required>  <br></td></tr>
 
-                    <td colspan="2" align="center">
-                        <input type="submit" name="button1" value="Se Connecter">
+                 <tr><td><label>Adresse</label></td>
+                    <td><input type="text" id="Adresse" name="Adresse" required><br></td></tr>
+
+                    <tr><td><label>Ville</label></td>
+                    <td><input  type="text" id="Ville" name="Ville" required>  <br></td></tr>
+
+                 <tr><td><label>Pays</label></td>
+                    <td><input type="text" id="Pays" name="Pays" required><br></td></tr>
+
+                    <tr><td><label>Code_Postal</label></td>
+                    <td><input  type="number" id="Code_Postal" name="Code_Postal" required>  <br></td></tr>
+
+                 <tr><td><label>Telephone</label></td>
+                    <td><input type="email" id="Telephone" name="Telephone" required><br></td></tr>
+
+                    <tr><td><label>Type_CB</label></td>
+                    <td><input  type="text" id="Type_CB" name="Type_CB" required>  <br></td></tr>
+
+                 <tr><td><label>Numero_CB</label></td>
+                    <td><input type="text" id="Numero_CB" name="Numero_CB" required><br></td></tr>
+
+                    <tr><td><label>Date_Expiration_CB</label></td>
+                    <td><input  type="date" id="Date_Expiration_CB" name="Date_Expiration_CB" required>  <br></td></tr>
+
+                 <tr><td><label>Code_Securite_CB</label></td>
+                    <td><input type="text" id="Code_Securite_CB" name="Code_Securite_CB" required><br></td></tr>
+
+                <td colspan="2" align="center">
+                        <input type="submit" name="button1" value="Créer un compte">
+
             </table>
         </td>
     </tr>
