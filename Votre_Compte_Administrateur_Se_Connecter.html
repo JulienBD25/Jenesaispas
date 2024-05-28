@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicare - Créer Compte</title>
+    <title>Medicare - Se Connecter</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
@@ -106,9 +106,7 @@
 
         input[type="email"],
         input[type="password"],
-        input[type="text"],
-        input[type="number"],
-        input[type="date"] {
+        input[type="text"] {
             width: 100%;
             padding: 0.5rem;
             border: 1px solid #cccccc;
@@ -147,69 +145,25 @@
                 <li><a href="Accueil.html">Accueil</a></li>
                 <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
                 <li><a href="Recherche.html">Recherche</a></li>
-                <li><a href="Votre_Compte.html">Rendez-vous</a></li>
+                <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
                 <li><a href="Votre_Compte.html">Votre Compte</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h1>Créer un Compte</h1>
+        <h1>Se Connecter</h1>
         <form>
-            <div>
-                <label for="carte_vitale">Carte Vitale</label>
-                <input type="number" id="carte_vitale" name="carte_vitale" required>
-            </div>
-            <div>
-                <label for="Nom_Prenom">Nom Prénom</label>
+             <div>
+                <label for="Nom_Prenom">Nom_Prenom</label>
                 <input type="text" id="Nom_Prenom" name="Nom_Prenom" required>
             </div>
             <div>
                 <label for="email">Adresse Mail</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div>
-                <label for="password">Mot de Passe</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div>
-                <label for="Adresse">Adresse</label>
-                <input type="text" id="Adresse" name="Adresse" required>
-            </div>
-            <div>
-                <label for="Ville">Ville</label>
-                <input type="text" id="Ville" name="Ville" required>
-            </div>
-            <div>
-                <label for="Pays">Pays</label>
-                <input type="text" id="Pays" name="Pays" required>
-            </div>
-            <div>
-                <label for="Code_Postal">Code Postal</label>
-                <input type="number" id="Code_Postal" name="Code_Postal" required>
-            </div>
-            <div>
-                <label for="Telephone">Téléphone</label>
-                <input type="text" id="Telephone" name="Telephone" required>
-            </div>
-            <div>
-                <label for="Type_CB">Type CB</label>
-                <input type="text" id="Type_CB" name="Type_CB" required>
-            </div>
-            <div>
-                <label for="Numero_CB">Numéro CB</label>
-                <input type="text" id="Numero_CB" name="Numero_CB" required>
-            </div>
-            <div>
-                <label for="Date_Expiration_CB">Date d'Expiration CB</label>
-                <input type="date" id="Date_Expiration_CB" name="Date_Expiration_CB" required>
-            </div>
-            <div>
-                <label for="Code_Securite_CB">Code Sécurité CB</label>
-                <input type="text" id="Code_Securite_CB" name="Code_Securite_CB" required>
-            </div>
             <div class="button-container">
-                <input type="submit" value="Créer un Compte">
+                <input type="submit" value="Se Connecter">
             </div>
         </form>
     </main>

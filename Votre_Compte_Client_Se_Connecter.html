@@ -1,27 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
 <head>
-<title>Medicare - Se Connecter  </title>
-<meta charset="utf-8">
-<style>
-body {
-    background-color: #eeeeee;
-}
-h1 {
-    text-align: center;
-    color: white;
-    background-color: #0073b1;
-    padding: 20px;
-    width: 650px;
-    margin: 50px auto 20px auto;
-    border-radius: 5px;
-}
-table {
-    width: 680px;
-    margin: auto;
-    background-color: rgba(0, 115, 177, 0.63);
-}
-body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare - Se Connecter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
+
+    <!-- Bibliothèque jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Dernier JavaScript compilé -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -84,41 +78,63 @@ body {
 
         main {
             width: 90%;
-            margin: 75px;
-            margin-top: 250px;
+            margin: 75px auto;
+            max-width: 600px;
+            padding: 2rem;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            background-color: #0073b1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
         }
 
         .button-container {
             display: flex;
             justify-content: center;
-            gap: 1rem;
         }
 
-        .button-container .btn {
-            padding: 1rem 2rem;
+        input[type="submit"] {
             background-color: #0073b1;
             color: white;
             border: none;
+            padding: 1rem;
             border-radius: 5px;
-            font-size: 1rem;
             cursor: pointer;
-            text-align: center;
-            text-decoration: none;
+            font-size: 1.5rem;
         }
 
-        .button-container .btn:hover {
+        input[type="submit"]:hover {
             background-color: #005f8c;
-        }
-
-        #map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
         }
     </style>
 </head>
+
 <body>
- <header>
+    <header>
         <div class="header-top">
             <img src="omnes.jpg" alt="Logo Medicare" class="logo">
             <h1>Medicare: Services Médicaux</h1>
@@ -128,25 +144,29 @@ body {
                 <li><a href="Accueil.html">Accueil</a></li>
                 <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
                 <li><a href="Recherche.html">Recherche</a></li>
-                <li><a href="Votre_Compte.html">Rendez-vous</a></li>
+                <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
                 <li><a href="Votre_Compte.html">Votre Compte</a></li>
             </ul>
         </nav>
     </header>
 
-<h1>Medicare - Se Connecter</h1>
-<tr>
-            <table border="1">
-                <tr><td><label>Adresse Mail</label></td>
-                    <td><input type="email" id="email" name="email" required><br></td></tr>
-
-                    <tr><td><label>Mot de Passe</label></td>
-                    <td><input  type="password" id="password" name="password" required>  <br></td></tr>
-
-                    <td colspan="2" align="center">
-                        <input type="submit" name="button1" value="Se Connecter">
-            </table>
-        </td>
-    </tr>
+    <main>
+        <h1>Se Connecter</h1>
+        <form>
+            <div>
+                <label for="email">Adresse Mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Mot de Passe</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="button-container">
+                <input type="submit" value="Se Connecter">
+                 <a href="Votre_Compte_Client_Creer_Compte.html" class="btn">Créer un compte</a>
+            </div>
+        </form>
+    </main>
 </body>
+
 </html>
