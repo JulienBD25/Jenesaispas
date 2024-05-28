@@ -123,7 +123,7 @@ footer {
 
 .welcome-text p, .health-bulletin p {
     font-size: 16px;
-    color: #White;
+    color: #white;
 }
 
 .news-photo {
@@ -146,4 +146,50 @@ footer {
 
 .health-bulletin h3 {
     color: white;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+}
+
+nav ul li a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #0073b1;
+    min-width: 200px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu li {
+    display: block;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #004974;
+}
+
+nav ul li:hover .dropdown-menu {
+    display: block;
 }
