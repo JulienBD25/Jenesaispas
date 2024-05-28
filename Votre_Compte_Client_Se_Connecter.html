@@ -114,7 +114,8 @@
 
         .button-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between; /* Ajout de cette ligne */
+            align-items: center; /* Ajout de cette ligne */
         }
 
         input[type="submit"] {
@@ -129,6 +130,20 @@
 
         input[type="submit"]:hover {
             background-color: #005f8c;
+        }
+
+        .btn {
+            color: #0073b1; /* Changement de la couleur du texte */
+            border: none;
+            padding: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            text-decoration: underline; /* Ajout de soulignement */
+        }
+
+        .btn:hover {
+            color: #005f8c; /* Changement de couleur au survol */
         }
     </style>
 </head>
@@ -162,7 +177,7 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <div class="button-container">
-                <input type="submit" value="Se Connecter">
+               <input type="submit" value="Se Connecter">
                  <a href="Votre_Compte_Client_Creer_Compte.html" class="btn">Créer un compte</a>
             </div>
         </form>

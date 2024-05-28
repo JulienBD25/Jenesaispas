@@ -76,6 +76,10 @@
             border-radius: 5px;
         }
 
+        nav ul li.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
         main {
             width: 90%;
             margin: 75px auto;
@@ -105,7 +109,8 @@
         }
 
         input[type="email"],
-        input[type="password"] {
+        input[type="password"],
+        input[type="text"] {
             width: 100%;
             padding: 0.5rem;
             border: 1px solid #cccccc;
@@ -130,6 +135,33 @@
         input[type="submit"]:hover {
             background-color: #005f8c;
         }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            z-index: 1000;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-menu li {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: gray;
+        }
     </style>
 </head>
 
@@ -145,7 +177,14 @@
                 <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
                 <li><a href="Recherche.html">Recherche</a></li>
                 <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-                <li><a href="Votre_Compte.html">Votre Compte</a></li>
+                <li class="dropdown">
+                    <a href="Votre_Compte.html">Votre Compte</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
+                        <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
+                        <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -154,12 +193,16 @@
         <h1>Se Connecter</h1>
         <form>
             <div>
-                <label for="email">Adresse Mail</label>
-                <input type="email" id="email" name="email" required>
+                <label for="Nom">Nom</label>
+                <input type="text" id="Nom" name="Nom" required>
             </div>
             <div>
-                <label for="password">Mot de Passe</label>
-                <input type="password" id="password" name="password" required>
+                <label for="Prenom">Prenom</label>
+                <input type="text" id="Prenom" name="Prenom" required>
+            </div>
+            <div>
+                <label for="email">Adresse Mail</label>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="button-container">
                 <input type="submit" value="Se Connecter">

@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
 
-    <!-- Bibliothèque jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <!-- Dernier JavaScript compilé -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,6 +69,41 @@
         nav ul li a:hover {
             background-color: #004974;
             border-radius: 5px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            z-index: 1000;
+            border-radius: 5px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-menu li {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: gray;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
 
         main {
@@ -147,8 +177,15 @@
                 <li><a href="Accueil.html">Accueil</a></li>
                 <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
                 <li><a href="Recherche.html">Recherche</a></li>
-                <li><a href="Votre_Compte.html">Rendez-vous</a></li>
-                <li><a href="Votre_Compte.html">Votre Compte</a></li>
+                <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
+                <li class="dropdown">
+                    <a href="Votre_Compte.html">Votre Compte</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
+                        <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
+                        <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -217,6 +254,3 @@
             </div>
         </form>
     </main>
-</body>
-
-</html>
