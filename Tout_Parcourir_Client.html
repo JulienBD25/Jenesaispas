@@ -5,118 +5,283 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicare - Tout Parcourir</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Utilise le style fourni */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #0073b1;
+            color: white;
+            box-shadow: 0 4px 2px -2px gray;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .header-top .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
+        }
+
+        .header-top h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #005f8c;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+            position: relative; /* Pour le menu déroulant */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 1rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #004974;
+            border-radius: 5px;
+        }
+
+        /* Style du menu déroulant */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #005f8c;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 1000;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            margin: 0;
+        }
+
+        nav ul li ul li a {
+            padding: 0.5rem 1rem;
+        }
+
+        main {
+            width: 90%;
+            margin: 2rem auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-content ul li {
+            margin: 0.5rem 0;
+        }
+
+        #map-container {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
+
+        #map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Style pour afficher les médecins */
+        .doctor {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin: 1rem 0;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .doctor img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .doctor h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor .doctor-info {
+            flex-grow: 1;
+        }
+
+        .doctor .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .doctor a {
+            color: #0073b1;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 1rem; /* Ajout d'un espace entre les liens */
+        }
+
+        .doctor a:hover {
+            text-decoration: underline;
+        }
+
+        .cv-container {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
 <header>
-    <div class="logo">
-        <img src="logo.png" alt="Logo Medicare">
+    <div class="header-top">
+        <img src="logo.png" alt="Logo Medicare" class="logo">
+        <h1>Medicare: Services Médicaux</h1>
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Client.html">Accueil</a></li>
-            <li><a href="Tout_Parcourir_Client.html">Tout Parcourir</a></li>
-            <li><a href="Recherche_Client.html">Recherche</a></li>
-            <li><a href="Rendez_vous_Client.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte_Client.html">Votre Compte</a></li>
+            <li><a href="index.html">Accueil</a></li>
+            <li>
+                <a href="#">Tout Parcourir</a>
+                <ul>
+                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecine générale</a></li>
+                    <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                    <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                    <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                    <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                    <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                    <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                    <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                    <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                </ul>
+            </li>
+            <li><a href="search.html">Recherche</a></li>
+            <li><a href="appointments.html">Rendez-vous</a></li>
+            <li><a href="account.html">Votre Compte</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
-    <h1>Tout Parcourir</h1>
-    <section id="categories-section">
-        <h2>Catégories des Services Médicaux</h2>
-        <ul>
-            <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecine générale</a></li>
-            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
-            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
-            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
-            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
-            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
-            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
-            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
-            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
-        </ul>
-    </section>
-
-    <section id="specialists-section" style="display: none;">
-        <h2 id="specialty-title"></h2>
-        <div id="specialists-container"></div>
-        <button onclick="showCategories()">Retour aux catégories</button>
-    </section>
+    <h1>Nos Spécialistes</h1>
+    <div id="specialists-container">
+        <p>Veuillez sélectionner une spécialité dans le menu "Tout Parcourir".</p>
+    </div>
+    <div id="cv-container" class="cv-container" style="display: none;">
+        <h2>Curriculum Vitae</h2>
+        <iframe id="cv-frame" src="" style="width: 100%; height: 600px; border: none;"></iframe>
+    </div>
 </main>
 
 <footer>
-    <p>Contactez-nous: <a href="mailto:email@medicare.com">email@medicare.com</a> | Tel: +33 1 23 45 67 89 | Adresse: 16 rue Sextius Michel, Paris, France</p>
-    <div id="map"></div>
-    <script>
-        function initMap() {
-            var location = {lat: 48.8566, lng: 2.3522};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-            async defer></script>
+    <div class="footer-content">
+        <p>Contactez-nous: <a href="mailto:email@medicare.com">email@medicare.com</a> | Tel: +33 1 23 45 67 89 | Adresse: 16 rue Sextius Michel, Paris, France</p>
+        <div id="map-container">
+            <iframe src="https://maps.google.com/maps?q=16%20rue%20Sextius%20Michel,%20Paris,%20France&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+    </div>
 </footer>
 
 <script>
     const doctorsData = {
         "Médecine générale": [
-            { name: "Dr. Patrice Bouree", photo: "MedecineGenerale.jpg", cv: "MedecineGenerale.jpg" },
-            { name: "Dr. Jane Smith", photo: "JaneSmithAddictologie.jpg", cv: "JaneSmith-en-Addictologie.jpg" },
-            { name: "Dr. Jane Smith", photo: "JaneSmithAddictologie.jpg", cv: "JaneSmith-en-Addictologie.jpg" },
-            { name: "Dr. Jane Smith", photo: "JaneSmithAddictologie.jpg", cv: "JaneSmith-en-Addictologie.jpg" },
-            { name: "Dr. Jane Smith", photo: "JaneSmithAddictologie.jpg", cv: "JaneSmith-en-Addictologie.jpg" },
+            { name: "Dr. Alice Martin", photo: "MedecineGeneral2.jpg", cv: "AliceMartin-en-MedecineGenerale.html" },
+            { name: "Dr. Benoit Dupont", photo: "MedecineGeneral.jpg", cv: "BenoitDupont-en-MedecineGenerale.html" },
+            { name: "Dr. Clara Moreau", photo: "MedecineGeneral3.jpg", cv: "ClaraMoreau-en-MedecineGenerale.html" },
+            { name: "Dr. David Leroy", photo: "MedecineGeneral4.jpg", cv: "DavidLeroy-en-MedecineGenerale.html" },
+            { name: "Dr. Emma Robert", photo: "MedecinFemme", cv: "EmmaRobert-en-MedecineGenerale.html" }
         ],
-
         "Addictologie": [
-            { name: "Dr. John Doe", photo: "MedecinAddictologie.jpg", cv: "Médecin-en-Addictologie.jpg" }
+            { name: "Dr. Jean Dupont", photo: "MedecinGastro.jpg", cv: "Medecin-en-Addictologie.html" },
 
         ],
         "Andrologie": [
-            { name: "Dr. Albert Brown", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.jpg" }
+            { name: "Dr. Pierre Martin", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.html" }
         ],
         "Cardiologie": [
-            { name: "Dr. Emily Johnson", photo: "MedecinCardiologie.jpg", cv: "Medecin-en-Cardiologie.jpg" }
+            { name: "Dr. Marie Leblan", photo: "MedecinCardiologie.jpg", cv: "Médecin-en-Cardiologie.html" }
         ],
         "Dermatologie": [
-            {
-                name: "Dr. Albert Brown", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.jpg"
-            }
+            { name: "Dr. Sophie Durand", photo: "MedecinDermatologie.jpg", cv: "Medecin-en-Dermatologie.html" }
         ],
         "Gastro-Hépato-Entérologie": [
-            {
-                name: "Dr. Albert Brown", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.jpg"
-            }
+            { name: "Dr. Claude Petit", photo: "MedecinGastro.jpg", cv: "Medecin-en-Gastro.html" }
         ],
-
         "Gynécologie": [
-            {name: "Dr. Albert Brown", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.jpg"}
-    ],
-        "I.S.T." : [
-            {name: "Dr. Albert Brown", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.jpg"}
+            { name: "Dr. Alice Moreau", photo: "MedecinGynecologie.jpg", cv: "MedecinGynecologie.html" }
         ],
-
+        "I.S.T.": [
+            { name: "Dr. Marc Lefèvre", photo: "MedecinIST.jpg", cv: "Medecin-en-IST.html" }
+        ],
         "Ostéopathie": [
-            {name: "Dr. Albert Brown", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.jpg"}
+            { name: "Dr. Lucie Bernard", photo: "MedecinOsteopathie.jpg", cv: "Medecin-en-Osteopathie.html" }
         ]
     };
 
-
     function showSpecialty(specialty) {
-        document.getElementById('categories-section').style.display = 'none';
-        document.getElementById('specialists-section').style.display = 'block';
-        document.getElementById('specialty-title').textContent = `Spécialistes en ${specialty}`;
-
         const container = document.getElementById('specialists-container');
-        container.innerHTML = '';
+        container.innerHTML = ''; // Effacer le contenu précédent
+
+        const title = document.createElement('h2');
+        title.textContent = `Spécialistes en ${specialty}`;
+        container.appendChild(title);
+
         const doctors = doctorsData[specialty];
 
         if (doctors) {
@@ -129,31 +294,43 @@
                 img.alt = `${doctor.name}`;
                 doctorDiv.appendChild(img);
 
+                const infoDiv = document.createElement('div');
+                infoDiv.classList.add('doctor-info');
+
                 const name = document.createElement('h3');
                 name.textContent = doctor.name;
-                doctorDiv.appendChild(name);
+                infoDiv.appendChild(name);
+
+                doctorDiv.appendChild(infoDiv);
+
+                const actionsDiv = document.createElement('div');
+                actionsDiv.classList.add('actions');
 
                 const viewCvButton = document.createElement('a');
-                viewCvButton.href = `cvs/${doctor.cv}`;
+                viewCvButton.href = "#cv-container";
                 viewCvButton.textContent = "Voir CV";
-                viewCvButton.target = "_blank";
-                doctorDiv.appendChild(viewCvButton);
+                viewCvButton.onclick = function() {
+                    document.getElementById('cv-frame').src = `cvs/${doctor.cv}`;
+                    document.getElementById('cv-container').style.display = 'block';
+                };
+                actionsDiv.appendChild(viewCvButton);
 
                 const appointmentButton = document.createElement('a');
                 appointmentButton.href = `appointments.html?doctor=${doctor.name}`;
                 appointmentButton.textContent = "Prendre Rendez-vous";
-                doctorDiv.appendChild(appointmentButton);
+                actionsDiv.appendChild(appointmentButton);
 
+                const chatButton = document.createElement('a');
+                chatButton.href = `chatroom.html?doctor=${doctor.name}`;
+                chatButton.textContent = "Discuter avec le médecin";
+                actionsDiv.appendChild(chatButton);
+
+                doctorDiv.appendChild(actionsDiv);
                 container.appendChild(doctorDiv);
             });
         } else {
             container.textContent = "Aucun spécialiste trouvé pour cette spécialité.";
         }
-    }
-
-    function showCategories() {
-        document.getElementById('specialists-section').style.display = 'none';
-        document.getElementById('categories-section').style.display = 'block';
     }
 </script>
 </body>
