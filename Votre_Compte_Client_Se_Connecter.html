@@ -76,6 +76,37 @@
             border-radius: 5px;
         }
 
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .dropdown-menu li a {
+            color: gray;
+            text-decoration: none;
+        }
+
+        .dropdown-menu li a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
         main {
             width: 90%;
             margin: 75px auto;
@@ -114,8 +145,8 @@
 
         .button-container {
             display: flex;
-            justify-content: space-between; /* Ajout de cette ligne */
-            align-items: center; /* Ajout de cette ligne */
+            justify-content: space-between;
+            align-items: center;
         }
 
         input[type="submit"] {
@@ -133,17 +164,17 @@
         }
 
         .btn {
-            color: #0073b1; /* Changement de la couleur du texte */
+            color: #0073b1;
             border: none;
             padding: 1rem;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1.5rem;
-            text-decoration: underline; /* Ajout de soulignement */
+            text-decoration: underline;
         }
 
         .btn:hover {
-            color: #005f8c; /* Changement de couleur au survol */
+            color: gray;
         }
     </style>
 </head>
@@ -160,7 +191,14 @@
                 <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
                 <li><a href="Recherche.html">Recherche</a></li>
                 <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-                <li><a href="Votre_Compte.html">Votre Compte</a></li>
+                <li class="dropdown">
+                    <a href="#">Votre Compte</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
+                        <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
+                        <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
@@ -183,5 +221,3 @@
         </form>
     </main>
 </body>
-
-</html>
