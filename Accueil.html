@@ -7,20 +7,20 @@
     <title>Medicare - Accueil</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-<!-- Bibliothèque jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <!-- Bibliothèque jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-<!-- Dernier JavaScript compilé -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Dernier JavaScript compilé -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
     <header>
         <div class="header-top">
-            <img src="Images/Logo_Site.png" alt="Logo Medicare" class="logo">
+            <img src="omnes.jpg" alt="Logo Medicare" class="logo">
             <h1>Medicare: Services Médicaux</h1>
         </div>
         <nav>
@@ -33,72 +33,92 @@
             </ul>
         </nav>
     </header>
-<main>
-    <div class="carroussel">
-<h2 style="text-align: center;">Nos Spécialistes de Santé</h2>
-
-     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-     <!-- Indicators -->
-            <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
-            <!-- Wrapper pour les images -->
-     <div class="carousel-inner">
-        <div class="item active">
-            <a href="generaliste.html">
-    <img src="medecin1.jpg" alt="generaliste" style="width:100%; height: 800px;">
-</a>
-
-                <div class="carousel-caption">
-            <h3>Médecin Généraliste</h3>
-                </div>
+    <main>
+	<div class="welcome-text">
+            <h2>Bienvenue sur Medicare</h2>
+            <p>Votre plateforme de services médicaux en ligne. Prenez rendez-vous avec nos spécialistes de santé, accédez à vos dossiers médicaux et explorez nos services pour une meilleure prise en charge de votre santé.</p>
+        </div>
+		 <div class="health-bulletin">
+            <h2>Bulletin santé de la semaine</h2>
+            <div class="news-item">
+                <h3>COVID-19 : Nouvelles Mesures Sanitaires</h3>
+                <p>Découvrez les dernières mesures sanitaires mises en place pour lutter contre la pandémie de COVID-19.</p>
+                <img src="covid.jpg" alt="COVID-19" class="news-photo">
             </div>
+            <div class="news-item">
+                <h3>Collecte de Sang</h3>
+                <p>Participez à notre collecte de sang cette semaine pour sauver des vies. Votre don est précieux.</p>
+                <img src="collecte_sang.jpg" alt="Collecte de Sang" class="news-photo">
+            </div>
+            <div class="news-item">
+                <h3>Campagne de Vaccination</h3>
+                <p>Informez-vous sur notre nouvelle campagne de vaccination et les lieux de vaccination près de chez vous.</p>
+                <img src="vaccination.jpg" alt="Vaccination" class="news-photo">
+            </div>
+        </div>
 
-            <div class="item">
-                <img src="medecin2.jpg" alt="infirmier" style="width:100%; height: 800px;">
-                    <div class="carousel-caption">
-                <h3>Infirmier</h3>
-                    </div>
-                </div>
 
-                <div class="item">
-                    <img src="medecin3.jpg" alt="dentiste" style="width:100%; height: 800px;">
+        <div class="carroussel">
+            <h2 style="text-align: center;">Nos Spécialistes de Santé</h2>
+
+            <div id="myCarousel" class="carousel slide carousel-container" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                </ol>
+                <!-- Wrapper pour les images -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href="generaliste.html">
+                            <img src="medecin1.jpg" alt="generaliste">
+                        </a>
                         <div class="carousel-caption">
-                    <h3>Chirurgiens - Dentistes</h3>
+                            <h3>Médecin Généraliste</h3>
                         </div>
                     </div>
-
 
                     <div class="item">
-                        <img src="medecin4.jpg" alt="pediatre" style="width:100%; height: 800px;">
-                            <div class="carousel-caption">
-                        <h3>Pédiatre</h3>
-                            </div>
+                        <img src="medecin2.jpg" alt="infirmier">
+                        <div class="carousel-caption">
+                            <h3>Infirmier</h3>
                         </div>
-    </div>
+                    </div>
 
-             <!-- Controles à gauche et à droite -->
-         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-         <span class="glyphicon glyphicon-chevron-left"></span>
-         <span class="sr-only">Précédent</span>
-            </a>
-         <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-         <span class="sr-only">Suivant</span>
-         </a>
-    </div>
-</div>
-</main>
+                    <div class="item">
+                        <img src="medecin3.jpg" alt="dentiste">
+                        <div class="carousel-caption">
+                            <h3>Chirurgiens - Dentistes</h3>
+                        </div>
+                    </div>
 
+                    <div class="item">
+                        <img src="medecin4.jpg" alt="pediatre">
+                        <div class="carousel-caption">
+                            <h3>Pédiatre</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles à gauche et à droite -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Précédent</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+        </div>
+    </main>
 
     <footer>
         <div class="footer-content">
             <ul>
                 <li><i class="fas fa-envelope"></i> <a href="mailto:email@medicare.com">email@medicare.com</a></li>
-
                 <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
                 <li><i class="fas fa-map-marker-alt"></i> 16 rue Sextius Michel, Paris, France</li>
             </ul>
