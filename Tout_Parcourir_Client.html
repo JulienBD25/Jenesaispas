@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicare - Tout Parcourir</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         /* Utilise le style fourni */
         body {
@@ -239,42 +238,25 @@
 </footer>
 
 <script>
-    const doctorsData = {
-        "Médecine générale": [
-            { name: "Dr. Alice Martin", photo: "MedecineGeneral2.jpg", cv: "AliceMartin-en-MedecineGenerale.html" },
-            { name: "Dr. Benoit Dupont", photo: "MedecineGeneral.jpg", cv: "BenoitDupont-en-MedecineGenerale.html" },
-            { name: "Dr. Clara Moreau", photo: "MedecineGeneral3.jpg", cv: "ClaraMoreau-en-MedecineGenerale.html" },
-            { name: "Dr. David Leroy", photo: "MedecineGeneral4.jpg", cv: "DavidLeroy-en-MedecineGenerale.html" },
-            { name: "Dr. Emma Robert", photo: "MedecinFemme", cv: "EmmaRobert-en-MedecineGenerale.html" }
-        ],
-        "Addictologie": [
-            { name: "Dr. Jean Dupont", photo: "MedecinGastro.jpg", cv: "Medecin-en-Addictologie.html" },
+    async function fetchDoctors() {
+        return [
+            { Nom: "Martin", Prenom: "Alice", Email: "alice.martin@example.com", ID_Medecin: 1, CV: "AliceMartin-en-MedecineGenerale.jpg", Photo: "MedecineGeneral2.jpg", Specialite: "Médecine générale" },
+            { Nom: "Dupont", Prenom: "Benoit", Email: "benoit.dupont@example.com", ID_Medecin: 2, CV: "BenoitDupont-en-MedecineGenerale.jpg", Photo: "MedecineGeneral.jpg", Specialite: "Médecine générale" },
+            { Nom: "Moreau", Prenom: "Clara", Email: "clara.moreau@example.com", ID_Medecin: 3, CV: "ClaraMoreau-en-MedecineGenerale.jpg", Photo: "MedecineGeneral3.jpg", Specialite: "Médecine générale" },
+            { Nom: "Leroy", Prenom: "David", Email: "david.leroy@example.com", ID_Medecin: 4, CV: "DavidLeroy-en-MedecineGenerale.jpg", Photo: "MedecineGeneral4.jpg", Specialite: "Médecine générale" },
+            { Nom: "Robert", Prenom: "Emma", Email: "emma.robert@example.com", ID_Medecin: 5, CV: "EmmaRobert-en-MedecineGenerale.jpg", Photo: "MedecinFemme.jpg", Specialite: "Médecine générale" },
+            { Nom: "Dupont", Prenom: "Jean", Email: "jean.dupont@example.com", ID_Medecin: 6, CV: "Médecin-en-Addictologie.jpg", Photo: "MedecinGastro.jpg", Specialite: "Addictologie" },
+            { Nom: "Martin", Prenom: "Pierre", Email: "pierre.martin@example.com", ID_Medecin: 7, CV: "Médecin-en-Andrologie.jpg", Photo: "MedecinAndrologie.jpg", Specialite: "Andrologie" },
+            { Nom: "Leblan", Prenom: "Marie", Email: "marie.leblan@example.com", ID_Medecin: 8, CV: "Médecin-en-Cardiologie.jpg", Photo: "MedecinCardiologie.jpg", Specialite: "Cardiologie" },
+            { Nom: "Durand", Prenom: "Sophie", Email: "sophie.durand@example.com", ID_Medecin: 9, CV: "Médecin-en-Dermatologie.jpg", Photo: "MedecinDermatologie.jpg", Specialite: "Dermatologie" },
+            { Nom: "Petit", Prenom: "Claude", Email: "claude.petit@example.com", ID_Medecin: 10, CV: "Médecin-en-Gastro.jpg", Photo: "MedecinGastro.jpg", Specialite: "Gastro-Hépato-Entérologie" },
+            { Nom: "Moreau", Prenom: "Alice", Email: "alice.moreau@example.com", ID_Medecin: 11, CV: "MédecinGynecologie.jpg", Photo: "MedecinGynecologie.jpg", Specialite: "Gynécologie" },
+            { Nom: "Lefèvre", Prenom: "Marc", Email: "marc.lefevre@example.com", ID_Medecin: 12, CV: "Médecin-en-IST.jpg", Photo: "MedecinIST.jpg", Specialite: "I.S.T." },
+            { Nom: "Bernard", Prenom: "Lucie", Email: "lucie.bernard@example.com", ID_Medecin: 13, CV: "Médecin-en-Osteopathie.jpg", Photo: "MedecinOsteopathie.jpg", Specialite: "Ostéopathie" }
+        ];
+    }
 
-        ],
-        "Andrologie": [
-            { name: "Dr. Pierre Martin", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.html" }
-        ],
-        "Cardiologie": [
-            { name: "Dr. Marie Leblan", photo: "MedecinCardiologie.jpg", cv: "Médecin-en-Cardiologie.html" }
-        ],
-        "Dermatologie": [
-            { name: "Dr. Sophie Durand", photo: "MedecinDermatologie.jpg", cv: "Medecin-en-Dermatologie.html" }
-        ],
-        "Gastro-Hépato-Entérologie": [
-            { name: "Dr. Claude Petit", photo: "MedecinGastro.jpg", cv: "Medecin-en-Gastro.html" }
-        ],
-        "Gynécologie": [
-            { name: "Dr. Alice Moreau", photo: "MedecinGynecologie.jpg", cv: "MedecinGynecologie.html" }
-        ],
-        "I.S.T.": [
-            { name: "Dr. Marc Lefèvre", photo: "MedecinIST.jpg", cv: "Medecin-en-IST.html" }
-        ],
-        "Ostéopathie": [
-            { name: "Dr. Lucie Bernard", photo: "MedecinOsteopathie.jpg", cv: "Medecin-en-Osteopathie.html" }
-        ]
-    };
-
-    function showSpecialty(specialty) {
+    async function showSpecialty(specialty) {
         const container = document.getElementById('specialists-container');
         container.innerHTML = ''; // Effacer le contenu précédent
 
@@ -282,23 +264,23 @@
         title.textContent = `Spécialistes en ${specialty}`;
         container.appendChild(title);
 
-        const doctors = doctorsData[specialty];
+        const doctors = (await fetchDoctors()).filter(doctor => doctor.Specialite === specialty);
 
-        if (doctors) {
+        if (doctors.length > 0) {
             doctors.forEach(doctor => {
                 const doctorDiv = document.createElement('div');
                 doctorDiv.classList.add('doctor');
 
                 const img = document.createElement('img');
-                img.src = `images/${doctor.photo}`;
-                img.alt = `${doctor.name}`;
+                img.src = `images/${doctor.Photo}`;
+                img.alt = `${doctor.Prenom} ${doctor.Nom}`;
                 doctorDiv.appendChild(img);
 
                 const infoDiv = document.createElement('div');
                 infoDiv.classList.add('doctor-info');
 
                 const name = document.createElement('h3');
-                name.textContent = doctor.name;
+                name.textContent = `Dr. ${doctor.Prenom} ${doctor.Nom}`;
                 infoDiv.appendChild(name);
 
                 doctorDiv.appendChild(infoDiv);
@@ -310,18 +292,18 @@
                 viewCvButton.href = "#cv-container";
                 viewCvButton.textContent = "Voir CV";
                 viewCvButton.onclick = function() {
-                    document.getElementById('cv-frame').src = `cvs/${doctor.cv}`;
+                    document.getElementById('cv-frame').src = `images/${doctor.CV}`;
                     document.getElementById('cv-container').style.display = 'block';
                 };
                 actionsDiv.appendChild(viewCvButton);
 
                 const appointmentButton = document.createElement('a');
-                appointmentButton.href = `appointments.html?doctor=${doctor.name}`;
+                appointmentButton.href = `appointments.html?doctor=${doctor.Prenom}-${doctor.Nom}`;
                 appointmentButton.textContent = "Prendre Rendez-vous";
                 actionsDiv.appendChild(appointmentButton);
 
                 const chatButton = document.createElement('a');
-                chatButton.href = `chatroom.html?doctor=${doctor.name}`;
+                chatButton.href = `chatroom.html?doctor=${doctor.Prenom}-${doctor.Nom}`;
                 chatButton.textContent = "Discuter avec le médecin";
                 actionsDiv.appendChild(chatButton);
 
