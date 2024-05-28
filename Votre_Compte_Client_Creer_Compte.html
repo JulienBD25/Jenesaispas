@@ -4,13 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicare - Créer Compte</title>
+    <title>Medicare - Accueil</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
 
+    <!-- Bibliothèque jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Dernier JavaScript compilé -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -37,7 +43,7 @@
             margin-right: 1rem;
         }
 
-        .header-top h1 {
+        .header-top h2 {
             font-size: 1.5rem;
             margin: 0;
         }
@@ -71,41 +77,6 @@
             border-radius: 5px;
         }
 
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            min-width: 200px;
-            z-index: 1000;
-            border-radius: 5px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .dropdown-menu li {
-            display: block;
-        }
-
-        .dropdown-menu li a {
-            padding: 10px 20px;
-            color: black;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu li a:hover {
-            background-color: gray;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
         main {
             width: 90%;
             margin: 75px auto;
@@ -116,7 +87,7 @@
             border-radius: 10px;
         }
 
-        h1 {
+        h2 {
             text-align: center;
             color: white;
             background-color: #0073b1;
@@ -129,6 +100,7 @@
             flex-direction: column;
             gap: 1rem;
         }
+
 
         label {
             font-weight: bold;
@@ -163,33 +135,32 @@
         input[type="submit"]:hover {
             background-color: #005f8c;
         }
+
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="header-top">
-            <img src="Images/Logo_Site.png" alt="Logo Medicare" class="logo">
-            <h1>Medicare: Services Médicaux</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="Accueil.html">Accueil</a></li>
-                <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
-                <li><a href="Recherche.html">Recherche</a></li>
-                <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-                <li class="dropdown">
-                    <a href="Accueil.html">Votre Compte</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
-                        <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
-                        <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+<header>
+    <div class="header-top">
+        <img src="Images/Logo_site.png" alt="Logo Medicare" class="logo">
+        <h1>Medicare: Services Médicaux</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
+            <li><a href="Recherche.html">Recherche</a></li>
+            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
+            <li><a href="Accueil.html">Votre Compte</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
+                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
+                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
     <main>
         <h1>Créer un Compte</h1>
         <form>
@@ -254,3 +225,8 @@
             </div>
         </form>
     </main>
+
+<script src="scripts.js"></script>
+</body>
+
+</html>
