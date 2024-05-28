@@ -241,36 +241,40 @@
 <script>
     const doctorsData = {
         "Médecine générale": [
-            { name: "Dr. Alice Martin", photo: "MedecineGeneral2.jpg", cv: "AliceMartin-en-MedecineGenerale.html" },
-            { name: "Dr. Benoit Dupont", photo: "MedecineGeneral.jpg", cv: "BenoitDupont-en-MedecineGenerale.html" },
-            { name: "Dr. Clara Moreau", photo: "MedecineGeneral3.jpg", cv: "ClaraMoreau-en-MedecineGenerale.html" },
-            { name: "Dr. David Leroy", photo: "MedecineGeneral4.jpg", cv: "DavidLeroy-en-MedecineGenerale.html" },
-            { name: "Dr. Emma Robert", photo: "MedecinFemme", cv: "EmmaRobert-en-MedecineGenerale.html" }
+            { name: "Dr. Alice Martin", photo: "MedecineGeneral2.jpg", cv: "AliceMartin-en-MedecineGenerale.jpg" },
+
+            { name: "Dr. Benoit Dupont", photo: "MedecineGeneral.jpg", cv: "BenoitDupont-en-MedecineGenerale.jpg" },
+
+            { name: "Dr. Clara Moreau", photo: "MedecineGeneral3.jpg", cv: "ClaraMoreau-en-MedecineGenerale.jpg" },
+
+            { name: "Dr. David Leroy", photo: "MedecineGeneral4.jpg", cv: "DavidLeroy-en-MedecineGenerale.jpg" },
+
+            { name: "Dr. Emma Robert", photo: "MedecinFemme.jpg", cv: "EmmaRobert-en-MedecineGenerale.jpg" }
         ],
         "Addictologie": [
-            { name: "Dr. Jean Dupont", photo: "MedecinGastro.jpg", cv: "Medecin-en-Addictologie.html" },
+            { name: "Dr. Jean Dupont", photo: "MedecinGastro.jpg", cv: "Médecin-en-Addictologie.jpg" }
 
         ],
         "Andrologie": [
-            { name: "Dr. Pierre Martin", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.html" }
+            { name: "Dr. Pierre Martin", photo: "MedecinAndrologie.jpg", cv: "Médecin-en-Andrologie.jpg" }
         ],
         "Cardiologie": [
-            { name: "Dr. Marie Leblan", photo: "MedecinCardiologie.jpg", cv: "Médecin-en-Cardiologie.html" }
+            { name: "Dr. Marie Leblan", photo: "MedecinCardiologie.jpg", cv: "Médecin-en-Cardiologie.jpg" }
         ],
         "Dermatologie": [
-            { name: "Dr. Sophie Durand", photo: "MedecinDermatologie.jpg", cv: "Medecin-en-Dermatologie.html" }
+            { name: "Dr. Sophie Durand", photo: "MedecinDermatologie.jpg", cv: "Médecin-en-Dermatologie.jpg" }
         ],
         "Gastro-Hépato-Entérologie": [
-            { name: "Dr. Claude Petit", photo: "MedecinGastro.jpg", cv: "Medecin-en-Gastro.html" }
+            { name: "Dr. Claude Petit", photo: "MedecinGastro.jpg", cv: "Médecin-en-Gastro.jpg" }
         ],
         "Gynécologie": [
-            { name: "Dr. Alice Moreau", photo: "MedecinGynecologie.jpg", cv: "MedecinGynecologie.html" }
+            { name: "Dr. Alice Moreau", photo: "MedecinGynecologie.jpg", cv: "MédecinGynecologie.jpg" }
         ],
         "I.S.T.": [
-            { name: "Dr. Marc Lefèvre", photo: "MedecinIST.jpg", cv: "Medecin-en-IST.html" }
+            { name: "Dr. Marc Lefèvre", photo: "MedecinIST.jpg", cv: "Médecin-en-IST.jpg" }
         ],
         "Ostéopathie": [
-            { name: "Dr. Lucie Bernard", photo: "MedecinOsteopathie.jpg", cv: "Medecin-en-Osteopathie.html" }
+            { name: "Dr. Lucie Bernard", photo: "MedecinOsteopathie.jpg", cv: "Médecin-en-Osteopathie.jpg" }
         ]
     };
 
@@ -310,7 +314,7 @@
                 viewCvButton.href = "#cv-container";
                 viewCvButton.textContent = "Voir CV";
                 viewCvButton.onclick = function() {
-                    document.getElementById('cv-frame').src = `cvs/${doctor.cv}`;
+                    document.getElementById('cv-frame').src = `images/${doctor.cv}`;
                     document.getElementById('cv-container').style.display = 'block';
                 };
                 actionsDiv.appendChild(viewCvButton);
