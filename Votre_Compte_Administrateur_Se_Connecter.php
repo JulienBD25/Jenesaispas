@@ -102,7 +102,7 @@
 </header>
 <body>
     <div class="container">
-        <h2>Connexion Médecin</h2>
+        <h2>Connexion Administrateur</h2>
 
         <?php
         // Vérifiez si le formulaire a été soumis
@@ -110,7 +110,7 @@
             // Charger les données des médecins à partir du fichier XML
             $xmlFile = 'BDDmedicare.xml';
             $xml = simplexml_load_file($xmlFile);
-            $medecins = $xml->personnels_sante;
+            $administrateur = $xml->administrateur;
 
             // Récupération des informations de connexion depuis le formulaire
             $email = $_POST['email'];
@@ -118,8 +118,8 @@
 
             // Vérifier les identifiants dans les données des médecins
             $connexion_reussie = false;
-            foreach ($medecins as $medecin) {
-                if ($medecin->email == $email && $medecin->mot_de_passe == $mot_de_passe) {
+            foreach ($administrateur as $administrateur) {
+                if ($administrateur->email == $email && $administrateur->mot_de_passe == $mot_de_passe) {
                     $connexion_reussie = true;
                     break;
                 }
@@ -127,7 +127,7 @@
 
             if ($connexion_reussie) {
                 // L'utilisateur est authentifié avec succès, rediriger vers la page d'accueil du médecin
-                header('Location: Accueil_Medecin.html');
+                header('Location: Accueil_Administrateur.html');
                 exit;
             } else {
                 // L'utilisateur n'existe pas ou les identifiants sont incorrects
