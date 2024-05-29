@@ -48,17 +48,20 @@
         label {
             font-weight: bold;
         }
-
         input[type="email"],
         input[type="password"],
         input[type="text"],
         input[type="number"],
-        input[type="date"] {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
+        input[type="date"],
+        select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        box-sizing: border-box;
         }
+
+
 
         .button-container {
             display: flex;
@@ -154,10 +157,17 @@
             <label for="Telephone">Téléphone</label>
             <input type="text" id="Telephone" name="Telephone" required>
         </div>
-        <div>
-            <label for="Type_CB">Type CB</label>
-            <input type="text" id="Type_CB" name="Type_CB" required>
-        </div>
+      <div>
+    <label for="Type_CB">Type de carte bancaire</label>
+    <select id="Type_CB" name="Type_CB" required>
+        <option value="">Sélectionnez un type de carte</option>
+        <option value="Visa">Visa</option>
+        <option value="Mastercard">MasterCard</option>
+        <option value="American Express">American Express</option>
+        <option value="PayPal">PayPal</option>
+    </select>
+</div>
+
         <div>
             <label for="Numero_CB">Numéro CB</label>
             <input type="text" id="Numero_CB" name="Numero_CB" required>
