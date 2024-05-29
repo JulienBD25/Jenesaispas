@@ -372,7 +372,5 @@
     </Service_Laboratoire>
 
 
-
-
-
+<client><carte_vitale>123</carte_vitale><Nom>TEST1</Nom><Prenom>TEST1</Prenom><email>TEST1@TEST.COM</email><mot_de_passe>123</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>0123</Code_Postal><Telephone>0123456789</Telephone><Type_CB>Mastercard</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-28</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></client>
 </Medicare>
