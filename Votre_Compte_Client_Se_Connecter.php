@@ -151,7 +151,7 @@
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password" required>
             <button type="submit">Se connecter</button>
-            <a href="Votre_Compte_Client_Creer_Compte.html" class="btn">Créer un compte</a>
+            <a href="Votre_Compte_Client_Creer_Compte.php" class="btn">Créer un compte</a>
         </form>
     </div>
 </body>
