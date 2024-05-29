@@ -122,6 +122,9 @@
         <cv>AliceMartin-en-MedecineGenerale.jpg</cv>
         <telephone>0712345476</telephone>
         <est_disponible>0</est_disponible>
+    </personnels_sante>
+
+    <personnels_sante>
 
         <id>2</id>
         <nom>Dupont</nom>
@@ -133,8 +136,9 @@
         <video/>
         <cv>BenoitDupont-en-MedecineGenerale.jpg</cv>
         <telephone>0736578945</telephone>
-        <est_disponible>0</est_disponible>
-
+        <est_disponible>0</est_disponible> <!-- 0 si dispo 1 sinon -->
+    </personnels_sante>
+    <personnels_sante>
         <id>3</id>
         <nom>Moreau</nom>
         <prenom>Clara</prenom>
@@ -146,7 +150,9 @@
         <cv>ClaraMoreau-en-MedecineGenerale.jpg</cv>
         <telephone>0645678954</telephone>
         <est_disponible>0</est_disponible>
+    </personnels_sante>
 
+    <personnels_sante>
         <id>4</id>
         <nom>Leroy</nom>
         <prenom>David</prenom>
@@ -158,7 +164,8 @@
         <cv>DavidLeroy-en-MedecineGenerale.jpg</cv>
         <telephone>0654090065</telephone>
         <est_disponible>0</est_disponible>
-
+    </personnels_sante>
+<personnels_sante>
         <id>5</id>
         <nom>Robert</nom>
         <prenom>Emma</prenom>
@@ -170,7 +177,9 @@
         <cv>EmmaRobert-en-MedecineGenerale.jpg</cv>
         <telephone>0745327654</telephone>
         <est_disponible>0</est_disponible>
+</personnels_sante>
 
+    <personnels_sante>
         <id>6</id>
         <nom>Dupont</nom>
         <prenom>jean</prenom>
@@ -182,7 +191,9 @@
         <cv>Médecin-en-Addictologie.jpg</cv>
         <telephone>0643986543</telephone>
         <est_disponible>0</est_disponible>
+    </personnels_sante>
 
+    <personnels_sante>
         <id>7</id>
         <nom>Martin</nom>
         <prenom>Pierre</prenom>
@@ -194,7 +205,9 @@
         <cv>Médecin-en-Andrologie.jpg</cv>
         <telephone>0712345476</telephone>
         <est_disponible>0</est_disponible>
+    </personnels_sante>
 
+    <personnels_sante>
         <id>8</id>
         <nom>Leblanc</nom>
         <prenom>Marie</prenom>
@@ -207,6 +220,9 @@
         <telephone>065290076</telephone>
         <est_disponible>0</est_disponible>
 
+</personnels_sante>
+
+    <personnels_sante>
         <id>9</id>
         <nom>Durand</nom>
         <prenom>Sophie</prenom>
@@ -218,7 +234,9 @@
         <cv>Médecin-en-Dermatologie.jpg</cv>
         <telephone>0712345476</telephone>
         <est_disponible>0</est_disponible>
+    </personnels_sante>
 
+    <personnels_sante>
         <id>10</id>
         <nom>Petit</nom>
         <prenom>Claude</prenom>
@@ -231,18 +249,24 @@
         <telephone>0641226788</telephone>
         <est_disponible>0</est_disponible>
 
-        <id>11</id>
-        <nom>Moreau</nom>
-        <prenom>Alice</prenom>
-        <email>alice.moreau@exemple.com</email>
-        <mot_de_passe>NN90</mot_de_passe>
-        <specialite> Gynécologie</specialite>
-        <photo>MedecinGynecologie.jpg</photo>
-        <video/>
-        <cv>Médecin-en-Gynecologie.jpg</cv>
-        <telephone>0644321223</telephone>
-        <est_disponible>0</est_disponible>
+    </personnels_sante>
 
+       <personnels_sante>
+           <id>11</id>
+           <nom>Moreau</nom>
+           <prenom>Alice</prenom>
+           <email>alice.moreau@exemple.com</email>
+           <mot_de_passe>NN90</mot_de_passe>
+           <specialite> Gynécologie</specialite>
+           <photo>MedecinGynecologie.jpg</photo>
+           <video/>
+           <cv>Médecin-en-Gynecologie.jpg</cv>
+           <telephone>0644321223</telephone>
+           <est_disponible>0</est_disponible>
+
+       </personnels_sante>
+
+    <personnels_sante>
         <id>12</id>
         <nom>Lefèvre</nom>
         <prenom>Marc</prenom>
@@ -253,20 +277,23 @@
         <video/>
         <cv>Médecin-en-IST.jpg</cv>
         <telephone>0743667432</telephone>
-        <est_disponible>0</est_disponible>
+        <est_disponible>0</est_disponible> </personnels_sante>
 
-        <id>13</id>
-        <nom>Bernard</nom>
-        <prenom>Lucie</prenom>
-        <email>lucie.bernard@exemple.com</email>
-        <mot_de_passe>KJ87</mot_de_passe>
-        <specialite>Ostéopathie</specialite>
-        <photo>MedecinOsteopathie.jpg</photo>
-        <video/>
-        <cv>Médecin-en-Osteopathie.jpg</cv>
-        <telephone>0744368900</telephone>
-        <est_disponible>0</est_disponible>
-    <membre><carte_vitale>123456789</carte_vitale><Nom>TEST</Nom><Prenom>TEST</Prenom><email>TEST@TEST.COM</email><mot_de_passe>TEST</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>0000</Code_Postal><Telephone>0123456789</Telephone><Type_CB>Visa</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-30</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></membre></personnels_sante>
+<personnels_sante>
+    <id>13</id>
+    <nom>Bernard</nom>
+    <prenom>Lucie</prenom>
+    <email>lucie.bernard@exemple.com</email>
+    <mot_de_passe>KJ87</mot_de_passe>
+    <specialite>Ostéopathie</specialite>
+    <photo>MedecinOsteopathie.jpg</photo>
+    <video/>
+    <cv>Médecin-en-Osteopathie.jpg</cv>
+    <telephone>0744368900</telephone>
+    <est_disponible>0</est_disponible>
+</personnels_sante>
+
+    <membre><carte_vitale>123456789</carte_vitale><Nom>TEST</Nom><Prenom>TEST</Prenom><email>TEST@TEST.COM</email><mot_de_passe>TEST</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>0000</Code_Postal><Telephone>0123456789</Telephone><Type_CB>Visa</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-30</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></membre>
 
     <Rendez_Vous>
         <id>1</id>
