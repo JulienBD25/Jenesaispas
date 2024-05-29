@@ -67,9 +67,60 @@
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 1rem;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #004974;
+            border-radius: 5px;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #005f8c;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 1000;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            margin: 0;
+        }
+
+        nav ul li ul li a {
+            padding: 0.5rem 1rem;
+        }
     </style>
 </head>
-<body><header>
+<body>
+<header>
     <div class="header-top">
         <img src="Images/Logo_site.png" alt="Logo Medicare" class="logo">
         <h1>Medicare: Services Médicaux</h1>
@@ -77,18 +128,32 @@
     <nav>
         <ul>
             <li><a href="Accueil_Client.html">Accueil</a></li>
-            <li class="dropdown-menu">
-            <li><a href="Tout_Parcourir.html">Tout Parcourir</a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tout Parcourir <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecine générale</a></li>
-                    <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
-                    <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
+                    <li class="dropdown-submenu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Médecins Spécialistes</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-submenu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratoire de Biologie Médicale</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="showService('Test sanguin complet')">Test sanguin complet</a></li>
+                            <li><a href="#" onclick="showService('Analyse d\'urine')">Analyse d'urine</a></li>
+                            <li><a href="#" onclick="showService('Dépistage COVID')">Dépistage COVID</a></li>
+                            <li><a href="#" onclick="showService('Dépistage IST')">Dépistage IST</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li><a href="search.html">Recherche</a></li>
@@ -96,7 +161,6 @@
             <li><a href="account.html">Votre Compte</a></li>
         </ul>
     </nav>
-    </div>
 </header>
 
 <main class="container">
@@ -151,8 +215,6 @@
     </div>
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
     async function fetchDoctors() {
         return [
@@ -169,6 +231,15 @@
             { Nom: "Moreau", Prenom: "Alice", Email: "alice.moreau@example.com", ID_Medecin: 11, CV: "MédecinGynecologie.jpg", Photo: "MedecinGynecologie.jpg", Specialite: "Gynécologie" },
             { Nom: "Lefèvre", Prenom: "Marc", Email: "marc.lefevre@example.com", ID_Medecin: 12, CV: "Médecin-en-IST.jpg", Photo: "MedecinIST.jpg", Specialite: "I.S.T." },
             { Nom: "Bernard", Prenom: "Lucie", Email: "lucie.bernard@example.com", ID_Medecin: 13, CV: "Médecin-en-Osteopathie.jpg", Photo: "MedecinOsteopathie.jpg", Specialite: "Ostéopathie" }
+        ];
+    }
+
+    async function fetchServices() {
+        return [
+            { id: 300, nom_service: "Test sanguin complet", description: "Un test sanguin complet pour vérifier les niveaux de globules rouges, globules blancs et plaquettes." },
+            { id: 301, nom_service: "Analyse d'urine", description: "Une analyse d'urine pour détecter les infections et d'autres anomalies." },
+            { id: 302, nom_service: "Dépistage COVID", description: "Un test de dépistage COVID pour détecter la présence du virus." },
+            { id: 303, nom_service: "Dépistage IST", description: "Un dépistage pour les infections sexuellement transmissibles." }
         ];
     }
 
@@ -228,6 +299,35 @@
             });
         } else {
             container.textContent = "Aucun spécialiste trouvé pour cette spécialité.";
+        }
+    }
+
+    async function showService(service) {
+        const container = document.getElementById('specialists-container');
+        container.innerHTML = ''; // Effacer le contenu précédent
+
+        const title = document.createElement('h2');
+        title.textContent = `Service: ${service}`;
+        container.appendChild(title);
+
+        const services = await fetchServices();
+        const serviceDetails = services.find(s => s.nom_service === service);
+
+        if (serviceDetails) {
+            const serviceDiv = document.createElement('div');
+            serviceDiv.classList.add('service');
+
+            const name = document.createElement('h3');
+            name.textContent = serviceDetails.nom_service;
+            serviceDiv.appendChild(name);
+
+            const description = document.createElement('p');
+            description.textContent = serviceDetails.description;
+            serviceDiv.appendChild(description);
+
+            container.appendChild(serviceDiv);
+        } else {
+            container.textContent = "Aucun service trouvé pour cette catégorie.";
         }
     }
 </script>
