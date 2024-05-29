@@ -87,26 +87,7 @@
     <nav>
         <ul>
             <li><a href="Accueil.html">Accueil</a></li>
-            <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
-                    <li>
-                        <a href="#">Médecins Spécialistes</a>
-                        <ul class="dropdown-submenu">
-                            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
-                            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
-                </ul>
-            </li>
+            <li><a href="Tout_Parcourir.html">Tout Parcourir</a>
             <li><a href="Recherche.html">Recherche</a></li>
             <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte.html">Votre Compte</a>
@@ -123,7 +104,7 @@
     <div class="container">
         <h2>Connexion Administrateur</h2>
 
-        <?php
+<?php
         // Vérifiez si le formulaire a été soumis
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Charger les données des médecins à partir du fichier XML
@@ -153,7 +134,7 @@
                 echo "<p class='error'>Email ou mot de passe incorrect</p>";
             }
         }
-        ?>
+?>
 
         <form action="" method="post">
             <label for="email">Email :</label>
