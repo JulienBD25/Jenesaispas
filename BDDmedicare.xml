@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Personnels_santé>
+    <personnels_sante>
+        <id>1</id>
+        <nom>Martin</nom>
+        <prenom>Alice</prenom>
+        <email>alice.martin@exemple.com</email>
+        <mot_de_passe>AZ12</mot_de_passe>
+        <specialite> Médecine Générale</specialite>
+        <photo>MedecineGeneral2.jpg</photo>
+        <video></video>
+        <cv>AliceMartin-en-MedecineGenerale.jpg</cv>
+        <telephone>0712345476</telephone>
+        <est_disponible>1</est_disponible>
+
+        <id>2</id>
+        <nom>Dupont</nom>
+        <prenom>Benoit</prenom>
+        <email>benoir.dupont@exemple.com</email>
+        <mot_de_passe>ERT54</mot_de_passe>
+        <specialite> Médecine Générale</specialite>
+        <photo>MédecineGeneral.jpg</photo>
+        <video></video>
+        <cv>BenoitDupont-en-MedecineGenerale.jpg</cv>
+        <telephone>0736578945</telephone>
+        <est_disponible>1</est_disponible>
+
+        <id>3</id>
+        <nom>Moreau</nom>
+        <prenom>Clara</prenom>
+        <email>clara.moreau@exemple.com</email>
+        <mot_de_passe>34ER</mot_de_passe>
+        <specialite> Médecine Générale</specialite>
+        <photo>MedecineGeneral3.jpg</photo>
+        <video></video>
+        <cv>ClaraMoreau-en-MedecineGenerale.jpg</cv>
+        <telephone>0645678954</telephone>
+        <est_disponible>0</est_disponible>
+
+        <id>4</id>
+        <nom>Leroy</nom>
+        <prenom>David</prenom>
+        <email>david.leroy@exemple.com</email>
+        <mot_de_passe>3ZD4</mot_de_passe>
+        <specialite> Medecine Générale</specialite>
+        <photo>MedecineGeneral4.jpg</photo>
+        <video></video>
+        <cv>DavidLeroy-en-MedecineGenerale.jpg</cv>
+        <telephone>0654090065</telephone>
+        <est_disponible>1</est_disponible>
+
+        <id>5</id>
+        <nom>Robert</nom>
+        <prenom>Emma</prenom>
+        <email>emma.robert@exemple.com</email>
+        <mot_de_passe>RE45</mot_de_passe>
+        <specialite> Médecine Générale</specialite>
+        <photo>MedecinFemme.jpg</photo>
+        <video></video>
+        <cv>EmmaRobert-en-MedecineGenerale.jpg</cv>
+        <telephone>0745327654</telephone>
+        <est_disponible>0</est_disponible>
+
+        <id>6</id>
+        <nom>Dupont</nom>
+        <prenom>jean</prenom>
+        <email>jean.dupont@exemple.com</email>
+        <mot_de_passe>32ZA</mot_de_passe>
+        <specialite> Addictologie</specialite>
+        <photo>MedecinGastro.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-Addictologie.jpg</cv>
+        <telephone>0643986543</telephone>
+        <est_disponible>0</est_disponible>
+
+        <id>7</id>
+        <nom>Martin</nom>
+        <prenom>Pierre</prenom>
+        <email>pierre.martin@exemple.com</email>
+        <mot_de_passe>RT65</mot_de_passe>
+        <specialite> Andrologie</specialite>
+        <photo>MedecinAndrologie.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-Andrologie.jpg</cv>
+        <telephone>0712345476</telephone>
+        <est_disponible>0</est_disponible>
+
+        <id>8</id>
+        <nom>Leblanc</nom>
+        <prenom>Marie</prenom>
+        <email>marie.leblanc@exemple.com</email>
+        <mot_de_passe>EA12</mot_de_passe>
+        <specialite> Cardiologie</specialite>
+        <photo>MedecinCardiologie.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-Cardiologie.jpg</cv>
+        <telephone>065290076</telephone>
+        <est_disponible>0</est_disponible>
+
+        <id>9</id>
+        <nom>Durand</nom>
+        <prenom>Sophie</prenom>
+        <email>sophie.durand@exemple.com</email>
+        <mot_de_passe>TY67</mot_de_passe>
+        <specialite>Dermatologie</specialite>
+        <photo>MedecinDermatologie.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-Dermatologie.jpg</cv>
+        <telephone>0712345476</telephone>
+        <est_disponible>1</est_disponible>
+
+        <id>10</id>
+        <nom>Petit</nom>
+        <prenom>Claude</prenom>
+        <email>calude.petit@exemple.com</email>
+        <mot_de_passe>FV00</mot_de_passe>
+        <specialite> Gastro-Hépato-Entérologie</specialite>
+        <photo>MedecinGastro.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-Gastro.jpg</cv>
+        <telephone>0641226788</telephone>
+        <est_disponible>0</est_disponible>
+
+        <id>11</id>
+        <nom>Moreau</nom>
+        <prenom>Alice</prenom>
+        <email>alice.moreau@exemple.com</email>
+        <mot_de_passe>NN90</mot_de_passe>
+        <specialite> Gynécologie</specialite>
+        <photo>MedecinGynecologie.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-Gynecologie.jpg</cv>
+        <telephone>0644321223</telephone>
+        <est_disponible>0</est_disponible>
+
+        <id>12</id>
+        <nom>Lefèvre</nom>
+        <prenom>Marc</prenom>
+        <email>marc.lefevre@exemple.com</email>
+        <mot_de_passe>TY01</mot_de_passe>
+        <specialite> I.S.T.</specialite>
+        <photo>MedecIST.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-IST.jpg</cv>
+        <telephone>0743667432</telephone>
+        <est_disponible>1</est_disponible>
+
+        <id>13</id>
+        <nom>Bernard</nom>
+        <prenom>Lucie</prenom>
+        <email>lucie.bernard@exemple.com</email>
+        <mot_de_passe>KJ87</mot_de_passe>
+        <specialite> ostéopathie</specialite>
+        <photo>MedecinOsteopathie.jpg</photo>
+        <video></video>
+        <cv>Médecin-en-Osteopathie.jpg</cv>
+        <telephone>0744368900</telephone>
+        <est_disponible>0</est_disponible>
+    </personnels_sante>
+
+</Personnels_santé>
