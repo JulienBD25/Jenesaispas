@@ -265,7 +265,7 @@
                 doctorDiv.classList.add('doctor');
 
                 const img = document.createElement('img');
-                img.src = `images/${doctor.Photo}`;
+                img.src = `Images/${doctor.Photo}`;
                 img.alt = `${doctor.Prenom} ${doctor.Nom}`;
                 doctorDiv.appendChild(img);
 
@@ -285,7 +285,7 @@
                 viewCvButton.href = "#cv-container";
                 viewCvButton.textContent = "Voir CV";
                 viewCvButton.onclick = function() {
-                    document.getElementById('cv-frame').src = `images/${doctor.CV}`;
+                    document.getElementById('cv-frame').src = `Images/${doctor.CV}`;
                     document.getElementById('cv-container').style.display = 'block';
                 };
                 actionsDiv.appendChild(viewCvButton);
