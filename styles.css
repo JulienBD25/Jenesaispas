@@ -32,7 +32,6 @@ header {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Ajoute une ombre portée légère */
 }
 
-
 nav {
     background-color: #005f8c;
 }
@@ -60,10 +59,12 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: white;
+    color: #005f8c; /* Change text color on hover */
     border-radius: 5px;
 }
 
-.dropdown-menu {
+nav ul ul,
+nav ul .dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -75,23 +76,33 @@ nav ul li a:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.dropdown-menu li {
+nav ul li:hover > ul,
+nav ul li:hover > .dropdown-menu {
     display: block;
 }
 
-.dropdown-menu li a {
+nav ul ul li,
+nav ul .dropdown-menu li {
+    display: block;
+}
+
+nav ul ul ul {
+    top: 0;
+    left: 100%;
+}
+
+nav ul ul li a,
+nav ul .dropdown-menu li a {
     padding: 10px 20px;
     color: white;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-menu li a:hover {
-    background-color: #004974;
-}
-
-nav ul li:hover .dropdown-menu {
-    display: block;
+nav ul ul li a:hover,
+nav ul .dropdown-menu li a:hover {
+    background-color: white;
+    color: #0073b1; /* Change text color on hover */
 }
 
 main {
@@ -134,4 +145,3 @@ footer {
     height: 100%;
     border: 0;
 }
-
