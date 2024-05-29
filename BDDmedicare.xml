@@ -25,7 +25,10 @@
         <nom_carte>Alice Martin</nom_carte>
         <date_expiration_carte>2024-12-31</date_expiration_carte>
         <code_securite_carte>123</code_securite_carte>
-    </client>
+        </client>
+
+
+        <client><carte_vitale>123</carte_vitale><Nom>TEST</Nom><Prenom>TEST</Prenom><email>TEST@TEST.COM</email><mot_de_passe>TEST</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>123</Code_Postal><Telephone>0123456789</Telephone><Type_CB>American Express</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-29</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></client>
 
     <client>
         <id>2</id>
@@ -115,7 +118,7 @@
         <mot_de_passe>AZ12</mot_de_passe>
         <specialite> Médecine Générale</specialite>
         <photo>MedecineGeneral2.jpg</photo>
-        <video></video>
+        <video/>
         <cv>AliceMartin-en-MedecineGenerale.jpg</cv>
         <telephone>0712345476</telephone>
         <est_disponible>0</est_disponible>
@@ -127,7 +130,7 @@
         <mot_de_passe>ERT54</mot_de_passe>
         <specialite> Médecine Générale</specialite>
         <photo>MédecineGeneral.jpg</photo>
-        <video></video>
+        <video/>
         <cv>BenoitDupont-en-MedecineGenerale.jpg</cv>
         <telephone>0736578945</telephone>
         <est_disponible>0</est_disponible>
@@ -139,7 +142,7 @@
         <mot_de_passe>34ER</mot_de_passe>
         <specialite> Médecine Générale</specialite>
         <photo>MedecineGeneral3.jpg</photo>
-        <video></video>
+        <video/>
         <cv>ClaraMoreau-en-MedecineGenerale.jpg</cv>
         <telephone>0645678954</telephone>
         <est_disponible>0</est_disponible>
@@ -151,7 +154,7 @@
         <mot_de_passe>3ZD4</mot_de_passe>
         <specialite> Medecine Générale</specialite>
         <photo>MedecineGeneral4.jpg</photo>
-        <video></video>
+        <video/>
         <cv>DavidLeroy-en-MedecineGenerale.jpg</cv>
         <telephone>0654090065</telephone>
         <est_disponible>0</est_disponible>
@@ -163,7 +166,7 @@
         <mot_de_passe>RE45</mot_de_passe>
         <specialite> Médecine Générale</specialite>
         <photo>MedecinFemme.jpg</photo>
-        <video></video>
+        <video/>
         <cv>EmmaRobert-en-MedecineGenerale.jpg</cv>
         <telephone>0745327654</telephone>
         <est_disponible>0</est_disponible>
@@ -175,7 +178,7 @@
         <mot_de_passe>32ZA</mot_de_passe>
         <specialite> Addictologie</specialite>
         <photo>MedecinGastro.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-Addictologie.jpg</cv>
         <telephone>0643986543</telephone>
         <est_disponible>0</est_disponible>
@@ -187,7 +190,7 @@
         <mot_de_passe>RT65</mot_de_passe>
         <specialite> Andrologie</specialite>
         <photo>MedecinAndrologie.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-Andrologie.jpg</cv>
         <telephone>0712345476</telephone>
         <est_disponible>0</est_disponible>
@@ -199,7 +202,7 @@
         <mot_de_passe>EA12</mot_de_passe>
         <specialite> Cardiologie</specialite>
         <photo>MedecinCardiologie.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-Cardiologie.jpg</cv>
         <telephone>065290076</telephone>
         <est_disponible>0</est_disponible>
@@ -211,7 +214,7 @@
         <mot_de_passe>TY67</mot_de_passe>
         <specialite>Dermatologie</specialite>
         <photo>MedecinDermatologie.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-Dermatologie.jpg</cv>
         <telephone>0712345476</telephone>
         <est_disponible>0</est_disponible>
@@ -223,7 +226,7 @@
         <mot_de_passe>FV00</mot_de_passe>
         <specialite> Gastro-Hépato-Entérologie</specialite>
         <photo>MedecinGastro.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-Gastro.jpg</cv>
         <telephone>0641226788</telephone>
         <est_disponible>0</est_disponible>
@@ -235,7 +238,7 @@
         <mot_de_passe>NN90</mot_de_passe>
         <specialite> Gynécologie</specialite>
         <photo>MedecinGynecologie.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-Gynecologie.jpg</cv>
         <telephone>0644321223</telephone>
         <est_disponible>0</est_disponible>
@@ -247,7 +250,7 @@
         <mot_de_passe>TY01</mot_de_passe>
         <specialite> I.S.T.</specialite>
         <photo>MedecIST.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-IST.jpg</cv>
         <telephone>0743667432</telephone>
         <est_disponible>0</est_disponible>
@@ -259,11 +262,11 @@
         <mot_de_passe>KJ87</mot_de_passe>
         <specialite>Ostéopathie</specialite>
         <photo>MedecinOsteopathie.jpg</photo>
-        <video></video>
+        <video/>
         <cv>Médecin-en-Osteopathie.jpg</cv>
         <telephone>0744368900</telephone>
         <est_disponible>0</est_disponible>
-    </personnels_sante>
+    <membre><carte_vitale>123456789</carte_vitale><Nom>TEST</Nom><Prenom>TEST</Prenom><email>TEST@TEST.COM</email><mot_de_passe>TEST</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>0000</Code_Postal><Telephone>0123456789</Telephone><Type_CB>Visa</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-30</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></membre></personnels_sante>
 
     <Rendez_Vous>
         <id>1</id>

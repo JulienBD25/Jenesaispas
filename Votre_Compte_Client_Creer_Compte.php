@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_member'])) {
         // Vérifier si le chargement a réussi
         if ($xml !== false) {
             // Créer un nouvel élément pour le membre
-            $newMember = $xml->client->addChild('membre');
+            $newMember = $xml->client->addChild('client');
             $newMember->addChild('carte_vitale', $_POST['carte_vitale']);
             $newMember->addChild('Nom', $_POST['Nom']);
             $newMember->addChild('Prenom', $_POST['Prenom']);
