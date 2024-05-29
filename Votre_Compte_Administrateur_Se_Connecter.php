@@ -87,7 +87,26 @@
     <nav>
         <ul>
             <li><a href="Accueil.html">Accueil</a></li>
-            <li><a href="Tout_Parcourir.html">Tout Parcourir</a></li>
+            <li>
+                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
+                    <li>
+                        <a href="#">Médecins Spécialistes</a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                </ul>
+            </li>
             <li><a href="Recherche.html">Recherche</a></li>
             <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte.html">Votre Compte</a>
@@ -144,5 +163,15 @@
             <button type="submit">Se connecter</button>
         </form>
     </div>
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:email@medicare.com">email@medicare.com</a></li>
+                <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+                <li><i class="fas fa-map-marker-alt"></i> 16 rue Sextius Michel, Paris, France</li>
+            </ul>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
