@@ -158,6 +158,90 @@
         <est_disponible>0</est_disponible>
     </personnels_sante>
 
+    <rendez_vous_entry>
+        <id>1</id>
+        <client_id>1</client_id>
+        <personnel_id>2</personnel_id>
+        <date_heure>2024-06-01T10:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>2</id>
+        <client_id>3</client_id>
+        <personnel_id>1</personnel_id>
+        <date_heure>2024-06-02T11:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>3</id>
+        <client_id>5</client_id>
+        <personnel_id>12</personnel_id>
+        <date_heure>2024-06-02T12:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>4</id>
+        <client_id>6</client_id>
+        <personnel_id>10</personnel_id>
+        <date_heure>2024-06-02T14:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>5</id>
+        <client_id>4</client_id>
+        <personnel_id>9</personnel_id>
+        <date_heure>2024-06-02T15:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>6</id>
+        <client_id>2</client_id>
+        <personnel_id>1</personnel_id>
+        <date_heure>2024-06-03T16:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>7</id>
+        <client_id>3</client_id>
+        <personnel_id>7</personnel_id>
+        <date_heure>2024-06-04T11:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>8</id>
+        <client_id>9</client_id>
+        <personnel_id>5</personnel_id>
+        <date_heure>2024-06-04T14:00:00</date_heure>
+    </rendez_vous_entry>
+    <rendez_vous_entry>
+        <id>9</id>
+        <client_id>10</client_id>
+        <personnel_id>12</personnel_id>
+        <date_heure>2024-06-05T17:00:00</date_heure>
+    </rendez_vous_entry>
+
+        <rendez_vous_labo>
+            <id>1</id>
+            <client_id>4</client_id>
+            <service_id>7</service_id>
+            <date_heure>2024-06-01T10:00:00</date_heure>
+        </rendez_vous_labo>
+        <rendez_vous_labo>
+            <id>2</id>
+            <client_id>8</client_id>
+            <service_id>2</service_id>
+            <date_heure>2024-06-02T11:00:00</date_heure>
+        </rendez_vous_labo>
+
+        <rendez_vous_labo>
+            <id>3</id>
+            <client_id>4</client_id>
+            <service_id>2</service_id>
+            <date_heure>2024-06-01T17:00:00</date_heure>
+        </rendez_vous_labo>
+        <rendez_vous_labo>
+            <id>4</id>
+            <client_id>2</client_id>
+            <service_id>11</service_id>
+            <date_heure>2024-06-07T15:00:00</date_heure>
+        </rendez_vous_labo>
+
+
+
+
 
 
 </Medicare>
