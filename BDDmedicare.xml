@@ -239,6 +239,27 @@
             <date_heure>2024-06-07T15:00:00</date_heure>
         </rendez_vous_labo>
 
+    <Service_Laboratoire>
+        <id>1</id>
+        <nom_service>Test sanguin complet</nom_service>
+        <description>Un test sanguin complet pour vérifier les niveaux de globules rouges, globules blancs et plaquettes.</description>
+    </Service_Laboratoire>
+    <Service_Laboratoire>
+        <id>2</id>
+        <nom_service>Analyse d'urine</nom_service>
+        <description>Une analyse d'urine pour détecter les infections et d'autres anomalies.</description>
+    </Service_Laboratoire>
+    <Service_Laboratoire>
+        <id>3</id>
+        <nom_service>Depistage Covid</nom_service>
+        <description>Test PCR .</description>
+    </Service_Laboratoire>
+
+    <Service_Laboratoire>
+        <id>3</id>
+        <nom_service>Depistage IST</nom_service>
+        <description>Une analyse du sang pour détecter les infections sexuellement transmisibles.</description>
+    </Service_Laboratoire>
 
 
 
