@@ -92,9 +92,9 @@
             <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
-                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    <li><a href="Votre_Compte_Client_Se_Connecter.php">Client</a></li>
+                    <li><a href="Votre_Compte_Medecin_Se_Connecter.php">Médecins</a></li>
+                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.php">Administrateur</a></li>
                 </ul>
             </li>
         </ul>
