@@ -4,137 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicare - Tout Parcourir</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" href="Images/Logo_Site.png" type="image/x-icon">
     <style>
-        /* Utilise le style fourni */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+        /* Ajout des styles spécifiques au menu déroulant et à l'affichage des CV */
 
-        header {
-            background-color: #0073b1;
-            color: white;
-            box-shadow: 0 4px 2px -2px gray;
-        }
-
-        .header-top {
-            display: flex;
-            align-items: center;
-            padding: 1rem 0;
-            width: 90%;
-            margin: 0 auto;
-        }
-
-        .header-top .logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 1rem;
-        }
-
-        .header-top h1 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        nav {
-            background-color: #005f8c;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
-            position: relative; /* Pour le menu déroulant */
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 1rem;
-            display: block;
-        }
-
-        nav ul li a:hover {
-            background-color: #004974;
-            border-radius: 5px;
-        }
-
-        /* Style du menu déroulant */
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #005f8c;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            z-index: 1000;
-        }
-
-        nav ul li:hover ul {
-            display: block;
-        }
-
-        nav ul li ul li {
-            margin: 0;
-        }
-
-        nav ul li ul li a {
-            padding: 0.5rem 1rem;
-        }
-
-        main {
-            width: 90%;
-            margin: 2rem auto;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .footer-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0.5rem 0;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .footer-content ul li {
-            margin: 0.5rem 0;
-        }
-
-        #map-container {
-            width: 100%;
-            height: 400px;
-            background-color: grey;
-        }
-
-        #map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* Style pour afficher les médecins */
         .doctor {
             border: 1px solid #ccc;
             padding: 1rem;
@@ -188,48 +64,84 @@
     </style>
 </head>
 <body>
-<header>
-    <div class="header-top">
-        <img src="logo.png" alt="Logo Medicare" class="logo">
-        <h1>Medicare: Services Médicaux</h1>
+<header class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img src="Logo_site.png" alt="Logo Medicare" class="logo">
+            </a>
+            <h1 class="navbar-text">Medicare: Services Médicaux</h1>
+        </div>
+        <nav>
+            <ul class="nav navbar-nav">
+                <li><a href="Accueil_Client.html">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tout Parcourir <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecine générale</a></li>
+                        <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                        <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                    </ul>
+                </li>
+                <li><a href="search.html">Recherche</a></li>
+                <li><a href="appointments.html">Rendez-vous</a></li>
+                <li><a href="account.html">Votre Compte</a></li>
+            </ul>
+        </nav>
     </div>
-    <nav>
-        <ul>
-            <li><a href="Accueil_Client.html">Accueil</a></li>
-            <li>
-                <a href="#">Tout Parcourir</a>
-                <ul>
-                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecine générale</a></li>
-                    <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
-                    <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
-                    <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
-                </ul>
-            </li>
-            <li><a href="Rechercher_Client.html">Recherche</a></li>
-            <li><a href="Rendez_Vous_Client.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte_Client.html">Votre Compte</a></li>
-        </ul>
-    </nav>
 </header>
 
-<main>
-    <h1>Nos Spécialistes</h1>
-    <div id="specialists-container">
-        <p>Veuillez sélectionner une spécialité dans le menu "Tout Parcourir".</p>
-    </div>
-    <div id="cv-container" class="cv-container" style="display: none;">
-        <h2>Curriculum Vitae</h2>
-        <iframe id="cv-frame" src="" style="width: 100%; height: 600px; border: none;"></iframe>
-    </div>
+<main class="container">
+    <section class="welcome text-center">
+        <h1>Bienvenue sur Medicare</h1>
+        <p>Votre plateforme de services médicaux en ligne. Prenez rendez-vous avec nos spécialistes de santé, accédez à vos dossiers médicaux et explorez nos services pour une meilleure prise en charge de votre santé.</p>
+        <img src="path/to/welcome-image.jpg" alt="Welcome Image" class="img-responsive center-block">
+    </section>
+
+    <section class="account-selection text-center">
+        <h2>Sélectionnez votre type de compte</h2>
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="client.html">
+                    <img src="path/to/client-image.jpg" alt="Client Image" class="img-thumbnail">
+                    Client
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <a href="medecin.html">
+                    <img src="path/to/medecin-image.jpg" alt="Médecin Image" class="img-thumbnail">
+                    Médecin ou Personnel de la santé
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <a href="admin.html">
+                    <img src="path/to/admin-image.jpg" alt="Administrateur Image" class="img-thumbnail">
+                    Administrateur
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>Nos Spécialistes</h1>
+        <div id="specialists-container">
+            <p>Veuillez sélectionner une spécialité dans le menu "Tout Parcourir".</p>
+        </div>
+        <div id="cv-container" class="cv-container" style="display: none;">
+            <h2>Curriculum Vitae</h2>
+            <iframe id="cv-frame" src="" style="width: 100%; height: 600px; border: none;"></iframe>
+        </div>
+    </section>
 </main>
 
 <footer>
-    <div class="footer-content">
+    <div class="footer-content text-center">
         <p>Contactez-nous: <a href="mailto:email@medicare.com">email@medicare.com</a> | Tel: +33 1 23 45 67 89 | Adresse: 16 rue Sextius Michel, Paris, France</p>
         <div id="map-container">
             <iframe src="https://maps.google.com/maps?q=16%20rue%20Sextius%20Michel,%20Paris,%20France&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
@@ -237,6 +149,8 @@
     </div>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
     async function fetchDoctors() {
         return [
