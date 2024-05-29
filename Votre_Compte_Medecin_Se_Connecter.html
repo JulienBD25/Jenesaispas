@@ -16,9 +16,6 @@
     <!-- Dernier JavaScript compilé -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-    <!------------------------  A Remplir avec son style ------------------------>
-
     <style>
         main {
             width: 90%;
@@ -75,9 +72,8 @@
         input[type="submit"]:hover {
             background-color: #005f8c;
         }
-    </style>
 
-    <!------------------------         Style Perso       ------------------------>
+    </style>
 
 </head>
 
@@ -109,24 +105,23 @@
     <!------------------------  A Remplir  ------------------------>
 
     <h2>Se Connecter</h2>
-    <form>
+        <form method="POST" action="Votre_Compte_Medecin_Se_Connecter.php">
         <div>
             <label for="email">Adresse Mail</label>
             <input type="email" id="email" name="email" required>
         </div>
         <div>
-            <label for="Mot_De_Passe">Mot De Passe</label>
-            <input type="password" id="Mot_De_Passe" name="Mot_De_Passe" required>
+            <label for="mot_de_passe">Mot De Passe</label>
+            <input type="password" id="mot_de_passe" name="mot_de_passe" required>
         </div>
         <div class="button-container">
             <input type="submit" value="Se Connecter">
         </div>
-    </form>
+</form>
 
     <!------------------------             ------------------------>
 
 </main>
-
 
 <script src="scripts.js"></script>
 </body>
