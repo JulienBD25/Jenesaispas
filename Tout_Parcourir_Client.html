@@ -67,69 +67,10 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0 1rem;
-            position: relative;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 1rem;
-            display: block;
-        }
-
-        nav ul li a:hover {
-            background-color: #004974;
-            border-radius: 5px;
-        }
-
-        nav ul li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #005f8c;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            z-index: 1000;
-        }
-
-        nav ul li:hover ul {
-            display: block;
-        }
-
-        nav ul li ul li {
-            margin: 0;
-        }
-
-        nav ul li ul li a {
-            padding: 0.5rem 1rem;
-        }
-
-        .dropdown-submenu {
-            position: relative;
-        }
-
-        .dropdown-submenu>.dropdown-menu {
-            top: 0;
-            left: 100%;
-            margin-top: -6px;
-            margin-left: -1px;
-        }
-
-        .dropdown-submenu:hover>.dropdown-menu {
-            display: block;
+        .cv-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
         }
     </style>
 </head>
@@ -205,10 +146,6 @@
         <div id="specialists-container">
             <p>Veuillez sélectionner une spécialité dans le menu "Tout Parcourir".</p>
         </div>
-        <div id="cv-container" class="cv-container" style="display: none;">
-            <h2>Curriculum Vitae</h2>
-            <iframe id="cv-frame" src="" style="width: 100%; height: 600px; border: none;"></iframe>
-        </div>
     </section>
 </main>
 
@@ -242,10 +179,10 @@
 
     async function fetchServices() {
         return [
-            { id: 300, nom_service: "Test sanguin complet", description: "Un test sanguin complet pour vérifier les niveaux de globules rouges, globules blancs et plaquettes." },
-            { id: 301, nom_service: "Analyse d'urine", description: "Une analyse d'urine pour détecter les infections et d'autres anomalies." },
-            { id: 302, nom_service: "Dépistage COVID", description: "Un test de dépistage COVID pour détecter la présence du virus." },
-            { id: 303, nom_service: "Dépistage IST", description: "Un dépistage pour les infections sexuellement transmissibles." }
+            { id: 1, nom_service: "Test sanguin complet", description: "Analyse détaillée de votre sang." },
+            { id: 2, nom_service: "Analyse d'urine", description: "Analyse complète de votre urine." },
+            { id: 3, nom_service: "Dépistage COVID", description: "Test pour dépister la présence du COVID-19." },
+            { id: 4, nom_service: "Dépistage IST", description: "Test pour dépister les infections sexuellement transmissibles." }
         ];
     }
 
@@ -282,11 +219,10 @@
                 actionsDiv.classList.add('actions');
 
                 const viewCvButton = document.createElement('a');
-                viewCvButton.href = "#cv-container";
+                viewCvButton.href = `#cv-container-${doctor.ID_Medecin}`;
                 viewCvButton.textContent = "Voir CV";
                 viewCvButton.onclick = function() {
-                    document.getElementById('cv-frame').src = `images/${doctor.CV}`;
-                    document.getElementById('cv-container').style.display = 'block';
+                    document.getElementById(`cv-container-${doctor.ID_Medecin}`).style.display = 'block';
                 };
                 actionsDiv.appendChild(viewCvButton);
 
@@ -302,6 +238,18 @@
 
                 doctorDiv.appendChild(actionsDiv);
                 container.appendChild(doctorDiv);
+
+                const cvContainer = document.createElement('div');
+                cvContainer.id = `cv-container-${doctor.ID_Medecin}`;
+                cvContainer.classList.add('cv-container');
+                cvContainer.style.display = 'none';
+
+                const cvFrame = document.createElement('iframe');
+                cvFrame.src = `images/${doctor.CV}`;
+                cvFrame.classList.add('cv-frame');
+
+                cvContainer.appendChild(cvFrame);
+                container.appendChild(cvContainer);
             });
         } else {
             container.textContent = "Aucun spécialiste trouvé pour cette spécialité.";
@@ -313,7 +261,7 @@
         container.innerHTML = ''; // Effacer le contenu précédent
 
         const title = document.createElement('h2');
-        title.textContent = `Services de Laboratoire`;
+        title.textContent = "Services de Laboratoire";
         container.appendChild(title);
 
         const services = await fetchServices();
