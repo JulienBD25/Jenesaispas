@@ -16,7 +16,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         /* Ajout des styles spécifiques au menu déroulant et à l'affichage des CV */
-
         .doctor {
             border: 1px solid #ccc;
             padding: 1rem;
@@ -117,6 +116,21 @@
         nav ul li ul li a {
             padding: 0.5rem 1rem;
         }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu>.dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -6px;
+            margin-left: -1px;
+        }
+
+        .dropdown-submenu:hover>.dropdown-menu {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -129,7 +143,7 @@
         <ul>
             <li><a href="Accueil_Client.html">Accueil</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tout Parcourir <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tout Parcourir</a>
                 <ul class="dropdown-menu">
                     <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
                     <li class="dropdown-submenu">
@@ -145,15 +159,7 @@
                             <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown-submenu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laboratoire de Biologie Médicale</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" onclick="showService('Test sanguin complet')">Test sanguin complet</a></li>
-                            <li><a href="#" onclick="showService('Analyse d\'urine')">Analyse d'urine</a></li>
-                            <li><a href="#" onclick="showService('Dépistage COVID')">Dépistage COVID</a></li>
-                            <li><a href="#" onclick="showService('Dépistage IST')">Dépistage IST</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
             <li><a href="search.html">Recherche</a></li>
@@ -302,32 +308,33 @@
         }
     }
 
-    async function showService(service) {
+    async function showLaboratoire() {
         const container = document.getElementById('specialists-container');
         container.innerHTML = ''; // Effacer le contenu précédent
 
         const title = document.createElement('h2');
-        title.textContent = `Service: ${service}`;
+        title.textContent = `Services de Laboratoire`;
         container.appendChild(title);
 
         const services = await fetchServices();
-        const serviceDetails = services.find(s => s.nom_service === service);
 
-        if (serviceDetails) {
-            const serviceDiv = document.createElement('div');
-            serviceDiv.classList.add('service');
+        if (services.length > 0) {
+            services.forEach(service => {
+                const serviceDiv = document.createElement('div');
+                serviceDiv.classList.add('service');
 
-            const name = document.createElement('h3');
-            name.textContent = serviceDetails.nom_service;
-            serviceDiv.appendChild(name);
+                const name = document.createElement('h3');
+                name.textContent = service.nom_service;
+                serviceDiv.appendChild(name);
 
-            const description = document.createElement('p');
-            description.textContent = serviceDetails.description;
-            serviceDiv.appendChild(description);
+                const description = document.createElement('p');
+                description.textContent = service.description;
+                serviceDiv.appendChild(description);
 
-            container.appendChild(serviceDiv);
+                container.appendChild(serviceDiv);
+            });
         } else {
-            container.textContent = "Aucun service trouvé pour cette catégorie.";
+            container.textContent = "Aucun service de laboratoire trouvé.";
         }
     }
 </script>
