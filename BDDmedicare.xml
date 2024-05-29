@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Personnels_santé>
+<Medicare>
     <personnels_sante>
         <id>1</id>
         <nom>Martin</nom>
@@ -150,7 +150,7 @@
         <prenom>Lucie</prenom>
         <email>lucie.bernard@exemple.com</email>
         <mot_de_passe>KJ87</mot_de_passe>
-        <specialite> ostéopathie</specialite>
+        <specialite>Ostéopathie</specialite>
         <photo>MedecinOsteopathie.jpg</photo>
         <video></video>
         <cv>Médecin-en-Osteopathie.jpg</cv>
@@ -158,4 +158,6 @@
         <est_disponible>0</est_disponible>
     </personnels_sante>
 
-</Personnels_santé>
+
+
+</Medicare>
