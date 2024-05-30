@@ -1,34 +1,21 @@
 <?php
 
-$host = 'localhost:3306';
-$db = 'Medicare';
-$user = 'root@localhost';
-$pass = '';
+// Charger les données des médecins à partir du fichier XML
+$xmlFile = 'BDDmedicare.xml';
+$xml = simplexml_load_file($xmlFile);
 
-// Connexion à la base de données
-$mysqli = new mysqli($host, $user, $pass, $db);
-
-// Vérification de la connexion
-if ($mysqli->connect_error) {
-    die('Erreur de connexion (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+if ($xml === false) {
+    die('Erreur de chargement du fichier XML.');
 }
 
-// Récupération des médecins généralistes
-$query_generalistes = "SELECT * FROM Personnels_Sante WHERE specialite = 'généraliste'";
-$result_generalistes = $mysqli->query($query_generalistes);
-
-// Vérifier si la requête a réussi
-if ($result_generalistes === false) {
-    die('Erreur de requête : ' . $mysqli->error);
-}
-
-// Récupération des résultats
+// Récupérer les médecins généralistes
 $generalistes = [];
-while ($row = $result_generalistes->fetch_assoc()) {
-    $generalistes[] = $row;
+foreach ($xml->Personnels_Sante->Personnel as $personnel) {
+    if ((string) $personnel->specialite === 'Médecine Gssénérale') {
+        $generalistes[] = $personnel;
+    }
 }
 
-$mysqli->close();
 ?>
 
 <!DOCTYPE html>
@@ -162,28 +149,30 @@ $mysqli->close();
     <section>
         <h2 class="specialists-title">Nos Médecins Généralistes :</h2>
         <div class="doctor-container">
-            <?php foreach ($generalistes as $generaliste): ?>
-                <div class="doctor">
-                    <img src="<?= htmlspecialchars($generaliste['photo']) ?>" alt="Photo de <?= htmlspecialchars($generaliste['nom']) ?>">
-                    <div class="doctor-info">
-                        <h3><?= htmlspecialchars($generaliste['nom'] . ' ' . $generaliste['prenom']) ?></h3>
-                        <p><?= htmlspecialchars($generaliste['specialite']) ?></p>
-                        <button class="btn-cv" onclick="showCV('cv-<?= $generaliste['id'] ?>')">Voir CV</button>
-                        <div class="cv-container" id="cv-<?= $generaliste['id'] ?>">
-                            <iframe class="cv-frame" src="<?= htmlspecialchars($generaliste['cv']) ?>"></iframe>
+            <?php if (!empty($generalistes)): ?>
+                <?php foreach ($generalistes as $generaliste): ?>
+                    <div class="doctor">
+                        <img src="<?= htmlspecialchars($generaliste->photo) ?>" alt="Photo de <?= htmlspecialchars($generaliste->nom) ?>">
+                        <div class="doctor-info">
+                            <h3><?= htmlspecialchars($generaliste->nom . ' ' . $generaliste->prenom) ?></h3>
+                            <p><?= htmlspecialchars($generaliste->specialite) ?></p>
+                            <button class="btn-cv" onclick="showCV('cv-<?= $generaliste->id ?>')">Voir CV</button>
+                            <div class="cv-container" id="cv-<?= $generaliste->id ?>">
+                                <iframe class="cv-frame" src="<?= htmlspecialchars($generaliste->cv) ?>"></iframe>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Aucun médecin généraliste trouvé.</p>
+            <?php endif; ?>
         </div>
     </section>
 </main>
 <footer>
     <div class="footer-content text-center">
         <p>Contactez-nous: <a href="mailto:email@medicare.com">email@medicare.com</a> | Tel: +33 1 23 45 67 89 | Adresse: 16 rue Sextius Michel, Paris, France</p>
-        <div id="map-container">
-            <iframe src="https://maps.google.com/maps?q=16%20rue%20Sextius%20Michel,%20Paris,%20France&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-        </div>
+
     </div>
 </footer>
 <script>
