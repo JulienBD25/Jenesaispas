@@ -198,7 +198,7 @@ $xml = loadXMLFile($xmlFile);
                     echo "<p>Spécialité: " . htmlspecialchars($member->specialite) . "</p>";
                     echo "<p>Téléphone: " . htmlspecialchars($member->telephone) . "</p>";
                     echo "<p>Photo: <img src='" . htmlspecialchars($member->photo) . "' alt='Photo de " . htmlspecialchars($member->nom) . "' /></p>";
-                    echo "<p>CV: <a href='" . htmlspecialchars($member->cv) . "'>Télécharger le CV</a></p>";
+                    echo "<p>CV: <a href='" . htmlspecialchars($member->cv) . "'>Afficher le CV</a></p>";
                     echo "</div>";
                 }
             }
