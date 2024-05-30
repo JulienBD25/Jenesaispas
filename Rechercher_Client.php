@@ -189,7 +189,7 @@ $xml = loadXMLFile($xmlFile);
 
             // Afficher les résultats de la recherche pour les membres du personnel de santé
             if (!empty($results['members'])) {
-                echo "<h2>Résultats de la recherche pour le personnel de santé :</h2>";
+                echo "<h2>Résultats de la recherche pour le Personnel de Santé :</h2>";
                 foreach ($results['members'] as $member) {
                     echo "<div class='client'>";
                     echo "<p>Nom: " . htmlspecialchars($member->nom) . "</p>";
@@ -198,17 +198,16 @@ $xml = loadXMLFile($xmlFile);
                     echo "<p>Spécialité: " . htmlspecialchars($member->specialite) . "</p>";
                     echo "<p>Téléphone: " . htmlspecialchars($member->telephone) . "</p>";
                     echo "<p>Photo: <img src='" . htmlspecialchars($member->photo) . "' alt='Photo de " . htmlspecialchars($member->nom) . "' /></p>";
-                    echo "<p>CV: <a href='" . htmlspecialchars($member->cv) . "'>Télécharger le CV</a></p>";
+                    echo "<p>CV: <a href='" . htmlspecialchars($member->cv) . "'>Afficher le CV</a></p>";
                     echo "</div>";
                 }
             }
 
             // Afficher les résultats de la recherche pour les services de laboratoire
             if (!empty($results['services'])) {
-                echo "<h2>Résultats de la recherche pour les services de laboratoire :</h2>";
+                echo "<h2>Résultats de la recherche pour les Services de Laboratoire :</h2>";
                 foreach ($results['services'] as $service) {
                     echo "<div class='nom_service'>";
-                    echo "<p>ID: " . htmlspecialchars($service->id) . "</p>";
                     echo "<p>Nom du service: " . htmlspecialchars($service->nom_service) . "</p>";
                     echo "<p>Description: " . htmlspecialchars($service->description) . "</p>";
                     echo "</div>";
