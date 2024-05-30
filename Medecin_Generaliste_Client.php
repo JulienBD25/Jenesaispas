@@ -31,21 +31,7 @@ foreach ($xml->personnels_sante as $personnel) {
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .header-top {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #005f8c;
-            color: white;
-        }
-        .header-top img.logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px;
-        }
+
         .container {
             margin: 20px auto;
             max-width: 1200px;
@@ -116,22 +102,7 @@ foreach ($xml->personnels_sante as $personnel) {
             height: 400px;
             border: none;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        footer a {
-            color: #61dafb;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
+
     </style>
 </head>
 <body>
