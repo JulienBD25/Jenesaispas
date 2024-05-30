@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_member'])) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -105,11 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_member'])) {
         }
 
         input[type="email"],
-        input[type="password"],
         input[type="number"],
         input[type="text"],
-        input[type="date"],
-        input[type="file"],
         select {
             width: 100%;
             padding: 12px;
@@ -121,11 +119,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_member'])) {
         }
 
         input[type="email"]:focus,
-        input[type="password"]:focus,
         input[type="number"]:focus,
         input[type="text"]:focus,
-        input[type="date"]:focus,
-        input[type="file"]:focus,
         select:focus {
             border-color: #0073b1;
             box-shadow: 0 0 8px rgba(0, 115, 177, 0.2);
@@ -211,7 +206,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_member'])) {
                 </div>
 
                 <div class="button-container">
-                    <button type="submit" name="add_member">Supprimer</button>
+                    <button type="submit" name="delete_member">Supprimer</button>
                 </div>
             </form>
         </div>
