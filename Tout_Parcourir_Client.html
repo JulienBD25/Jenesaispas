@@ -72,6 +72,35 @@
             height: 600px;
             border: none;
         }
+
+        .specialists-title {
+            text-align: center;
+            color: #005f8c;; /* Changez cette couleur si nécessaire pour correspondre à votre thème d'accueil */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .button-container .btn {
+            padding: 1rem 2rem;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button-container .btn:hover {
+            background-color: #005f8c;
+        }
+
+
     </style>
 </head>
 <body>
@@ -107,7 +136,7 @@
             <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.php">Client</a></li>
+                    <li><a href="C.php">Client</a></li>
                     <li><a href="Votre_Compte_Medecin_Se_Connecter.php">Médecins</a></li>
                     <li><a href="Votre_Compte_Administrateur_Se_Connecter.php">Administrateur</a></li>
                 </ul>
@@ -116,42 +145,17 @@
     </nav>
 </header>
 <main class="container">
-    <section class="welcome text-center">
-        <h1>Bienvenue sur Medicare</h1>
-        <p>Votre plateforme de services médicaux en ligne. Prenez rendez-vous avec nos spécialistes de santé, accédez à vos dossiers médicaux et explorez nos services pour une meilleure prise en charge de votre santé.</p>
-        <img src="path/to/welcome-image.jpg" alt="Welcome Image" class="img-responsive center-block">
-    </section>
-
-    <section class="account-selection text-center">
-        <h2>Sélectionnez votre type de compte</h2>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="client.html">
-                    <img src="path/to/client-image.jpg" alt="Client Image" class="img-thumbnail">
-                    Client
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="medecin.html">
-                    <img src="path/to/medecin-image.jpg" alt="Médecin Image" class="img-thumbnail">
-                    Médecin ou Personnel de la santé
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="admin.html">
-                    <img src="path/to/admin-image.jpg" alt="Administrateur Image" class="img-thumbnail">
-                    Administrateur
-                </a>
-            </div>
-        </div>
-    </section>
 
     <section>
-        <h1>Nos Spécialistes</h1>
-        <div id="specialists-container">
-            <p>Veuillez sélectionner une spécialité dans le menu "Tout Parcourir".</p>
+        <h2 class="specialists-title">Nos Spécialistes :</h2>
+
+        <div class="button-container">
+            <p><a href="Medecins_Generalistes_Client.php" class="btn">Médecins Généralistes</a></p>
+            <p><a href="Medecins_specialistes_Client.php" class="btn">Médecins Spécialistes</a></p>
+            <p><a href="Test_en_Labo_Client.php" class="btn">Test en labo</a></p>
         </div>
     </section>
+
 </main>
 
 <footer>
