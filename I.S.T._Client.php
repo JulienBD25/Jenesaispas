@@ -9,14 +9,14 @@ if ($xml === false) {
 }
 
 // Récupérer les médecins spécialistes en addictologie
-$gynecologie = [];
+$ist = [];
 foreach ($xml->personnels_sante as $personnel) {
     $specialite = (string) $personnel->specialite;
     $specialite_trimmed = trim($specialite);
     $specialite_lower = strtolower($specialite_trimmed);
 
-    if ($specialite_lower == 'gynécologie') {
-        $gynecologie[] = $personnel;
+    if ($specialite_lower == 'ist') {
+        $ist[] = $personnel;
     }
 }
 
@@ -27,7 +27,7 @@ foreach ($xml->personnels_sante as $personnel) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Médecins Spécialistes en Gynécologie</title>
+    <title>Nos Médecins Spécialistes en I.S.T</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <style>
@@ -152,10 +152,10 @@ foreach ($xml->personnels_sante as $personnel) {
 </header>
 <main class="container">
     <section>
-        <h2 class="specialists-title">Nos médecins spécialistes en Gynécologie :</h2>
+        <h2 class="specialists-title">Nos médecins spécialistes en IST :</h2>
         <div class="doctor-container">
-            <?php if (!empty($gynecologie)): ?>
-                <?php foreach ($gynecologie as $specialiste): ?>
+            <?php if (!empty($ist)): ?>
+                <?php foreach ($ist as $specialiste): ?>
                     <div class="doctor">
                         <img src="<?= htmlspecialchars($specialiste->photo) ?>" alt="Photo de <?= htmlspecialchars($specialiste->nom) ?>">
                         <div class="doctor-info">
