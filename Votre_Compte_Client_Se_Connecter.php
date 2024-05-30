@@ -1,3 +1,36 @@
+
+<?php
+        // Vérifiez si le formulaire a été soumis
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Charger les données des médecins à partir du fichier XML
+            $xmlFile = 'BDDmedicare.xml';
+            $xml = simplexml_load_file($xmlFile);
+            $medecins = $xml->client;
+
+            // Récupération des informations de connexion depuis le formulaire
+            $email = $_POST['email'];
+            $mot_de_passe = $_POST['password'];
+
+            // Vérifier les identifiants dans les données des médecins
+            $connexion_reussie = false;
+            foreach ($medecins as $medecin) {
+                if ($medecin->email == $email && $medecin->mot_de_passe == $mot_de_passe) {
+                    $connexion_reussie = true;
+                    break;
+                }
+            }
+
+            if ($connexion_reussie) {
+                // L'utilisateur est authentifié avec succès, rediriger vers la page d'accueil du médecin
+                header('Location: Accueil_Client.html');
+                exit;
+            } else {
+                // L'utilisateur n'existe pas ou les identifiants sont incorrects
+                echo "<p class='error'>Email ou mot de passe incorrect</p>";
+            }
+        }
+        ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -131,39 +164,6 @@
 <body>
     <div class="container">
         <h2>Connexion Client</h2>
-
-        <?php
-        // Vérifiez si le formulaire a été soumis
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Charger les données des médecins à partir du fichier XML
-            $xmlFile = 'BDDmedicare.xml';
-            $xml = simplexml_load_file($xmlFile);
-            $medecins = $xml->client;
-
-            // Récupération des informations de connexion depuis le formulaire
-            $email = $_POST['email'];
-            $mot_de_passe = $_POST['password'];
-
-            // Vérifier les identifiants dans les données des médecins
-            $connexion_reussie = false;
-            foreach ($medecins as $medecin) {
-                if ($medecin->email == $email && $medecin->mot_de_passe == $mot_de_passe) {
-                    $connexion_reussie = true;
-                    break;
-                }
-            }
-
-            if ($connexion_reussie) {
-                // L'utilisateur est authentifié avec succès, rediriger vers la page d'accueil du médecin
-                header('Location: Accueil_Client.html');
-                exit;
-            } else {
-                // L'utilisateur n'existe pas ou les identifiants sont incorrects
-                echo "<p class='error'>Email ou mot de passe incorrect</p>";
-            }
-        }
-        ?>
-
         <form action="" method="post">
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" required>
