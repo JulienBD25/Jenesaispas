@@ -29,23 +29,17 @@ foreach ($xml->personnels_sante as $personnel) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nos Spécialités Médicales</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
+
+    <!-- Bibliothèque jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Dernier JavaScript compilé -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .header-top {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #005f8c;
-            color: white;
-        }
-        .header-top img.logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px;
-        }
+
         .container {
             margin: 20px auto;
             max-width: 1200px;
@@ -83,22 +77,7 @@ foreach ($xml->personnels_sante as $personnel) {
         .btn:hover {
             background-color: #005f8c;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        footer a {
-            color: #61dafb;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
+
     </style>
 </head>
 <body>
@@ -135,8 +114,12 @@ foreach ($xml->personnels_sante as $personnel) {
     </section>
 </main>
 <footer>
-    <div class="footer-content text-center">
-        <p>Contactez-nous: <a href="mailto:email@medicare.com">email@medicare.com</a> | Tel: +33 1 23 45 67 89 | Adresse: 16 rue Sextius Michel, Paris, France</p>
+    <div class="footer-content">
+        <ul>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:email@medicare.com">email@medicare.com</a></li>
+            <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+            <li><i class="fas fa-map-marker-alt"></i> 16 rue Sextius Michel, Paris, France</li>
+        </ul>
     </div>
 </footer>
 </body>
