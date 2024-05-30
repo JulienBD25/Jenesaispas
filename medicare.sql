@@ -107,7 +107,7 @@ CREATE TABLE `Personnels_Sante` (
   `cv` varchar(256) DEFAULT NULL,
   `telephone` varchar(20) DEFAULT NULL,
   `est_disponible` tinyint(1) DEFAULT '0',
-  `id_administrateur` int(11) NOT NULL
+  `administrateur_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -186,7 +186,7 @@ ALTER TABLE `Messages`
 --
 ALTER TABLE `Personnels_Sante`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Rendez_vous_Administrateur0_FK` (`id_administrateur`);
+  ADD KEY `Rendez_vous_Administrateur0_FK` (`administrateur_id`);
 
 --
 -- Index pour la table `Rendez_vous`
@@ -277,7 +277,7 @@ ALTER TABLE `Messages`
 -- Contraintes pour la table `Personnels_Sante`
 --
 ALTER TABLE `Personnels_Sante`
-  ADD CONSTRAINT `Rendez_vous_Administrateur0_FK` FOREIGN KEY (`id_administrateur`) REFERENCES `Administrateurs` (`id`);
+  ADD CONSTRAINT `Rendez_vous_Administrateur0_FK` FOREIGN KEY (`administrateur_id`) REFERENCES `Administrateurs` (`id`);
 
 --
 -- Contraintes pour la table `Rendez_vous`
