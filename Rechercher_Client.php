@@ -1,142 +1,136 @@
 <?php
+// Activer l'affichage des erreurs
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Charger les données des médecins à partir du fichier XML
+// Définir le fichier XML
 $xmlFile = 'BDDmedicare.xml';
-$xml = simplexml_load_file($xmlFile);
 
-if ($xml === false) {
-    die('Erreur de chargement du fichier XML.');
-}
-
-// Récupérer les médecins généralistes
-$generalistes = [];
-foreach ($xml->personnels_sante as $personnel) {
-    $specialite = (string) $personnel->specialite;
-    // Débogage : Afficher la spécialité brute
-
-    $specialite_trimmed = trim($specialite);
-    // Débogage : Afficher la spécialité après trim
-
-    $specialite_lower = strtolower($specialite_trimmed);
-    // Débogage : Afficher la spécialité après strtolower
-
-    if ($specialite_lower === 'médecine générale') {
-        $generalistes[] = $personnel;
+// Fonction pour charger le fichier XML
+function loadXMLFile($xmlFile) {
+    if (file_exists($xmlFile)) {
+        return simplexml_load_file($xmlFile);
     }
+    return false;
 }
 
+// Fonction pour rechercher des membres et des services dans le fichier XML
+function searchEntries($xml, $keyword) {
+    $results = ['members' => [], 'services' => []];
+
+    // Recherche dans les membres du personnel de santé
+    foreach ($xml->personnels_sante as $member) {
+        if (stripos($member->nom, $keyword) !== false ||
+            stripos($member->specialite, $keyword) !== false) {
+            $results['members'][] = $member;
+        }
+    }
+
+    // Recherche dans les services de laboratoire
+    foreach ($xml->Service_Laboratoire as $service) {
+        if (stripos($service->nom_service, $keyword) !== false) {
+            $results['services'][] = $service;
+        }
+    }
+
+    return $results;
+}
+
+// Charger le fichier XML
+$xml = loadXMLFile($xmlFile);
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Médecins Généralistes</title>
+    <title>Medicare - Accueil</title>
+    <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Bibliothèque jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- Dernier JavaScript compilé -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            background-color: #f4f4f4;
         }
-        .header-top {
+
+        .search-box {
             display: flex;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #005f8c;
-            color: white;
-        }
-        .header-top img.logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px;
-        }
-        .container {
-            margin: 20px auto;
-            max-width: 1200px;
-            padding: 0 15px;
-        }
-        .specialists-title {
-            text-align: center;
-            color: #005f8c;
-            margin-bottom: 30px;
-        }
-        .doctor-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .doctor {
-            border: 1px solid #ccc;
-            padding: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            overflow: hidden;
             background-color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            width: 40%;
         }
-        .doctor img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-right: 1rem;
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            border-radius: 50px;
         }
-        .doctor-info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .doctor-info h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        .doctor-info p {
-            margin: 0.2rem 0;
-        }
-        .actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-        .btn {
-            padding: 0.5rem 1rem;
+
+        .search-box button {
             background-color: #0073b1;
             color: white;
             border: none;
-            border-radius: 5px;
+            padding: 10px 20px;
             cursor: pointer;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            margin-left: 205px;
         }
-        .btn:hover {
+
+        .search-box button:hover {
             background-color: #005f8c;
         }
-        .cv-container {
-            display: none;
-            margin-top: 1rem;
-            text-align: left;
+
+        main {
+            width: 90%;
+            margin: 75px;
+            margin-top: 50px;
+            margin-bottom: 145px;
         }
-        .cv-frame {
-            width: 100%;
-            height: 400px;
-            border: none;
+
+        .client, .nom_service {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+
+        .client img {
+            max-width: 100px;
+            border-radius: 50%;
         }
-        footer a {
-            color: #61dafb;
-            text-decoration: none;
+
+        .client p, .nom_service p {
+            font-size: 1.1rem;
+            line-height: 1.5;
         }
-        footer a:hover {
-            text-decoration: underline;
+
+        .error {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
 <header>
     <div class="header-top">
@@ -145,56 +139,103 @@ foreach ($xml->personnels_sante as $personnel) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
-            <li><a href="Tout_Parcourir_Client.html">Tout Parcourir</a></li>
-            <li><a href="Recherche.html">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte.html">Votre Compte</a></li>
+            <li><a href="Accueil_Client.html">Accueil</a></li>
+            <li><a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
+                <ul class="dropdown-menu">
+                <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
+                <li>
+                    <a href="#">Médecins Spécialistes</a>
+                    <ul class="dropdown-submenu">
+                        <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                        <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                        <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+            </ul>
+            </li>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Client.html">Rendez-vous</a></li>
+            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Accueil.html">Deconnexion</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>
-<main class="container">
-    <section>
-        <h2 class="specialists-title">Nos Médecins Généralistes :</h2>
-        <div class="doctor-container">
-            <?php if (!empty($generalistes)): ?>
-                <?php foreach ($generalistes as $generaliste): ?>
-                    <div class="doctor">
-                        <img src="<?= htmlspecialchars($generaliste->photo) ?>" alt="Photo de <?= htmlspecialchars($generaliste->nom) ?>">
-                        <div class="doctor-info">
-                            <h3><?= htmlspecialchars($generaliste->nom . ' ' . $generaliste->prenom) ?></h3>
-                            <p><?= htmlspecialchars($generaliste->specialite) ?></p>
-                            <div class="actions">
-                                <button class="btn" onclick="showCV('cv-<?= $generaliste->id ?>')">Voir CV</button>
-                                <a href="Rendez_Vous_Client.php?id=<?= $generaliste->id ?>" class="btn">Prendre Rendez-vous</a>
-                                <a href="Chat.php?id=<?= $generaliste->id ?>" class="btn">Chattez</a>
-                            </div>
-                            <div class="cv-container" id="cv-<?= $generaliste->id ?>">
-                                <iframe class="cv-frame" src="<?= htmlspecialchars($generaliste->cv) ?>"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>Aucun médecin généraliste trouvé.</p>
-            <?php endif; ?>
+<main>
+
+    <section class="search-container">
+        <div class="search-box">
+            <form method="get" action="">
+                <input type="text" placeholder="Nom ou Spécialité ou Etablissement" name="keyword" required>
+                <button type="submit" name="research">Rechercher</button>
+            </form>
         </div>
     </section>
+
+    <?php
+    if ($xml !== false) {
+        if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['keyword'])) {
+            $keyword = htmlspecialchars($_GET['keyword']);
+            $results = searchEntries($xml, $keyword);
+
+            // Afficher les résultats de la recherche pour les membres du personnel de santé
+            if (!empty($results['members'])) {
+                echo "<h2>Résultats de la recherche pour le Personnel de Santé :</h2>";
+                foreach ($results['members'] as $member) {
+                    echo "<div class='client'>";
+                    echo "<p>Nom: " . htmlspecialchars($member->nom) . "</p>";
+                    echo "<p>Prénom: " . htmlspecialchars($member->prenom) . "</p>";
+                    echo "<p>Email: " . htmlspecialchars($member->email) . "</p>";
+                    echo "<p>Spécialité: " . htmlspecialchars($member->specialite) . "</p>";
+                    echo "<p>Téléphone: " . htmlspecialchars($member->telephone) . "</p>";
+                    echo "<p>Photo: <img src='" . htmlspecialchars($member->photo) . "' alt='Photo de " . htmlspecialchars($member->nom) . "' /></p>";
+                    echo "<p>CV: <a href='" . htmlspecialchars($member->cv) . "'>Afficher le CV</a></p>";
+                    echo "</div>";
+                }
+            }
+
+            // Afficher les résultats de la recherche pour les services de laboratoire
+            if (!empty($results['services'])) {
+                echo "<h2>Résultats de la recherche pour les Services de Laboratoire :</h2>";
+                foreach ($results['services'] as $service) {
+                    echo "<div class='nom_service'>";
+                    echo "<p>Nom du service: " . htmlspecialchars($service->nom_service) . "</p>";
+                    echo "<p>Description: " . htmlspecialchars($service->description) . "</p>";
+                    echo "</div>";
+                }
+            }
+
+            if (empty($results['members']) && empty($results['services'])) {
+                echo "<p>Aucun résultat trouvé pour '$keyword'.</p>";
+            }
+        }
+    } else {
+        echo "<p class='error'>Erreur lors du chargement du fichier XML.</p>";
+    }
+    ?>
+
 </main>
+
 <footer>
-    <div class="footer-content text-center">
-        <p>Contactez-nous: <a href="mailto:email@medicare.com">email@medicare.com</a> | Tel: +33 1 23 45 67 89 | Adresse: 16 rue Sextius Michel, Paris, France</p>
+    <div class="footer-content">
+        <ul>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:email@medicare.com">email@medicare.com</a></li>
+            <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
+            <li><i class="fas fa-map-marker-alt"></i> 16 rue Sextius Michel, Paris, France</li>
+        </ul>
     </div>
 </footer>
-<script>
-    function showCV(id) {
-        var cvContainer = document.getElementById(id);
-        if (cvContainer.style.display === "none" || cvContainer.style.display === "") {
-            cvContainer.style.display = "block";
-        } else {
-            cvContainer.style.display = "none";
-        }
-    }
-</script>
+
+<script src="scripts.js"></script>
 </body>
+
 </html>
