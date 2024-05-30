@@ -8,21 +8,12 @@ if ($xml === false) {
     die('Erreur de chargement du fichier XML.');
 }
 
-
 // Récupérer les médecins généralistes
 $generalistes = [];
 foreach ($xml->personnels_sante as $personnel) {
     $specialite = (string) $personnel->specialite;
-    // Débogage : Afficher la spécialité brute
-
-
     $specialite_trimmed = trim($specialite);
-    // Débogage : Afficher la spécialité après trim
-
-
     $specialite_lower = strtolower($specialite_trimmed);
-    // Débogage : Afficher la spécialité après strtolower
-
 
     if ($specialite_lower === 'médecine générale') {
         $generalistes[] = $personnel;
@@ -100,10 +91,11 @@ foreach ($xml->personnels_sante as $personnel) {
         }
         .actions {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 0.5rem;
+            margin-top: 0.5rem;
         }
-        .btn-cv {
+        .btn {
             padding: 0.5rem 1rem;
             background-color: #0073b1;
             color: white;
@@ -111,7 +103,7 @@ foreach ($xml->personnels_sante as $personnel) {
             border-radius: 5px;
             cursor: pointer;
         }
-        .btn-cv:hover {
+        .btn:hover {
             background-color: #005f8c;
         }
         .cv-container {
@@ -169,7 +161,11 @@ foreach ($xml->personnels_sante as $personnel) {
                         <div class="doctor-info">
                             <h3><?= htmlspecialchars($generaliste->nom . ' ' . $generaliste->prenom) ?></h3>
                             <p><?= htmlspecialchars($generaliste->specialite) ?></p>
-                            <button class="btn-cv" onclick="showCV('cv-<?= $generaliste->id ?>')">Voir CV</button>
+                            <div class="actions">
+                                <button class="btn" onclick="showCV('cv-<?= $generaliste->id ?>')">Voir CV</button>
+                                <a href="Rendez_Vous_Client.php?id=<?= $generaliste->id ?>" class="btn">Prendre Rendez-vous</a>
+                                <a href="Chat.php?id=<?= $generaliste->id ?>" class="btn">Chattez</a>
+                            </div>
                             <div class="cv-container" id="cv-<?= $generaliste->id ?>">
                                 <iframe class="cv-frame" src="<?= htmlspecialchars($generaliste->cv) ?>"></iframe>
                             </div>
