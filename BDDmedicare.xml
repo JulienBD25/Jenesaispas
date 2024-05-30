@@ -11,18 +11,18 @@
     <client>
         <id>1</id>
         <nom>Martin</nom>
-        <prenom>Alice</prenom>
+        <prenom>Anna</prenom>
         <adresse>12 Rue Pasteur</adresse>
         <ville>Paris</ville>
         <code_postal>75001</code_postal>
         <pays>France</pays>
         <telephone>069806533</telephone>
-        <email>alice.martin@example.com</email>
+        <email>anna.martin@example.com</email>
         <mot_de_passe>HM20</mot_de_passe>
         <carte_vitale>123456789012345</carte_vitale>
         <type_carte_paiement>Visa</type_carte_paiement>
         <numero_carte>4111111111111111</numero_carte>
-        <nom_carte>Alice Martin</nom_carte>
+        <nom_carte>Anna Martin</nom_carte>
         <date_expiration_carte>2024-12-31</date_expiration_carte>
         <code_securite_carte>123</code_securite_carte>
         </client>
@@ -118,7 +118,7 @@
         <email>alice.martin@exemple.com</email>
         <mot_de_passe>AZ12</mot_de_passe>
         <specialite> Médecine Générale</specialite>
-        <photo>Images/MedecineGeneral2.jpg</photo>
+        <photo>Images/MedecinGeneral2.jpg</photo>
         <video></video>
         <cv>Images/AliceMartin-en-MedecineGenerale.jpg</cv>
         <telephone>0712345476</telephone>
@@ -134,7 +134,7 @@
         <email>benoir.dupont@exemple.com</email>
         <mot_de_passe>ERT54</mot_de_passe>
         <specialite>Médecine Générale</specialite>
-        <photo>Images/MédecineGeneral.jpg</photo>
+        <photo>Images/MedecinGeneral.jpg</photo>
         <video></video>
         <cv>Images/BenoitDupont-en-MedecineGenerale.jpg</cv>
         <telephone>0736578945</telephone>
@@ -149,7 +149,7 @@
         <email>clara.moreau@exemple.com</email>
         <mot_de_passe>34ER</mot_de_passe>
         <specialite> Médecine Générale</specialite>
-        <photo>Images/MedecineGeneral3.jpg</photo>
+        <photo>Images/MedecinGeneral3.jpg</photo>
         <video></video>
         <cv>Images/ClaraMoreau-en-MedecineGenerale.jpg</cv>
         <telephone>0645678954</telephone>
@@ -271,7 +271,7 @@
            <specialite> Gynécologie</specialite>
            <photo>Images/MedecinGynecologie.jpg</photo>
             <video></video>
-           <cv>Images/Médecin-en-Gynecologie.jpg</cv>
+           <cv>Images/Médecin-en-Gynécologie.jpg</cv>
            <telephone>0644321223</telephone>
            <est_disponible>0</est_disponible>
         <administrateur_id>11</administrateur_id>
@@ -284,7 +284,7 @@
         <email>marc.lefevre@exemple.com</email>
         <mot_de_passe>TY01</mot_de_passe>
         <specialite> I.S.T.</specialite>
-        <photo>Images/MedecIST.jpg</photo>
+        <photo>Images/MedecinIST.jpg</photo>
         <video></video>
         <cv>Images/Médecin-en-IST.jpg</cv>
         <telephone>0743667432</telephone>

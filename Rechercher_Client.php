@@ -189,7 +189,7 @@ $xml = loadXMLFile($xmlFile);
 
             // Afficher les résultats de la recherche pour les membres du personnel de santé
             if (!empty($results['members'])) {
-                echo "<h2>Résultats de la recherche pour le personnel de santé :</h2>";
+                echo "<h2>Résultats de la recherche pour le Personnel de Santé :</h2>";
                 foreach ($results['members'] as $member) {
                     echo "<div class='client'>";
                     echo "<p>Nom: " . htmlspecialchars($member->nom) . "</p>";
@@ -205,10 +205,9 @@ $xml = loadXMLFile($xmlFile);
 
             // Afficher les résultats de la recherche pour les services de laboratoire
             if (!empty($results['services'])) {
-                echo "<h2>Résultats de la recherche pour les services de laboratoire :</h2>";
+                echo "<h2>Résultats de la recherche pour les Services de Laboratoire :</h2>";
                 foreach ($results['services'] as $service) {
                     echo "<div class='nom_service'>";
-                    echo "<p>ID: " . htmlspecialchars($service->id) . "</p>";
                     echo "<p>Nom du service: " . htmlspecialchars($service->nom_service) . "</p>";
                     echo "<p>Description: " . htmlspecialchars($service->description) . "</p>";
                     echo "</div>";
