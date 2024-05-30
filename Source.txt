@@ -1,1 +1,2 @@
 https://www.youtube.com/watch?v=ldmS0N7cIrk
+https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/914293-accedez-aux-donnees-en-php-avec-pdo
