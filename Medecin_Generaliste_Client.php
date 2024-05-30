@@ -8,10 +8,23 @@ if ($xml === false) {
     die('Erreur de chargement du fichier XML.');
 }
 
+
 // Récupérer les médecins généralistes
 $generalistes = [];
-foreach ($xml->personnels_sante->Personnel as $personnel) {
-    if ((string) $personnel->specialite === 'Médecine Gssénérale') {
+foreach ($xml->personnels_sante as $personnel) {
+    $specialite = (string) $personnel->specialite;
+    // Débogage : Afficher la spécialité brute
+
+
+    $specialite_trimmed = trim($specialite);
+    // Débogage : Afficher la spécialité après trim
+
+
+    $specialite_lower = strtolower($specialite_trimmed);
+    // Débogage : Afficher la spécialité après strtolower
+
+
+    if ($specialite_lower === 'médecine générale') {
         $generalistes[] = $personnel;
     }
 }
@@ -172,7 +185,6 @@ foreach ($xml->personnels_sante->Personnel as $personnel) {
 <footer>
     <div class="footer-content text-center">
         <p>Contactez-nous: <a href="mailto:email@medicare.com">email@medicare.com</a> | Tel: +33 1 23 45 67 89 | Adresse: 16 rue Sextius Michel, Paris, France</p>
-
     </div>
 </footer>
 <script>
