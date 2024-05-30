@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : jeu. 30 mai 2024 à 13:25
+-- Généré le : jeu. 30 mai 2024 à 15:19
 -- Version du serveur : 5.7.39
 -- Version de PHP : 7.4.33
 
@@ -60,6 +60,13 @@ CREATE TABLE `Clients` (
   `code_securite_carte` varchar(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `Clients`
+--
+
+INSERT INTO `Clients` (`id`, `nom`, `prenom`, `adresse`, `ville`, `code_postal`, `pays`, `telephone`, `email`, `mot_de_passe`, `carte_vitale`, `type_carte_paiement`, `numero_carte`, `nom_carte`, `date_expiration_carte`, `code_securite_carte`) VALUES
+(1, '', '', NULL, NULL, NULL, NULL, NULL, 'test@gmail.com', 'test', NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +109,7 @@ CREATE TABLE `Personnels_Sante` (
   `email` varchar(100) NOT NULL,
   `mot_de_passe` varchar(100) NOT NULL,
   `specialite` varchar(100) DEFAULT NULL,
+  `adresse` varchar(256) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `video` varchar(255) DEFAULT NULL,
   `cv` varchar(256) DEFAULT NULL,
@@ -120,7 +128,7 @@ CREATE TABLE `Rendez_vous` (
   `id` int(11) NOT NULL,
   `client_id` int(11) DEFAULT NULL,
   `personnel_id` int(11) DEFAULT NULL,
-  `jour` int(7) DEFAULT NULL,
+  `jour` int(7) NOT NULL,
   `heure` time NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -135,7 +143,9 @@ CREATE TABLE `Rendez_vous_Laboratoire` (
   `id` int(11) NOT NULL,
   `client_id` int(11) DEFAULT NULL,
   `service_id` int(11) DEFAULT NULL,
-  `date_heure` datetime DEFAULT NULL
+  `jour` int(7) NOT NULL,
+  `heure` date NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -224,7 +234,7 @@ ALTER TABLE `Administrateurs`
 -- AUTO_INCREMENT pour la table `Clients`
 --
 ALTER TABLE `Clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `Disponibilites`
