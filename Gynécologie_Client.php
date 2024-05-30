@@ -9,14 +9,14 @@ if ($xml === false) {
 }
 
 // Récupérer les médecins spécialistes en addictologie
-$gastro = [];
+$gynecologie = [];
 foreach ($xml->personnels_sante as $personnel) {
     $specialite = (string) $personnel->specialite;
     $specialite_trimmed = trim($specialite);
     $specialite_lower = strtolower($specialite_trimmed);
 
-    if ($specialite_lower == 'Gastro-Hépato-Entérologie') {
-        $gastro[] = $personnel;
+    if ($specialite_lower == 'gynécologie') {
+        $gynecologie[] = $personnel;
     }
 }
 
@@ -152,10 +152,10 @@ foreach ($xml->personnels_sante as $personnel) {
 </header>
 <main class="container">
     <section>
-        <h2 class="specialists-title">Nos médecins spécialistes en Gastro-Hépato-Entérologie :</h2>
+        <h2 class="specialists-title">Nos médecins spécialistes en Gynécologie :</h2>
         <div class="doctor-container">
-            <?php if (!empty($gastro)): ?>
-                <?php foreach ($gastro as $specialiste): ?>
+            <?php if (!empty($gynecologie)): ?>
+                <?php foreach ($gynecologie as $specialiste): ?>
                     <div class="doctor">
                         <img src="<?= htmlspecialchars($specialiste->photo) ?>" alt="Photo de <?= htmlspecialchars($specialiste->nom) ?>">
                         <div class="doctor-info">
