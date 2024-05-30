@@ -10,7 +10,7 @@ if ($xml === false) {
 
 // Récupérer les médecins généralistes
 $generalistes = [];
-foreach ($xml->Personnels_Sante->Personnel as $personnel) {
+foreach ($xml->personnels_sante->Personnel as $personnel) {
     if ((string) $personnel->specialite === 'Médecine Gssénérale') {
         $generalistes[] = $personnel;
     }
