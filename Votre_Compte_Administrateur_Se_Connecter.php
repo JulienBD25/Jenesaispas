@@ -1,3 +1,34 @@
+<?php
+// Vérifiez si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Charger les données des médecins à partir du fichier XML
+    $xmlFile = 'BDDmedicare.xml';
+    $xml = simplexml_load_file($xmlFile);
+    $administrateur = $xml->administrateur;
+
+    // Récupération des informations de connexion depuis le formulaire
+    $email = $_POST['email'];
+    $mot_de_passe = $_POST['password'];
+
+    // Vérifier les identifiants dans les données des médecins
+    $connexion_reussie = false;
+    foreach ($administrateur as $administrateur) {
+        if ($administrateur->email == $email && $administrateur->mot_de_passe == $mot_de_passe) {
+            $connexion_reussie = true;
+            break;
+        }
+    }
+
+    if ($connexion_reussie) {
+        // L'utilisateur est authentifié avec succès, rediriger vers la page d'accueil du médecin
+        header('Location: Accueil_Administrateur.html');
+        exit;
+    } else {
+        // L'utilisateur n'existe pas ou les identifiants sont incorrects
+        echo "<p class='error'>Email ou mot de passe incorrect</p>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -88,6 +119,24 @@
         <ul>
             <li><a href="Accueil.html">Accueil</a></li>
             <li><a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
+                    <li>
+                        <a href="#">Médecins Spécialistes</a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                </ul>
+            </li>
             <li><a href="Recherche.html">Recherche</a></li>
             <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte.html">Votre Compte</a>
@@ -103,38 +152,6 @@
 <body>
     <div class="container">
         <h2>Connexion Administrateur</h2>
-
-<?php
-        // Vérifiez si le formulaire a été soumis
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Charger les données des médecins à partir du fichier XML
-            $xmlFile = 'BDDmedicare.xml';
-            $xml = simplexml_load_file($xmlFile);
-            $administrateur = $xml->administrateur;
-
-            // Récupération des informations de connexion depuis le formulaire
-            $email = $_POST['email'];
-            $mot_de_passe = $_POST['password'];
-
-            // Vérifier les identifiants dans les données des médecins
-            $connexion_reussie = false;
-            foreach ($administrateur as $administrateur) {
-                if ($administrateur->email == $email && $administrateur->mot_de_passe == $mot_de_passe) {
-                    $connexion_reussie = true;
-                    break;
-                }
-            }
-
-            if ($connexion_reussie) {
-                // L'utilisateur est authentifié avec succès, rediriger vers la page d'accueil du médecin
-                header('Location: Accueil_Administrateur.html');
-                exit;
-            } else {
-                // L'utilisateur n'existe pas ou les identifiants sont incorrects
-                echo "<p class='error'>Email ou mot de passe incorrect</p>";
-            }
-        }
-?>
 
         <form action="" method="post">
             <label for="email">Email :</label>
@@ -156,3 +173,5 @@
     <script src="scripts.js"></script>
 </body>
 </html>
+
+

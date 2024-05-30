@@ -3,13 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 28 mai 2024 à 23:06
+-- Généré le : jeu. 30 mai 2024 à 11:54
 -- Version du serveur : 5.7.39
 -- Version de PHP : 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -77,6 +78,21 @@ CREATE TABLE `Disponibilites` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `Messages`
+--
+
+CREATE TABLE `Messages` (
+  `id_message` int(11) NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `personnel_id` int(11) NOT NULL,
+  `contenu` text NOT NULL,
+  `date_envoi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lu` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `Personnels_Sante`
 --
 
@@ -104,7 +120,8 @@ CREATE TABLE `Rendez_vous` (
   `id` int(11) NOT NULL,
   `client_id` int(11) DEFAULT NULL,
   `personnel_id` int(11) DEFAULT NULL,
-  `date_heure` datetime DEFAULT NULL
+  `date_heure` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -153,6 +170,14 @@ ALTER TABLE `Clients`
 --
 ALTER TABLE `Disponibilites`
   ADD PRIMARY KEY (`id`),
+  ADD KEY `personnel_id` (`personnel_id`);
+
+--
+-- Index pour la table `Messages`
+--
+ALTER TABLE `Messages`
+  ADD PRIMARY KEY (`id_message`),
+  ADD KEY `client_id` (`client_id`),
   ADD KEY `personnel_id` (`personnel_id`);
 
 --
