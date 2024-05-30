@@ -3,14 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : jeu. 30 mai 2024 à 11:54
+-- Généré le : jeu. 30 mai 2024 à 13:25
 -- Version du serveur : 5.7.39
 -- Version de PHP : 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -69,10 +68,10 @@ CREATE TABLE `Clients` (
 
 CREATE TABLE `Disponibilites` (
   `id` int(11) NOT NULL,
-  `personnel_id` int(11) DEFAULT NULL,
-  `jour` varchar(10) DEFAULT NULL,
-  `heure_debut` time DEFAULT NULL,
-  `heure_fin` time DEFAULT NULL
+  `personnel_id` int(11) NOT NULL,
+  `jour` int(7) DEFAULT NULL,
+  `matin` tinyint(1) DEFAULT '1',
+  `apres_midi` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -107,7 +106,8 @@ CREATE TABLE `Personnels_Sante` (
   `video` varchar(255) DEFAULT NULL,
   `cv` varchar(256) DEFAULT NULL,
   `telephone` varchar(20) DEFAULT NULL,
-  `est_disponible` tinyint(1) DEFAULT '0'
+  `est_disponible` tinyint(1) DEFAULT '0',
+  `id_administrateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -120,7 +120,8 @@ CREATE TABLE `Rendez_vous` (
   `id` int(11) NOT NULL,
   `client_id` int(11) DEFAULT NULL,
   `personnel_id` int(11) DEFAULT NULL,
-  `date_heure` datetime DEFAULT NULL,
+  `jour` int(7) DEFAULT NULL,
+  `heure` time NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -184,7 +185,8 @@ ALTER TABLE `Messages`
 -- Index pour la table `Personnels_Sante`
 --
 ALTER TABLE `Personnels_Sante`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Rendez_vous_Administrateur0_FK` (`id_administrateur`);
 
 --
 -- Index pour la table `Rendez_vous`
@@ -263,6 +265,19 @@ ALTER TABLE `Services_Laboratoire`
 --
 ALTER TABLE `Disponibilites`
   ADD CONSTRAINT `disponibilites_ibfk_1` FOREIGN KEY (`personnel_id`) REFERENCES `Personnels_Sante` (`id`);
+
+--
+-- Contraintes pour la table `Messages`
+--
+ALTER TABLE `Messages`
+  ADD CONSTRAINT `Rendez_vous_Clients0_FK` FOREIGN KEY (`client_id`) REFERENCES `Clients` (`id`),
+  ADD CONSTRAINT `Rendez_vous_Personnels0_FK` FOREIGN KEY (`personnel_id`) REFERENCES `Personnels_Sante` (`id`);
+
+--
+-- Contraintes pour la table `Personnels_Sante`
+--
+ALTER TABLE `Personnels_Sante`
+  ADD CONSTRAINT `Rendez_vous_Administrateur0_FK` FOREIGN KEY (`id_administrateur`) REFERENCES `Administrateurs` (`id`);
 
 --
 -- Contraintes pour la table `Rendez_vous`
