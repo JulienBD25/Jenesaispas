@@ -48,6 +48,7 @@
         <date_expiration_carte>2024-10-21</date_expiration_carte>
         <code_securite_carte>321</code_securite_carte>
     </client>
+
     <client>
         <id>3</id>
         <nom>Robert</nom>
@@ -138,6 +139,7 @@
         <telephone>0736578945</telephone>
         <est_disponible>0</est_disponible> <!-- 0 si dispo 1 sinon -->
     </personnels_sante>
+
     <personnels_sante>
         <id>3</id>
         <nom>Moreau</nom>
@@ -165,6 +167,7 @@
         <telephone>0654090065</telephone>
         <est_disponible>0</est_disponible>
     </personnels_sante>
+
 <personnels_sante>
         <id>5</id>
         <nom>Robert</nom>
@@ -397,6 +400,12 @@
         <description>Une analyse du sang pour détecter les infections sexuellement transmisibles.</description>
     </Service_Laboratoire>
 
-
 <client><carte_vitale>123</carte_vitale><Nom>TEST1</Nom><Prenom>TEST1</Prenom><email>TEST1@TEST.COM</email><mot_de_passe>123</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>0123</Code_Postal><Telephone>0123456789</Telephone><Type_CB>Mastercard</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-28</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></client>
-<personnels_sante><Nom/><Prenom/><email>TEST@TEST.COM</email><mot_de_passe/><specialite>TEST</specialite><photo>Logo_icone.ico</photo><cv>Logo_icone.ico</cv><telephone/></personnels_sante><personnels_sante><Nom>TEST</Nom><Prenom>TEST</Prenom><email>TEST@TEST.COM</email><mot_de_passe>123</mot_de_passe><specialite>TEST</specialite><photo>Logo_icone.ico</photo><cv>Logo_icone.ico</cv><telephone>65465165</telephone></personnels_sante></Medicare>
+
+<personnels_sante><Nom/><Prenom/><email>TEST@TEST.COM</email><mot_de_passe/><specialite>TEST</specialite><photo>Logo_icone.ico</photo><cv>Logo_icone.ico</cv><telephone/></personnels_sante>
+
+<personnels_sante><Nom>TEST</Nom><Prenom>TEST</Prenom><email>TEST@TEST.COM</email><mot_de_passe>123</mot_de_passe><specialite>TEST</specialite><photo>Logo_icone.ico</photo><cv>Logo_icone.ico</cv><telephone>65465165</telephone></personnels_sante>
+
+<personnels_sante><Nom>Y</Nom><Prenom>Y</Prenom><email>Y@Y.COM</email><mot_de_passe>123</mot_de_passe><specialite>Y</specialite><photo>Logo_icone.ico</photo><cv>Logo_icone.ico</cv><telephone>123</telephone></personnels_sante>
+
+<personnel_sante/></Medicare>
