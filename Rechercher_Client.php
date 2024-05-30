@@ -159,7 +159,7 @@ $xml = loadXMLFile($xmlFile);
                 <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
             </ul>
             </li>
-            <li><a href="Rechercher_Client.html">Recherche</a></li>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
             <li><a href="Rendez_Vous_Client.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
