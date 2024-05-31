@@ -113,11 +113,35 @@ foreach ($xml->personnels_sante as $personnel) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
-            <li><a href="Tout_Parcourir_Client.html">Tout Parcourir</a></li>
-            <li><a href="Recherche.html">Recherche</a></li>
+            <li><a href="Accueil_Client.html">Accueil</a></li>
+            <li>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
+                    <li>
+                        <a href="Medecins_specialistes_Client.php">Médecins Spécialistes</a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="Addictologie_Client.php">Addictologie</a></li>
+                            <li><a href="Andrologie_Client.php">Andrologie</a></li>
+                            <li><a href="Cardiologie_Client.php">Cardiologie</a></li>
+                            <li><a href="Dermatologie_Client.php">Dermatologie</a></li>
+                            <li><a href="Gastro-Hépato-Entérologie_Client.php">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="Gynécologie_Client.php">Gynécologie</a></li>
+                            <li><a href="I.S.T._Client.php">I.S.T.</a></li>
+                            <li><a href="Ostéopathie_Client.php">Ostéopathie</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Test_Labo_Client">Test en Labo</a></li>
+                </ul>
+            </li>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
             <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte.html">Votre Compte</a></li>
+            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Accueil.html">Deconnexion</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>
