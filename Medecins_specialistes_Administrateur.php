@@ -95,7 +95,7 @@ foreach ($xml->personnels_sante as $personnel) {
                     <li>
                         <a href="Medecins_specialistes_Administrateur.php">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
-                            <li><a href="Andrologie_Administrateur.php" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                            <li><a href="Addictologie_Administrateur.php" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
                             <li><a href="Andrologie_Administrateur.php" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
                             <li><a href="Cardiologie_Administrateur.php" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
                             <li><a href="Dermatologie_Administrateur.php" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>

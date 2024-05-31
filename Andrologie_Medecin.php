@@ -166,7 +166,6 @@ foreach ($xml->personnels_sante as $personnel) {
                             <p><?= htmlspecialchars($specialiste->specialite) ?></p>
                             <div class="actions">
                                 <button class="btn" onclick="showCV('cv-<?= $specialiste->id ?>')">Voir CV</button>
-                                <a href="Rendez_Vous_Client.php?id=<?= $specialiste->id ?>" class="btn">Prendre Rendez-vous</a>
                                 <a href="Chat.php?id=<?= $specialiste->id ?>" class="btn">Chattez</a>
                             </div>
                             <div class="cv-container" id="cv-<?= $specialiste->id ?>">
