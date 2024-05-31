@@ -1,4 +1,4 @@
-<?php
+    <?php
 // Vérifiez si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Charger les données des médecins à partir du fichier XML
@@ -162,14 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit">Se connecter</button>
         </form>
     </div>
-    <footer>
-        <div class="footer-content">
-            <ul>
-                <li><i class="fas fa-envelope"></i> <a href="mailto:email@medicare.com">email@medicare.com</a></li>
-                <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
-                <li><i class="fas fa-map-marker-alt"></i> 16 rue Sextius Michel, Paris, France</li>
-            </ul>
-    </footer>
+
 
     <script src="scripts.js"></script>
 </body>
