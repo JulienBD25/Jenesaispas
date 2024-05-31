@@ -131,7 +131,7 @@ foreach ($xml->personnels_sante as $personnel) {
                         <ul class="dropdown-submenu">
                             <li><a href="Addictologie_Client.php">Addictologie</a></li>
                             <li><a href="Andrologie_Client.php">Andrologie</a></li>
-                            <li><a href=Cardiologie_Client.php"">Cardiologie</a></li>
+                            <li><a href="Cardiologie_Client.php">Cardiologie</a></li>
                             <li><a href="Dermatologie_Client.php">Dermatologie</a></li>
                             <li><a href="Gastro-Hépato-Entérologie_Client.php">Gastro-Hépato-Entérologie</a></li>
                             <li><a href="Gynécologie_Client.php">Gynécologie</a></li>
