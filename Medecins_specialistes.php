@@ -129,7 +129,7 @@ foreach ($xml->personnels_sante as $personnel) {
                 <?php foreach ($specialites as $specialite): ?>
                     <div class="specialty">
                         <span><?= htmlspecialchars($specialite) ?></span>
-                        <a href="<?= htmlspecialchars($specialite) ?>_Client.php" class="btn">Voir les spécialistes</a>
+                        <a href="<?= htmlspecialchars($specialite) ?>.php" class="btn">Voir les spécialistes</a>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>

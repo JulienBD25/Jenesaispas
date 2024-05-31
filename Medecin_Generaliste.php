@@ -159,8 +159,8 @@ foreach ($xml->personnels_sante as $personnel) {
                             <p><?= htmlspecialchars($generaliste->specialite) ?></p>
                             <div class="actions">
                                 <button class="btn" onclick="showCV('cv-<?= $generaliste->id ?>')">Voir CV</button>
-                                <a href="Rendez_Vous_Client.php?id=<?= $generaliste->id ?>" class="btn">Prendre Rendez-vous</a>
-                                <a href="Chat.php?id=<?= $generaliste->id ?>" class="btn">Chattez</a>
+                                <a href="Votre_Compte.html?id=<?= $generaliste->id ?>" class="btn">Prendre Rendez-vous</a>
+                                <a href="Votre_Compte.html?id=<?= $generaliste->id ?>" class="btn">Chattez</a>
                             </div>
                             <div class="cv-container" id="cv-<?= $generaliste->id ?>">
                                 <iframe class="cv-frame" src="<?= htmlspecialchars($generaliste->cv) ?>"></iframe>
