@@ -117,8 +117,6 @@
             border-radius: 3px;
             text-decoration: none;
         }
-
-
     </style>
 </head>
 <header>

@@ -121,13 +121,13 @@ foreach ($xml->personnels_sante as $personnel) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Accueil_Client.html">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir_Client.html.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
-                        <a href="#">Médecins Spécialistes</a>
+                        <a href="Medecins_specialistes_Client.php">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
                             <li><a href="Addictologie_Client.php">Addictologie</a></li>
                             <li><a href="Andrologie_Client.php">Andrologie</a></li>
@@ -139,7 +139,7 @@ foreach ($xml->personnels_sante as $personnel) {
                             <li><a href="Ostéopathie_Client.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Client">Test en Labo</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
