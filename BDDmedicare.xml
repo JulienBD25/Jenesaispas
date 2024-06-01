@@ -1,434 +1,435 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Medicare>
-    <administrateur>
-        <id>1</id>
-        <nom>Durand</nom>
-        <prenom>Jean</prenom>
-        <email>jean.durand@example.com</email>
-        <mot_de_passe>XC45</mot_de_passe>
-    </administrateur>
-
-    <client>
-        <id>1</id>
-        <nom>Martin</nom>
-        <prenom>Anna</prenom>
-        <adresse>12 Rue Pasteur</adresse>
-        <ville>Paris</ville>
-        <code_postal>75001</code_postal>
-        <pays>France</pays>
-        <telephone>069806533</telephone>
-        <email>anna.martin@example.com</email>
-        <mot_de_passe>HM20</mot_de_passe>
-        <carte_vitale>123456789012345</carte_vitale>
-        <type_carte_paiement>Visa</type_carte_paiement>
-        <numero_carte>4111111111111111</numero_carte>
-        <nom_carte>Anna Martin</nom_carte>
-        <date_expiration_carte>2024-12-31</date_expiration_carte>
-        <code_securite_carte>123</code_securite_carte>
-        </client>
-
-
-        <client><carte_vitale>123</carte_vitale><Nom>TEST</Nom><Prenom>TEST</Prenom><email>TEST@TEST.COM</email><mot_de_passe>TEST</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>123</Code_Postal><Telephone>0123456789</Telephone><Type_CB>American Express</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-29</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></client>
-
-    <client>
-        <id>2</id>
-        <nom>Thomas</nom>
-        <prenom>Bernadette</prenom>
-        <adresse>13 Rue du Theatre</adresse>
-        <ville>Paris</ville>
-        <code_postal>75015</code_postal>
-        <pays>France</pays>
-        <telephone>037099436</telephone>
-        <email>thomas.bernadette@example.com</email>
-        <mot_de_passe>KO98</mot_de_passe>
-        <carte_vitale>076654323678</carte_vitale>
-        <type_carte_paiement>Visa</type_carte_paiement>
-        <numero_carte>8765780630</numero_carte>
-        <nom_carte>Thomas Bernadette</nom_carte>
-        <date_expiration_carte>2024-10-21</date_expiration_carte>
-        <code_securite_carte>321</code_securite_carte>
-    </client>
-
-    <client>
-        <id>3</id>
-        <nom>Robert</nom>
-        <prenom>Alice</prenom>
-        <adresse>42 Rue de Rivolo</adresse>
-        <ville>Paris</ville>
-        <code_postal>75001</code_postal>
-        <pays>France</pays>
-        <telephone>0644789021</telephone>
-        <email>alice.robert@example.com</email>
-        <mot_de_passe>BN23</mot_de_passe>
-        <carte_vitale>098976546789</carte_vitale>
-        <type_carte_paiement>Visa</type_carte_paiement>
-        <numero_carte>123578954321</numero_carte>
-        <nom_carte>Alice Roobert</nom_carte>
-        <date_expiration_carte>2029-01-31</date_expiration_carte>
-        <code_securite_carte>656</code_securite_carte>
-    </client>
-
-    <client>
-        <id>5</id>
-        <nom>Blanc</nom>
-        <prenom>Martine</prenom>
-        <adresse>29 Rue du Temple</adresse>
-        <ville>Paris</ville>
-        <code_postal>75003</code_postal>
-        <pays>France</pays>
-        <telephone>0765439987</telephone>
-        <email>martine.blanc@example.com</email>
-        <mot_de_passe>SD34</mot_de_passe>
-        <carte_vitale>12325653277</carte_vitale>
-        <type_carte_paiement>Visa</type_carte_paiement>
-        <numero_carte>1276906452</numero_carte>
-        <nom_carte>Martine Blanc</nom_carte>
-        <date_expiration_carte>2028-04-3</date_expiration_carte>
-        <code_securite_carte>777</code_securite_carte>
-    </client>
-
-    <disponibilite>
-        <id>2</id>
-        <personnel_id>2</personnel_id>
-        <jour>05</jour>
-        <matin>1</matin>
-        <apres_midi>1</apres_midi>
-    </disponibilite>
-
-    <disponibilite>
-        <id>3</id>
-        <personnel_id>3</personnel_id>
-        <jour>01</jour>
-        <matin>1</matin>
-        <apres_midi>1</apres_midi>
-    </disponibilite>
-
-    <disponibilite>
-        <id>4</id>
-        <personnel_id>4</personnel_id>
-        <jour>01</jour>
-        <matin>1</matin>
-        <apres_midi>1</apres_midi>
-    </disponibilite>
-
-    <personnels_sante>
-        <id>1</id>
-        <nom>Martin</nom>
-        <prenom>Alice</prenom>
-        <email>alice.martin@exemple.com</email>
-        <mot_de_passe>AZ12</mot_de_passe>
-        <specialite> Médecine Générale</specialite>
-        <photo>Images/MedecinGeneral2.jpg</photo>
-        <video/>
-        <cv>Images/AliceMartin-en-MedecineGenerale.jpg</cv>
-        <telephone>0712345476</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>1</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-
-        <id>2</id>
-        <nom>Dupont</nom>
-        <prenom>Benoit</prenom>
-        <email>benoir.dupont@exemple.com</email>
-        <mot_de_passe>ERT54</mot_de_passe>
-        <specialite>Médecine Générale</specialite>
-        <photo>Images/MedecinGeneral.jpg</photo>
-        <video/>
-        <cv>Images/BenoitDupont-en-MedecineGenerale.jpg</cv>
-        <telephone>0736578945</telephone>
-        <est_disponible>0</est_disponible> <!-- 0 si dispo 1 sinon -->
-        <administrateur_id>2</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>3</id>
-        <nom>Moreau</nom>
-        <prenom>Clara</prenom>
-        <email>clara.moreau@exemple.com</email>
-        <mot_de_passe>34ER</mot_de_passe>
-        <specialite> Médecine Générale</specialite>
-        <photo>Images/MedecinGeneral3.jpg</photo>
-        <video/>
-        <cv>Images/ClaraMoreau-en-MedecineGenerale.jpg</cv>
-        <telephone>0645678954</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>3</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>4</id>
-        <nom>Leroy</nom>
-        <prenom>David</prenom>
-        <email>david.leroy@exemple.com</email>
-        <mot_de_passe>3ZD4</mot_de_passe>
-        <specialite> Medecine Générale</specialite>
-        <photo>Images/MedecineGeneral4.jpg</photo>
-        <video/>
-        <cv>Images/DavidLeroy-en-MedecineGenerale.jpg</cv>
-        <telephone>0654090065</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>4</administrateur_id>
-    </personnels_sante>
-
-<personnels_sante>
-        <id>5</id>
-        <nom>Robert</nom>
-        <prenom>Emma</prenom>
-        <email>emma.robert@exemple.com</email>
-        <mot_de_passe>RE45</mot_de_passe>
-        <specialite> Médecine Générale</specialite>
-        <photo>Images/MedecinFemme.jpg</photo>
-        <video/>
-        <cv>Images/EmmaRobert-en-MedecineGenerale.jpg</cv>
-        <telephone>0745327654</telephone>
-        <est_disponible>0</est_disponible>
+  <administrateur>
+    <id>1</id>
+    <nom>Durand</nom>
+    <prenom>Jean</prenom>
+    <email>jean.durand@example.com</email>
+    <mot_de_passe>XC45</mot_de_passe>
+  </administrateur>
+  <client>
+    <id>1</id>
+    <nom>Martin</nom>
+    <prenom>Anna</prenom>
+    <adresse>12 Rue Pasteur</adresse>
+    <ville>Paris</ville>
+    <code_postal>75001</code_postal>
+    <pays>France</pays>
+    <telephone>069806533</telephone>
+    <email>anna.martin@example.com</email>
+    <mot_de_passe>HM20</mot_de_passe>
+    <carte_vitale>123456789012345</carte_vitale>
+    <type_carte_paiement>Visa</type_carte_paiement>
+    <numero_carte>4111111111111111</numero_carte>
+    <nom_carte>Anna Martin</nom_carte>
+    <date_expiration_carte>2024-12-31</date_expiration_carte>
+    <code_securite_carte>123</code_securite_carte>
+  </client>
+  <client>
+    <carte_vitale>123</carte_vitale>
+    <Nom>TEST</Nom>
+    <Prenom>TEST</Prenom>
+    <email>TEST@TEST.COM</email>
+    <mot_de_passe>TEST</mot_de_passe>
+    <Adresse>TEST</Adresse>
+    <Ville>TEST</Ville>
+    <Pays>TEST</Pays>
+    <Code_Postal>123</Code_Postal>
+    <Telephone>0123456789</Telephone>
+    <Type_CB>American Express</Type_CB>
+    <Numero_CB>0123456789</Numero_CB>
+    <Date_Expiration_CB>2024-05-29</Date_Expiration_CB>
+    <Code_Securite_CB>1234</Code_Securite_CB>
+  </client>
+  <client>
+    <id>2</id>
+    <nom>Thomas</nom>
+    <prenom>Bernadette</prenom>
+    <adresse>13 Rue du Theatre</adresse>
+    <ville>Paris</ville>
+    <code_postal>75015</code_postal>
+    <pays>France</pays>
+    <telephone>037099436</telephone>
+    <email>thomas.bernadette@example.com</email>
+    <mot_de_passe>KO98</mot_de_passe>
+    <carte_vitale>076654323678</carte_vitale>
+    <type_carte_paiement>Visa</type_carte_paiement>
+    <numero_carte>8765780630</numero_carte>
+    <nom_carte>Thomas Bernadette</nom_carte>
+    <date_expiration_carte>2024-10-21</date_expiration_carte>
+    <code_securite_carte>321</code_securite_carte>
+  </client>
+  <client>
+    <id>3</id>
+    <nom>Robert</nom>
+    <prenom>Alice</prenom>
+    <adresse>42 Rue de Rivolo</adresse>
+    <ville>Paris</ville>
+    <code_postal>75001</code_postal>
+    <pays>France</pays>
+    <telephone>0644789021</telephone>
+    <email>alice.robert@example.com</email>
+    <mot_de_passe>BN23</mot_de_passe>
+    <carte_vitale>098976546789</carte_vitale>
+    <type_carte_paiement>Visa</type_carte_paiement>
+    <numero_carte>123578954321</numero_carte>
+    <nom_carte>Alice Roobert</nom_carte>
+    <date_expiration_carte>2029-01-31</date_expiration_carte>
+    <code_securite_carte>656</code_securite_carte>
+  </client>
+  <client>
+    <id>5</id>
+    <nom>Blanc</nom>
+    <prenom>Martine</prenom>
+    <adresse>29 Rue du Temple</adresse>
+    <ville>Paris</ville>
+    <code_postal>75003</code_postal>
+    <pays>France</pays>
+    <telephone>0765439987</telephone>
+    <email>martine.blanc@example.com</email>
+    <mot_de_passe>SD34</mot_de_passe>
+    <carte_vitale>12325653277</carte_vitale>
+    <type_carte_paiement>Visa</type_carte_paiement>
+    <numero_carte>1276906452</numero_carte>
+    <nom_carte>Martine Blanc</nom_carte>
+    <date_expiration_carte>2028-04-3</date_expiration_carte>
+    <code_securite_carte>777</code_securite_carte>
+  </client>
+  <disponibilite>
+    <id>1</id>
+    <personnel_id>1</personnel_id>
+    <jour>05</jour>
+    <matin>1</matin>
+    <apres_midi>0</apres_midi>
+  </disponibilite>
+  <disponibilite>
+    <id>2</id>
+    <personnel_id>2</personnel_id>
+    <jour>01</jour>
+    <matin>0</matin>
+    <apres_midi>1</apres_midi>
+  </disponibilite>
+  <disponibilite>
+    <id>3</id>
+    <personnel_id>3</personnel_id>
+    <jour>01</jour>
+    <matin>0</matin>
+    <apres_midi>1</apres_midi>
+  </disponibilite>
+  <personnels_sante>
+    <id>1</id>
+    <nom>Martin</nom>
+    <prenom>Alice</prenom>
+    <email>alice.martin@exemple.com</email>
+    <mot_de_passe>AZ12</mot_de_passe>
+    <specialite> Médecine Générale</specialite>
+    <photo>Images/MedecinGeneral2.jpg</photo>
+    <video/>
+    <cv>Images/AliceMartin-en-MedecineGenerale.jpg</cv>
+    <telephone>0712345476</telephone>
+    <est_disponible>1</est_disponible>
+    <administrateur_id>1</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>2</id>
+    <nom>Dupont</nom>
+    <prenom>Benoit</prenom>
+    <email>benoir.dupont@exemple.com</email>
+    <mot_de_passe>ERT54</mot_de_passe>
+    <specialite>Médecine Générale</specialite>
+    <photo>Images/MedecinGeneral.jpg</photo>
+    <video/>
+    <cv>Images/BenoitDupont-en-MedecineGenerale.jpg</cv>
+    <telephone>0736578945</telephone>
+    <est_disponible>0</est_disponible>
+    <!-- 0 si dispo 1 sinon -->
+    <administrateur_id>2</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>3</id>
+    <nom>Moreau</nom>
+    <prenom>Clara</prenom>
+    <email>clara.moreau@exemple.com</email>
+    <mot_de_passe>34ER</mot_de_passe>
+    <specialite> Médecine Générale</specialite>
+    <photo>Images/MedecinGeneral3.jpg</photo>
+    <video/>
+    <cv>Images/ClaraMoreau-en-MedecineGenerale.jpg</cv>
+    <telephone>0645678954</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>3</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>4</id>
+    <nom>Leroy</nom>
+    <prenom>David</prenom>
+    <email>david.leroy@exemple.com</email>
+    <mot_de_passe>3ZD4</mot_de_passe>
+    <specialite> Medecine Générale</specialite>
+    <photo>Images/MedecineGeneral4.jpg</photo>
+    <video/>
+    <cv>Images/DavidLeroy-en-MedecineGenerale.jpg</cv>
+    <telephone>0654090065</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>4</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>5</id>
+    <nom>Robert</nom>
+    <prenom>Emma</prenom>
+    <email>emma.robert@exemple.com</email>
+    <mot_de_passe>RE45</mot_de_passe>
+    <specialite> Médecine Générale</specialite>
+    <photo>Images/MedecinFemme.jpg</photo>
+    <video/>
+    <cv>Images/EmmaRobert-en-MedecineGenerale.jpg</cv>
+    <telephone>0745327654</telephone>
+    <est_disponible>0</est_disponible>
     <administrateur_id>5</administrateur_id>
-</personnels_sante>
-
-    <personnels_sante>
-        <id>6</id>
-        <nom>Dupont</nom>
-        <prenom>jean</prenom>
-        <email>jean.dupont@exemple.com</email>
-        <mot_de_passe>32ZA</mot_de_passe>
-        <specialite> Addictologie</specialite>
-        <photo>Images/MedecinGastro.jpg</photo>
-        <video/>
-        <cv>Images/Médecin-en-Addictologie.jpg</cv>
-        <telephone>0643986543</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>6</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>7</id>
-        <nom>Martin</nom>
-        <prenom>Pierre</prenom>
-        <email>pierre.martin@exemple.com</email>
-        <mot_de_passe>RT65</mot_de_passe>
-        <specialite> Andrologie</specialite>
-        <photo>Images/MedecinAndrologie.jpg</photo>
-        <video/>
-        <cv>Images/Médecin-en-Andrologie.jpg</cv>
-        <telephone>0712345476</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>7</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>8</id>
-        <nom>Leblanc</nom>
-        <prenom>Marie</prenom>
-        <email>marie.leblanc@exemple.com</email>
-        <mot_de_passe>EA12</mot_de_passe>
-        <specialite> Cardiologie</specialite>
-        <photo>Images/MedecinCardiologie.jpg</photo>
-        <video/>
-        <cv>Images/Médecin-en-Cardiologie.jpg</cv>
-        <telephone>065290076</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>8</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>9</id>
-        <nom>Durand</nom>
-        <prenom>Sophie</prenom>
-        <email>sophie.durand@exemple.com</email>
-        <mot_de_passe>TY67</mot_de_passe>
-        <specialite>Dermatologie</specialite>
-        <photo>Images/MedecinDermatologie.jpg</photo>
-        <video/>
-        <cv>Images/Médecin-en-Dermatologie.jpg</cv>
-        <telephone>0712345476</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>9</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>10</id>
-        <nom>Petit</nom>
-        <prenom>Claude</prenom>
-        <email>calude.petit@exemple.com</email>
-        <mot_de_passe>FV00</mot_de_passe>
-        <specialite> Gastro-Hépato-Entérologie</specialite>
-        <photo>Images/MedecinGastro.jpg</photo>
-        <video/>
-        <cv>Images/Médecin-en-Gastro.jpg</cv>
-        <telephone>0641226788</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>10</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-           <id>11</id>
-           <nom>Moreau</nom>
-           <prenom>Alice</prenom>
-           <email>alice.moreau@exemple.com</email>
-           <mot_de_passe>NN90</mot_de_passe>
-           <specialite> Gynécologie</specialite>
-           <photo>Images/MedecinGynecologie.jpg</photo>
-            <video/>
-           <cv>Images/Médecin-en-Gynécologie.jpg</cv>
-           <telephone>0644321223</telephone>
-           <est_disponible>0</est_disponible>
-        <administrateur_id>11</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>12</id>
-        <nom>Lefèvre</nom>
-        <prenom>Marc</prenom>
-        <email>marc.lefevre@exemple.com</email>
-        <mot_de_passe>TY01</mot_de_passe>
-        <specialite> I.S.T.</specialite>
-        <photo>Images/MedecinIST.jpg</photo>
-        <video/>
-        <cv>Images/Médecin-en-IST.jpg</cv>
-        <telephone>0743667432</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>12</administrateur_id>
-    </personnels_sante>
-
-    <personnels_sante>
-        <id>13</id>
-        <nom>Bernard</nom>
-        <prenom>Lucie</prenom>
-        <email>lucie.bernard@exemple.com</email>
-        <mot_de_passe>KJ87</mot_de_passe>
-        <specialite>Ostéopathie</specialite>
-        <photo>Images/MedecinOsteopathie.jpg</photo>
-        <video/>
-        <cv>Images/Médecin-en-Osteopathie.jpg</cv>
-        <telephone>0744368900</telephone>
-        <est_disponible>0</est_disponible>
-        <administrateur_id>13</administrateur_id>
-    </personnels_sante>
-
-
-    <Rendez_Vous>
-        <id>1</id>
-        <client_id>1</client_id>
-        <personnel_id>2</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>2</id>
-        <client_id>3</client_id>
-        <personnel_id>1</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>3</id>
-        <client_id>5</client_id>
-        <personnel_id>12</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>4</id>
-        <client_id>6</client_id>
-        <personnel_id>10</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>5</id>
-        <client_id>4</client_id>
-        <personnel_id>9</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>6</id>
-        <client_id>2</client_id>
-        <personnel_id>1</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>7</id>
-        <client_id>3</client_id>
-        <personnel_id>7</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>8</id>
-        <client_id>9</client_id>
-        <personnel_id>5</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-    <Rendez_Vous>
-        <id>9</id>
-        <client_id>10</client_id>
-        <personnel_id>12</personnel_id>
-        <jour>01</jour>
-        <heure>00:00</heure>
-        <status>1</status>
-    </Rendez_Vous>
-
-        <Rendez_vous_Laboratoire>
-            <id>1</id>
-            <client_id>4</client_id>
-            <service_id>7</service_id>
-            <date_heure>2024-06-01T10:00:00</date_heure>
-        </Rendez_vous_Laboratoire>
-        <Rendez_vous_Laboratoire>
-            <id>2</id>
-            <client_id>8</client_id>
-            <service_id>2</service_id>
-            <date_heure>2024-06-02T11:00:00</date_heure>
-        </Rendez_vous_Laboratoire>
-
-        <Rendez_vous_Laboratoire>
-            <id>3</id>
-            <client_id>4</client_id>
-            <service_id>2</service_id>
-            <date_heure>2024-06-02T17:00:00</date_heure>
-        </Rendez_vous_Laboratoire>
-        <Rendez_vous_Laboratoire>
-            <id>4</id>
-            <client_id>2</client_id>
-            <service_id>11</service_id>
-            <date_heure>2024-06-07T15:00:00</date_heure>
-        </Rendez_vous_Laboratoire>
-
-    <Service_Laboratoire>
-        <id>1</id>
-        <nom_service>Test sanguin complet</nom_service>
-        <description>Un test sanguin complet pour vérifier les niveaux de globules rouges, globules blancs et plaquettes.</description>
-    </Service_Laboratoire>
-    <Service_Laboratoire>
-        <id>2</id>
-        <nom_service>Analyse d'urine</nom_service>
-        <description>Une analyse d'urine pour détecter les infections et d'autres anomalies.</description>
-    </Service_Laboratoire>
-    <Service_Laboratoire>
-        <id>3</id>
-        <nom_service>Depistage Covid</nom_service>
-        <description>Test PCR .</description>
-    </Service_Laboratoire>
-
-    <Service_Laboratoire>
-        <id>3</id>
-        <nom_service>Depistage IST</nom_service>
-        <description>Une analyse du sang pour détecter les infections sexuellement transmisibles.</description>
-    </Service_Laboratoire>
-
-<client><carte_vitale>123</carte_vitale><Nom>TEST1</Nom><Prenom>TEST1</Prenom><email>TEST1@TEST.COM</email><mot_de_passe>123</mot_de_passe><Adresse>TEST</Adresse><Ville>TEST</Ville><Pays>TEST</Pays><Code_Postal>0123</Code_Postal><Telephone>0123456789</Telephone><Type_CB>Mastercard</Type_CB><Numero_CB>0123456789</Numero_CB><Date_Expiration_CB>2024-05-28</Date_Expiration_CB><Code_Securite_CB>1234</Code_Securite_CB></client>
+  </personnels_sante>
+  <personnels_sante>
+    <id>6</id>
+    <nom>Dupont</nom>
+    <prenom>jean</prenom>
+    <email>jean.dupont@exemple.com</email>
+    <mot_de_passe>32ZA</mot_de_passe>
+    <specialite> Addictologie</specialite>
+    <photo>Images/MedecinGastro.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-Addictologie.jpg</cv>
+    <telephone>0643986543</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>6</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>7</id>
+    <nom>Martin</nom>
+    <prenom>Pierre</prenom>
+    <email>pierre.martin@exemple.com</email>
+    <mot_de_passe>RT65</mot_de_passe>
+    <specialite> Andrologie</specialite>
+    <photo>Images/MedecinAndrologie.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-Andrologie.jpg</cv>
+    <telephone>0712345476</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>7</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>8</id>
+    <nom>Leblanc</nom>
+    <prenom>Marie</prenom>
+    <email>marie.leblanc@exemple.com</email>
+    <mot_de_passe>EA12</mot_de_passe>
+    <specialite> Cardiologie</specialite>
+    <photo>Images/MedecinCardiologie.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-Cardiologie.jpg</cv>
+    <telephone>065290076</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>8</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>9</id>
+    <nom>Durand</nom>
+    <prenom>Sophie</prenom>
+    <email>sophie.durand@exemple.com</email>
+    <mot_de_passe>TY67</mot_de_passe>
+    <specialite>Dermatologie</specialite>
+    <photo>Images/MedecinDermatologie.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-Dermatologie.jpg</cv>
+    <telephone>0712345476</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>9</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>10</id>
+    <nom>Petit</nom>
+    <prenom>Claude</prenom>
+    <email>calude.petit@exemple.com</email>
+    <mot_de_passe>FV00</mot_de_passe>
+    <specialite> Gastro-Hépato-Entérologie</specialite>
+    <photo>Images/MedecinGastro.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-Gastro.jpg</cv>
+    <telephone>0641226788</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>10</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>11</id>
+    <nom>Moreau</nom>
+    <prenom>Alice</prenom>
+    <email>alice.moreau@exemple.com</email>
+    <mot_de_passe>NN90</mot_de_passe>
+    <specialite> Gynécologie</specialite>
+    <photo>Images/MedecinGynecologie.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-Gynécologie.jpg</cv>
+    <telephone>0644321223</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>11</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>12</id>
+    <nom>Lefèvre</nom>
+    <prenom>Marc</prenom>
+    <email>marc.lefevre@exemple.com</email>
+    <mot_de_passe>TY01</mot_de_passe>
+    <specialite> I.S.T.</specialite>
+    <photo>Images/MedecinIST.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-IST.jpg</cv>
+    <telephone>0743667432</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>12</administrateur_id>
+  </personnels_sante>
+  <personnels_sante>
+    <id>13</id>
+    <nom>Bernard</nom>
+    <prenom>Lucie</prenom>
+    <email>lucie.bernard@exemple.com</email>
+    <mot_de_passe>KJ87</mot_de_passe>
+    <specialite>Ostéopathie</specialite>
+    <photo>Images/MedecinOsteopathie.jpg</photo>
+    <video/>
+    <cv>Images/Médecin-en-Osteopathie.jpg</cv>
+    <telephone>0744368900</telephone>
+    <est_disponible>0</est_disponible>
+    <administrateur_id>13</administrateur_id>
+  </personnels_sante>
+  <Rendez_Vous>
+    <id>1</id>
+    <client_id>1</client_id>
+    <personnel_id>1</personnel_id>
+    <jour>01</jour>
+    <heure>08:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>2</id>
+    <client_id>3</client_id>
+    <personnel_id>1</personnel_id>
+    <jour>01</jour>
+    <heure>09:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>3</id>
+    <client_id>5</client_id>
+    <personnel_id>12</personnel_id>
+    <jour>01</jour>
+    <heure>09:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>4</id>
+    <client_id>6</client_id>
+    <personnel_id>10</personnel_id>
+    <jour>01</jour>
+    <heure>10:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>5</id>
+    <client_id>4</client_id>
+    <personnel_id>9</personnel_id>
+    <jour>01</jour>
+    <heure>11:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>6</id>
+    <client_id>2</client_id>
+    <personnel_id>3</personnel_id>
+    <jour>01</jour>
+    <heure>08:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>7</id>
+    <client_id>3</client_id>
+    <personnel_id>7</personnel_id>
+    <jour>01</jour>
+    <heure>08:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>8</id>
+    <client_id>9</client_id>
+    <personnel_id>5</personnel_id>
+    <jour>01</jour>
+    <heure>08:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_Vous>
+    <id>9</id>
+    <client_id>10</client_id>
+    <personnel_id>12</personnel_id>
+    <jour>01</jour>
+    <heure>08:00</heure>
+    <status>1</status>
+  </Rendez_Vous>
+  <Rendez_vous_Laboratoire>
+    <id>1</id>
+    <client_id>4</client_id>
+    <service_id>7</service_id>
+    <date_heure>2024-06-01T10:00:00</date_heure>
+  </Rendez_vous_Laboratoire>
+  <Rendez_vous_Laboratoire>
+    <id>2</id>
+    <client_id>8</client_id>
+    <service_id>2</service_id>
+    <date_heure>2024-06-02T11:00:00</date_heure>
+  </Rendez_vous_Laboratoire>
+  <Rendez_vous_Laboratoire>
+    <id>3</id>
+    <client_id>4</client_id>
+    <service_id>2</service_id>
+    <date_heure>2024-06-02T17:00:00</date_heure>
+  </Rendez_vous_Laboratoire>
+  <Rendez_vous_Laboratoire>
+    <id>4</id>
+    <client_id>2</client_id>
+    <service_id>11</service_id>
+    <date_heure>2024-06-07T15:00:00</date_heure>
+  </Rendez_vous_Laboratoire>
+  <Service_Laboratoire>
+    <id>1</id>
+    <nom_service>Test sanguin complet</nom_service>
+    <description>Un test sanguin complet pour vérifier les niveaux de globules rouges, globules blancs et plaquettes.</description>
+  </Service_Laboratoire>
+  <Service_Laboratoire>
+    <id>2</id>
+    <nom_service>Analyse d'urine</nom_service>
+    <description>Une analyse d'urine pour détecter les infections et d'autres anomalies.</description>
+  </Service_Laboratoire>
+  <Service_Laboratoire>
+    <id>3</id>
+    <nom_service>Depistage Covid</nom_service>
+    <description>Test PCR .</description>
+  </Service_Laboratoire>
+  <Service_Laboratoire>
+    <id>3</id>
+    <nom_service>Depistage IST</nom_service>
+    <description>Une analyse du sang pour détecter les infections sexuellement transmisibles.</description>
+  </Service_Laboratoire>
+  <client>
+    <carte_vitale>123</carte_vitale>
+    <Nom>TEST1</Nom>
+    <Prenom>TEST1</Prenom>
+    <email>TEST1@TEST.COM</email>
+    <mot_de_passe>123</mot_de_passe>
+    <Adresse>TEST</Adresse>
+    <Ville>TEST</Ville>
+    <Pays>TEST</Pays>
+    <Code_Postal>0123</Code_Postal>
+    <Telephone>0123456789</Telephone>
+    <Type_CB>Mastercard</Type_CB>
+    <Numero_CB>0123456789</Numero_CB>
+    <Date_Expiration_CB>2024-05-28</Date_Expiration_CB>
+    <Code_Securite_CB>1234</Code_Securite_CB>
+  </client>
 
 </Medicare>
