@@ -33,15 +33,27 @@ $availableSlots = [];
 for ($day = 1; $day <= 5; $day++) {
     // Créneaux du matin (8h00 - 12h00)
     $availableSlots[$day]['AM'] = [];
-    for ($hour = 8; $hour < 12; $hour++) {
-        $time = sprintf("%02d:00", $hour);
-        $availableSlots[$day]['AM'][] = $time;
-    }
     // Créneaux de l'après-midi (13h00 - 17h00)
     $availableSlots[$day]['PM'] = [];
-    for ($hour = 13; $hour < 17; $hour++) {
-        $time = sprintf("%02d:00", $hour);
-        $availableSlots[$day]['PM'][] = $time;
+
+    // Parcourir les disponibilités des médecins pour ce jour
+    foreach ($xml->disponibilite as $dispo) {
+        if ((int)$dispo->personnel_id == $id && (int)$dispo->jour == $day) {
+            // Ajouter les créneaux disponibles en fonction de la disponibilité du médecin
+            if ((int)$dispo->matin == 1) {
+                for ($hour = 8; $hour < 12; $hour++) {
+                    $time = sprintf("%02d:00", $hour);
+                    $availableSlots[$day]['AM'][] = $time;
+                }
+            }
+            if ((int)$dispo->apres_midi == 1) {
+                for ($hour = 13; $hour < 17; $hour++) {
+                    $time = sprintf("%02d:00", $hour);
+                    $availableSlots[$day]['PM'][] = $time;
+                }
+            }
+            break; // Sortir de la boucle dès que les disponibilités du médecin pour ce jour sont trouvées
+        }
     }
 }
 
@@ -225,42 +237,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
 
                 // Créneaux du matin
                 echo "<div class='time-slots-morning'>";
-                foreach ($slots['AM'] as $slot) {
-                    $slotIsAvailable = true;
-                    foreach ($appointments as $appointment) {
-                        if ($appointment['jour'] == $day && $appointment['heure'] == $slot) {
-                            $slotIsAvailable = false;
-                            break;
+                if (empty($slots['AM'])) {
+                    echo "Indisponible<br>";
+                } else {
+                    foreach ($slots['AM'] as $slot) {
+                        $slotIsAvailable = true;
+                        foreach ($appointments as $appointment) {
+                            if ($appointment['jour'] == $day && $appointment['heure'] == $slot) {
+                                $slotIsAvailable = false;
+                                break;
+                            }
                         }
-                    }
-                    if ($slotIsAvailable) {
-                        echo "<button class=\"time-slot available\" data-slot=\"$slot\">$slot</button><br>";
-                    } else {
-                        echo "<button class=\"time-slot unavailable\" disabled data-slot=\"$slot\">$slot (Pris)</button><br>";
+                        if ($slotIsAvailable) {
+                            echo "<button class=\"time-slot available\" data-slot=\"$slot\">$slot</button><br>";
+                        } else {
+                            echo "<button class=\"time-slot unavailable\" disabled data-slot=\"$slot\">$slot (Pris)</button><br>";
+                        }
                     }
                 }
                 echo "</div>";
+
 
                 // Ajout d'une ligne horizontale entre les créneaux du matin et de l'après-midi
                 echo "<hr>";
 
                 // Créneaux de l'après-midi
                 echo "<div class='time-slots-afternoon'>";
-                foreach ($slots['PM'] as $slot) {
-                    $slotIsAvailable = true;
-                    foreach ($appointments as $appointment) {
-                        if ($appointment['jour'] == $day && $appointment['heure'] == $slot) {
-                            $slotIsAvailable = false;
-                            break;
+                if (empty($slots['PM'])) {
+                    echo "Indisponible<br>";
+                } else {
+                    foreach ($slots['PM'] as $slot) {
+                        $slotIsAvailable = true;
+                        foreach ($appointments as $appointment) {
+                            if ($appointment['jour'] == $day && $appointment['heure'] == $slot) {
+                                $slotIsAvailable = false;
+                                break;
+                            }
                         }
-                    }
-                    if ($slotIsAvailable) {
-                        echo "<button class=\"time-slot available\" data-slot=\"$slot\">$slot</button><br>";
-                    } else {
-                        echo "<button class=\"time-slot unavailable\" disabled data-slot=\"$slot\">$slot (Pris)</button><br>";
+                        if ($slotIsAvailable) {
+                            echo "<button class=\"time-slot available\" data-slot=\"$slot\">$slot</button><br>";
+                        } else {
+                            echo "<button class=\"time-slot unavailable\" disabled data-slot=\"$slot\">$slot (Pris)</button><br>";
+                        }
                     }
                 }
                 echo "</div>";
+
 
                 echo "</td>";
             }

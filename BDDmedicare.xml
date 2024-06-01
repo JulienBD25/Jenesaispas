@@ -98,9 +98,37 @@
   <disponibilite>
     <id>1</id>
     <personnel_id>1</personnel_id>
-    <jour>05</jour>
+    <jour>01</jour>
     <matin>1</matin>
     <apres_midi>0</apres_midi>
+  </disponibilite>
+  <disponibilite>
+    <id>1</id>
+    <personnel_id>1</personnel_id>
+    <jour>02</jour>
+    <matin>1</matin>
+    <apres_midi>1</apres_midi>
+  </disponibilite>
+  <disponibilite>
+    <id>1</id>
+    <personnel_id>1</personnel_id>
+    <jour>03</jour>
+    <matin>0</matin>
+    <apres_midi>1</apres_midi>
+  </disponibilite>
+  <disponibilite>
+    <id>1</id>
+    <personnel_id>1</personnel_id>
+    <jour>04</jour>
+    <matin>1</matin>
+    <apres_midi>0</apres_midi>
+  </disponibilite>
+  <disponibilite>
+    <id>1</id>
+    <personnel_id>1</personnel_id>
+    <jour>05</jour>
+    <matin>1</matin>
+    <apres_midi>1</apres_midi>
   </disponibilite>
   <disponibilite>
     <id>2</id>
