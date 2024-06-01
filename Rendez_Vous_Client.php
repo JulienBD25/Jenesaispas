@@ -1,105 +1,58 @@
 <?php
-
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
 
-// Récupérer les informations du médecin à partir de l'URL
-$id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : '';
-$nom = isset($_GET['nom']) ? htmlspecialchars($_GET['nom']) : '';
-$specialite = isset($_GET['specialite']) ? htmlspecialchars($_GET['specialite']) : '';
+// Informations du client
+$id = 1;
 
-// Fonction pour récupérer tous les rendez-vous du médecin
-function getDoctorAppointments($xml, $doctor_id) {
+// Fonction pour récupérer les rendez-vous du client
+function getPatientAppointments($xml, $patient_id) {
     $appointments = [];
     foreach ($xml->Rendez_Vous as $rdv) {
-        if ((int)$rdv->personnel_id == $doctor_id) {
+        if ((int)$rdv->client_id == $patient_id) {
             $appointment = [];
+            $appointment['id'] = (int)$rdv->id;
+            $appointment['personnel_id'] = (int)$rdv->personnel_id;
             $appointment['jour'] = (int)$rdv->jour;
             $appointment['heure'] = (string)$rdv->heure;
+            $appointment['status'] = (int)$rdv->status;
+
+            // Rechercher les informations du personnel
+            foreach ($xml->personnels_sante as $personnel) {
+                if ((int)$personnel->id == $appointment['personnel_id']) {
+                    $appointment['personnel_nom'] = (string)$personnel->nom;
+                    $appointment['personnel_prenom'] = (string)$personnel->prenom;
+                    $appointment['personnel_specialite'] = (string)$personnel->specialite;
+                    break;
+                }
+            }
+
             $appointments[] = $appointment;
         }
     }
     return $appointments;
 }
 
-// Appeler la fonction pour obtenir tous les rendez-vous du médecin
-$appointments = getDoctorAppointments($xml, $id);
 
+// Appeler la fonction pour obtenir les rendez-vous du médecin
+$appointments = getPatientAppointments($xml, $id);
 
-// Définir les créneaux horaires disponibles pour chaque jour de la semaine
-$availableSlots = [];
+// Fonction pour traduire les noms des jours de l'anglais au français
+function translateDay($english_day) {
+    $english_days = array(
+        'Monday' => 'Lundi',
+        'Tuesday' => 'Mardi',
+        'Wednesday' => 'Mercredi',
+        'Thursday' => 'Jeudi',
+        'Friday' => 'Vendredi',
+        'Saturday' => 'Samedi',
+        'Sunday' => 'Dimanche'
+    );
 
-// Boucle pour chaque jour de la semaine
-for ($day = 1; $day <= 5; $day++) {
-    // Créneaux du matin (8h00 - 12h00)
-    $availableSlots[$day]['AM'] = [];
-    // Créneaux de l'après-midi (13h00 - 17h00)
-    $availableSlots[$day]['PM'] = [];
-
-    // Parcourir les disponibilités des médecins pour ce jour
-    foreach ($xml->disponibilite as $dispo) {
-        if ((int)$dispo->personnel_id == $id && (int)$dispo->jour == $day) {
-            // Ajouter les créneaux disponibles en fonction de la disponibilité du médecin
-            if ((int)$dispo->matin == 1) {
-                for ($hour = 8; $hour < 12; $hour++) {
-                    $time = sprintf("%02d:00", $hour);
-                    $availableSlots[$day]['AM'][] = $time;
-                }
-            }
-            if ((int)$dispo->apres_midi == 1) {
-                for ($hour = 13; $hour < 17; $hour++) {
-                    $time = sprintf("%02d:00", $hour);
-                    $availableSlots[$day]['PM'][] = $time;
-                }
-            }
-            break; // Sortir de la boucle dès que les disponibilités du médecin pour ce jour sont trouvées
-        }
-    }
-}
-
-// Vérifie si un rendez-vous est envoyé en POST
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST['slot'])) {
-    $day = $_POST['day'];
-    $slot = $_POST['slot'];
-    $patientID = uniqid(); // Générer un ID unique pour le patient (peut être amélioré)
-
-    // Trouver le plus grand ID existant
-    $maxID = 0;
-    foreach ($xml->Rendez_Vous as $rdv) {
-        $idrdv = (int)$rdv->id;
-        if ($idrdv > $maxID) {
-            $maxID = $idrdv;
-        }
-    }
-
-    // Incrémenter l'ID pour obtenir le nouvel ID
-    $newID = $maxID + 1;
-
-    // Ajouter le rendez-vous au XML avec le nouvel ID
-    $newAppointment = $xml->addChild('Rendez_Vous');
-    $newAppointment->addChild('id', $newID); // Utiliser le nouvel ID
-    $newAppointment->addChild('client_id', $patientID); // ID du patient
-    $newAppointment->addChild('personnel_id', $id); // ID du médecin
-    $newAppointment->addChild('jour', $day); // Jour du rendez-vous
-    $newAppointment->addChild('heure', $slot); // Heure du rendez-vous
-    $newAppointment->addChild('status', '1'); // Statut du rendez-vous (peut être modifié selon les besoins)
-
-    // Convertir le SimpleXMLElement en chaîne XML formatée
-    $xmlString = $xml->asXML();
-
-    // Créer un nouveau document DOM à partir de la chaîne XML
-    $dom = new DOMDocument;
-    $dom->preserveWhiteSpace = false;
-    $dom->formatOutput = true;
-    $dom->loadXML($xmlString);
-
-    // Sauvegarder les modifications dans le fichier XML
-    $dom->save('BDDmedicare.xml');
+    return $english_days[$english_day];
 }
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -114,56 +67,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!-- Dernier JavaScript compilé -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".time-slot.available").click(function() {
-                var slot = $(this).text().trim(); // Récupérer l'heure du créneau
-                var day = $(this).closest("td").index() - 1; // Récupérer l'indice du jour
-                var doctorID = "<?php echo $id; ?>"; // Récupérer l'ID du médecin
-                var patientID = "<?php echo uniqid(); ?>"; // Générer un ID unique pour le patient (peut être amélioré)
-                // Envoyer les données à un script PHP pour enregistrer le rendez-vous
-                $.post("", { day: day, slot: slot, doctor_id: doctorID, patient_id: patientID }, function(data) {
-
-                    alert("Rendez-vous pris avec succès à " + slot + " !");
-                    // Recharger la page pour afficher les mises à jour
-                    location.reload();
-
-                });
-            });
-        });
-    </script>
     <style>
-        /* Style général des boutons */
-        .time-slot {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+
+        main {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
         }
 
-        /* Style des boutons disponibles */
-        .time-slot.available {
-            background-color: #4CAF50;
-            color: white;
+        main h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #333;
         }
 
-        /* Style des boutons non disponibles */
-        .time-slot.unavailable {
-            background-color: #f44336;
-            color: white;
+        .list-group-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 15px;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
-        /* Effet au survol */
-        .time-slot:hover {
-            opacity: 0.8;
+        .list-group-item:hover {
+            background-color: #f1f1f1;
+            border-color: #ccc;
         }
+
+        .list-group-item strong {
+            color: #007bff;
+        }
+
 
     </style>
-
 </head>
 <body>
 <header>
@@ -210,90 +149,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
 
 <main>
     <div class="container">
-        <h2>Prendre rendez-vous</h2>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Specialité</th>
-                <th>Médecin</th>
-                <th>Lundi</th>
-                <th>Mardi</th>
-                <th>Mercredi</th>
-                <th>Jeudi</th>
-                <th>Vendredi</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <?php
-            // Afficher les informations du médecin
-            echo "<tr>
-                <td>$specialite</td>
-                <td>$nom</td>";
-
-            // Parcourir les jours de la semaine et générer les créneaux disponibles
-            foreach ($availableSlots as $day => $slots) {
-                echo "<td>";
-
-                // Créneaux du matin
-                echo "<div class='time-slots-morning'>";
-                if (empty($slots['AM'])) {
-                    echo "Indisponible<br>";
-                } else {
-                    foreach ($slots['AM'] as $slot) {
-                        $slotIsAvailable = true;
-                        foreach ($appointments as $appointment) {
-                            if ($appointment['jour'] == $day && $appointment['heure'] == $slot) {
-                                $slotIsAvailable = false;
-                                break;
-                            }
-                        }
-                        if ($slotIsAvailable) {
-                            echo "<button class=\"time-slot available\" data-slot=\"$slot\">$slot</button><br>";
-                        } else {
-                            echo "<button class=\"time-slot unavailable\" disabled data-slot=\"$slot\">$slot (Pris)</button><br>";
-                        }
-                    }
-                }
-                echo "</div>";
-
-
-                // Ajout d'une ligne horizontale entre les créneaux du matin et de l'après-midi
-                echo "<hr>";
-
-                // Créneaux de l'après-midi
-                echo "<div class='time-slots-afternoon'>";
-                if (empty($slots['PM'])) {
-                    echo "Indisponible<br>";
-                } else {
-                    foreach ($slots['PM'] as $slot) {
-                        $slotIsAvailable = true;
-                        foreach ($appointments as $appointment) {
-                            if ($appointment['jour'] == $day && $appointment['heure'] == $slot) {
-                                $slotIsAvailable = false;
-                                break;
-                            }
-                        }
-                        if ($slotIsAvailable) {
-                            echo "<button class=\"time-slot available\" data-slot=\"$slot\">$slot</button><br>";
-                        } else {
-                            echo "<button class=\"time-slot unavailable\" disabled data-slot=\"$slot\">$slot (Pris)</button><br>";
-                        }
-                    }
-                }
-                echo "</div>";
-
-
-                echo "</td>";
-            }
-            ?>
-
-
-
-            </tbody>
-        </table>
+        <h2>Vos rendez-vous</h2>
+        <?php if (!empty($appointments)): ?>
+            <ul class="list-group">
+                <?php foreach ($appointments as $appointment): ?>
+                    <li class="list-group-item">
+                        <strong>Personnel et Spécialité :</strong> <?= $appointment['personnel_nom'] . " " . $appointment['personnel_prenom'] . " - " . $appointment['personnel_specialite'] ?>,
+                        <strong>Jour :</strong> <?= translateDay(date('l', strtotime("Sunday +{$appointment['jour']} days"))) ?>,
+                        <strong>Heure :</strong> <?= $appointment['heure'] ?>,
+                        <strong>Statut :</strong> <?= ($appointment['status'] == 1) ? "Confirmé" : "Annulé" ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>Aucun rendez-vous trouvé.</p>
+        <?php endif; ?>
     </div>
 </main>
+
+
 
 <footer>
     <div class="footer-content">
@@ -308,7 +182,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
     </div>
 </footer>
 
-<script src="scripts.js"></style>
+<script src="scripts.js"></script>
 </body>
 </html>
-
