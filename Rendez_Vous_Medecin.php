@@ -111,7 +111,7 @@ function translateDay($english_day) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Accueil.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir_Medecin.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">

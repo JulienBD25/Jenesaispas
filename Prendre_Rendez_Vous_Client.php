@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Accueil.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
@@ -196,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
             </li>
             <li><a href="Recherche.html">Recherche</a></li>
             <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Accueil.html">Votre Compte</a>
+            <li><a href="Accueil.php">Votre Compte</a>
                 <ul class="dropdown-menu">
                     <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
                     <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>

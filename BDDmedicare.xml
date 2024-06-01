@@ -26,6 +26,7 @@
     <code_securite_carte>123</code_securite_carte>
   </client>
   <client>
+    <id>2</id>
     <carte_vitale>123</carte_vitale>
     <Nom>TEST</Nom>
     <Prenom>TEST</Prenom>
@@ -42,6 +43,7 @@
     <Code_Securite_CB>1234</Code_Securite_CB>
   </client>
   <client>
+    <id>3</id>
     <carte_vitale>123</carte_vitale>
     <Nom>TEST</Nom>
     <Prenom>TEST</Prenom>
@@ -58,7 +60,7 @@
     <Code_Securite_CB>1234</Code_Securite_CB>
   </client>
   <client>
-    <id>2</id>
+    <id>4</id>
     <nom>Thomas</nom>
     <prenom>Bernadette</prenom>
     <adresse>13 Rue du Theatre</adresse>
@@ -76,7 +78,7 @@
     <code_securite_carte>321</code_securite_carte>
   </client>
   <client>
-    <id>3</id>
+    <id>5</id>
     <nom>Robert</nom>
     <prenom>Alice</prenom>
     <adresse>42 Rue de Rivolo</adresse>
@@ -94,7 +96,7 @@
     <code_securite_carte>656</code_securite_carte>
   </client>
   <client>
-    <id>5</id>
+    <id>6</id>
     <nom>Blanc</nom>
     <prenom>Martine</prenom>
     <adresse>29 Rue du Temple</adresse>

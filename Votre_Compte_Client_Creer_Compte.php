@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_member'])) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Accueil.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_member'])) {
                             <li><a href="Dermatologie.php">Dermatologie</a></li>
                             <li><a href="Gastro-Hépato-Entérologie.php">Gastro-Hépato-Entérologie</a></li>
                             <li><a href="Gynécologie.php">Gynécologie</a></li>
-                            <li><a href="I.S.T..php">I.S.T.</a></li>
+                            <li><a href="I.S.T.php">I.S.T.</a></li>
                             <li><a href="Ostéopathie.php">Ostéopathie</a></li>
                         </ul>
                     </li>
@@ -163,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_member'])) {
                 </ul>
             </li>
             <li><a href="Rechercher.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
+            <li><a href="Rendez_Vous.php">Rendez-vous</a></li>
             <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
                     <li><a href="Votre_Compte_Client_Se_Connecter.php">Client</a></li>

@@ -1,9 +1,15 @@
 <?php
+
+
+// Démarrer la session
+session_start();
+
+// Accéder aux informations stockées dans la session pour le client
+$id = $_SESSION['client_id'];
+
+
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
-
-// Informations du client
-$id = 1;
 
 // Fonction pour récupérer les rendez-vous du client
 function getPatientAppointments($xml, $patient_id) {
@@ -138,7 +144,7 @@ function translateDay($english_day) {
             <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
                     <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
-                    <li><a href="Accueil.html">Deconnexion</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>

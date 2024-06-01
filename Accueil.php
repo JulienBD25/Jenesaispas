@@ -1,3 +1,10 @@
+<?php
+
+// Détruire la session
+session_destroy();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
