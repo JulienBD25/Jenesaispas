@@ -42,6 +42,22 @@
     <Code_Securite_CB>1234</Code_Securite_CB>
   </client>
   <client>
+    <carte_vitale>123</carte_vitale>
+    <Nom>TEST</Nom>
+    <Prenom>TEST</Prenom>
+    <email>test@gmail.com</email>
+    <mot_de_passe>test</mot_de_passe>
+    <Adresse>TEST</Adresse>
+    <Ville>TEST</Ville>
+    <Pays>TEST</Pays>
+    <Code_Postal>123</Code_Postal>
+    <Telephone>0123456789</Telephone>
+    <Type_CB>American Express</Type_CB>
+    <Numero_CB>0123456789</Numero_CB>
+    <Date_Expiration_CB>2024-05-29</Date_Expiration_CB>
+    <Code_Securite_CB>1234</Code_Securite_CB>
+  </client>
+  <client>
     <id>2</id>
     <nom>Thomas</nom>
     <prenom>Bernadette</prenom>

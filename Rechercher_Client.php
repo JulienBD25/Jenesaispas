@@ -161,7 +161,7 @@ $xml = loadXMLFile($xmlFile);
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
             <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
                     <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
