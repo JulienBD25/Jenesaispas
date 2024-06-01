@@ -121,7 +121,7 @@ foreach ($xml->personnels_sante as $personnel) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Client.html">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">

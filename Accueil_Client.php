@@ -1,3 +1,9 @@
+<?php
+// Démarrer la session sur la page où vous souhaitez récupérer l'ID de l'utilisateur
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

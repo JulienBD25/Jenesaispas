@@ -90,7 +90,7 @@ session_destroy();
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Accueil.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">

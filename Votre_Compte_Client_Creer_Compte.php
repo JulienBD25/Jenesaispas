@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_member'])) {
             if ($xml->asXML($xmlFile)) {
                 // Afficher un message de succès
                 echo "<p class='success'>Membre ajouté avec succès!</p>";
-                header('Location: Accueil_Client.html');
+                header('Location: Accueil_Client.php');
                 exit();
             } else {
                 echo "<p class='error'>Erreur lors de la sauvegarde du fichier XML.</p>";

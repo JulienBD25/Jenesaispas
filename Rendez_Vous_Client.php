@@ -1,15 +1,22 @@
 <?php
 
-
 // Démarrer la session
 session_start();
 
-// Accéder aux informations stockées dans la session pour le client
-$id = $_SESSION['client_id'];
-
+// Vérifier si l'ID de l'utilisateur est défini dans la session
+if(isset($_SESSION['client_id'])) {
+    // Afficher l'ID de l'utilisateur
+    echo "ID de l'utilisateur : " . $_SESSION['client_id'];
+} else {
+    // Si l'ID de l'utilisateur n'est pas défini dans la session, afficher un message d'erreur
+    echo "ID de l'utilisateur non trouvé dans la session.";
+}
 
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
+
+// Accéder aux informations stockées dans la session pour le client
+$id = $_SESSION['client_id'];
 
 // Fonction pour récupérer les rendez-vous du client
 function getPatientAppointments($xml, $patient_id) {
@@ -118,7 +125,7 @@ function translateDay($english_day) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Client.html">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
@@ -143,7 +150,7 @@ function translateDay($english_day) {
             <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
             <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
@@ -153,6 +160,7 @@ function translateDay($english_day) {
 
 
 <main>
+
     <div class="container">
         <h2>Vos rendez-vous</h2>
         <?php if (!empty($appointments)): ?>

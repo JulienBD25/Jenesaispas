@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($connexion_reussie) {
         // L'utilisateur est authentifié avec succès, rediriger vers la page d'accueil du médecin
-        header('Location: Accueil_Client.html');
+        header('Location: Accueil_Client.php');
         exit;
     } else {
         // L'utilisateur n'existe pas ou les identifiants sont incorrects
