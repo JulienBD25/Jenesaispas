@@ -402,9 +402,6 @@
 
 
 
-
-
-
   <Rendez_Vous>
     <id>10</id>
     <client_id>1</client_id>
@@ -565,15 +562,6 @@
     <heure>11:00</heure>
     <status>1</status>
   </Rendez_Vous>
-
-
-
-
-
-
-
-
-
 
 
 
