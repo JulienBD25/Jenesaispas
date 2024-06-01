@@ -89,46 +89,46 @@ foreach ($xml->Service_Laboratoire as $service) {
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        .specialists-title {
-            text-align: center;
-            color: #005f8c;
-            margin-bottom: 30px;
-        }
-        .service-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .service {
-            border: 1px solid #ccc;
-            padding: 1rem;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-        .service-info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .service-info h3 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        .service-info p {
-            margin: 0.2rem 0;
-        }
-        .actions {
-            display: flex;
-            flex-direction: row;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
+            .specialists-title {
+                text-align: center;
+                color: #005f8c;
+                margin-bottom: 30px;
+            }
+            .service-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .service {
+                border: 1px solid #ccc;
+                padding: 1rem;
+                background-color: white;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+            }
+            .service-info {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .service-info h3 {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+            }
+            .service-info p {
+                margin: 0.2rem 0;
+            }
+            .actions {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
 
-        .btn:hover {
-            background-color: #005f8c;
-        }
+            .btn:hover {
+                background-color: #005f8c;
+            }
 
     </style>
 </head>
