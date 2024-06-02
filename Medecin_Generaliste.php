@@ -131,7 +131,7 @@ foreach ($xml->personnels_sante as $personnel) {
                             <li><a href="Ostéopathie.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo.html">Test en Labo</a></li>
+                    <li><a href="Test_Labo.php">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher.php">Recherche</a></li>

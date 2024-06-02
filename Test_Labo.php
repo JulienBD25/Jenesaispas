@@ -158,7 +158,7 @@ foreach ($xml->Service_Laboratoire as $service) {
                             <li><a href="Ostéopathie_Client.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Client.php">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Client.php">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Recherche.html">Recherche</a></li>
@@ -177,9 +177,6 @@ foreach ($xml->Service_Laboratoire as $service) {
                         <div class="service-info">
                             <h3><?= htmlspecialchars($service->nom_service) ?></h3>
                             <p><?= htmlspecialchars($service->description) ?></p>
-                            <div class="actions">
-                                <a href="Rendez_Vous_Labo_Client.php?id=<?= $service->id ?>" class="btn">Prendre Rendez-vous</a>
-                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>

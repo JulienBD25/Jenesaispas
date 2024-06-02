@@ -43,7 +43,7 @@
                             <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher.php">Recherche</a></li>
