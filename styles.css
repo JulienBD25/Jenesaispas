@@ -26,10 +26,10 @@ header {
 }
 
 .header-top h1 {
-    font-size: 2rem; /* Augmente la taille de la police */
+    font-size: 2rem;
     margin: 0;
-    letter-spacing: 2px; /* Ajoute de l'espacement entre les lettres */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Ajoute une ombre portée légère */
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 nav {
@@ -59,7 +59,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: white;
-    color: #005f8c; /* Change text color on hover */
+    color: #005f8c;
     border-radius: 5px;
 }
 
@@ -102,7 +102,7 @@ nav ul .dropdown-menu li a {
 nav ul ul li a:hover,
 nav ul .dropdown-menu li a:hover {
     background-color: white;
-    color: #0073b1; /* Change text color on hover */
+    color: #0073b1;
 }
 
 main {

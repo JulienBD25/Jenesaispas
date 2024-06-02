@@ -115,7 +115,7 @@ function translateDay($english_day) {
             color: #333;
         }
         .cancel-btn {
-            font-size: 15px; /* ou toute autre taille de police souhaitée */
+            font-size: 15px;
         }
 
         .list-group-item {
@@ -192,7 +192,7 @@ function translateDay($english_day) {
                         <strong>Heure :</strong> <?= $appointment['heure'] ?>,
                         <strong>Statut :</strong> <?= ($appointment['status'] == 1) ? "Confirmé" : "Annulé" ?>
 
-                        <?php if ($appointment['status'] == 1): // Afficher le bouton "Annuler" seulement si le rendez-vous est confirmé ?>
+                        <?php if ($appointment['status'] == 1):?>
                             <form method="post" action="" style="display:inline;">
                                 <input type="hidden" name="appointment_id" value="<?= $appointment['id'] ?>">
                                 <button type="submit" name="cancel_appointment" class="btn btn-danger btn-sm cancel-btn">Annuler</button>
