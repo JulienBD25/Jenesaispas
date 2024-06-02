@@ -106,7 +106,7 @@ session_start();
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
             <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
-            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
                 <ul class="dropdown-menu">
                     <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
