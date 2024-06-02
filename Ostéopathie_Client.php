@@ -188,6 +188,8 @@ foreach ($xml->personnels_sante as $personnel) {
             <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
             <li><i class="fas fa-map-marker-alt"></i> 16 rue Sextius Michel, Paris, France</li>
         </ul>
+
+    </div>
 </footer>
 <script>
     function showCV(id) {

@@ -15,7 +15,7 @@ foreach ($xml->personnels_sante as $personnel) {
     $specialite_trimmed = trim($specialite);
     $specialite_lower = strtolower($specialite_trimmed);
 
-    if ($specialite_lower == 'ist') {
+    if ($specialite_lower == 'i.s.t.') {
         $ist[] = $personnel;
     }
 }
