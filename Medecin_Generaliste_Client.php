@@ -135,10 +135,10 @@ foreach ($xml->personnels_sante as $personnel) {
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
@@ -154,7 +154,8 @@ foreach ($xml->personnels_sante as $personnel) {
                     <div class="doctor">
                         <img src="<?= htmlspecialchars($generaliste->photo) ?>" alt="Photo de <?= htmlspecialchars($generaliste->nom) ?>">
                         <div class="doctor-info">
-                            <h3><?= htmlspecialchars($generaliste->nom . ' ' . $generaliste->prenom) ?></h3>
+                            <h3><a href="Details_Medecin_Client.php?id=<?= $generaliste->id ?>" class="doctor-name-link"><?= htmlspecialchars($generaliste->nom . ' ' . $generaliste->prenom) ?></a>
+                            </h3>
                             <p><?= htmlspecialchars($generaliste->specialite) ?></p>
                             <div class="actions">
                                 <button class="btn" onclick="showCV('cv-<?= $generaliste->id ?>')">Voir CV</button>

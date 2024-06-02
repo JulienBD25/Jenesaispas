@@ -1,26 +1,16 @@
 <?php
-// Démarrer la session
-session_start();
-
-// Vérifier si l'ID de l'utilisateur est défini dans la session
-// if(isset($_SESSION['client_id'])) {
-//     echo "ID de l'utilisateur : " . $_SESSION['client_id'];
-// } else {
-//     echo "ID de l'utilisateur non trouvé dans la session.";
-// }
 
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
 
-// Accéder aux informations stockées dans la session pour le client
-$id = $_SESSION['medecin_id'];
-
+// Récupérer les informations du médecin à partir de l'URL
+$id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : '';
 
 // Rechercher le personnel de santé dans le fichier XML en fonction de son ID
 $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -82,11 +72,11 @@ $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Medecin.html">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir_Medecin.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Medecin_Generaliste_Medecin.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
                         <a href="#">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
@@ -103,11 +93,11 @@ $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
                     <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Rechercher_Medecin.php">Recherche</a></li>
-            <li><a href="Rendez_Vous_Medecin.php">Rendez-vous</a></li>
-            <li><a href="Votre_Profil_Medecin.php">Votre Compte</a>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Profil_Medecin.php">Votre Profil</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
@@ -120,16 +110,16 @@ $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
     <!------------------------  A Remplir  ------------------------>
 
     <div class="container">
-        <h2>Votre Profil</h2>
+        <h2>Détails du Médecin</h2>
         <div>
-            <p><strong>Nom :</strong> <?= htmlspecialchars($personnel->nom) ?></p>
-            <p><strong>Prénom :</strong> <?= htmlspecialchars($personnel->prenom) ?></p>
-            <p><strong>Email :</strong> <?= htmlspecialchars($personnel->email) ?></p>
-            <p><strong>Spécialité :</strong> <?= htmlspecialchars($personnel->specialite) ?></p>
-            <p><strong>Téléphone :</strong> <?= htmlspecialchars($personnel->telephone) ?></p>
-            <p><strong>Disponibilité :</strong> <?= $personnel->est_disponible == 1 ? 'Disponible' : 'Non disponible' ?></p>
-            <p><strong>Photo :</strong> <img src="<?= htmlspecialchars($personnel->photo) ?>" alt="Photo de <?= htmlspecialchars($personnel->nom) ?>" style="width:150px;height:auto;"></p>
-            <p><strong>CV :</strong> <a href="<?= htmlspecialchars($personnel->cv) ?>" target="_blank">Voir le CV</a></p>
+            <p><strong>Nom:</strong> <?= htmlspecialchars($personnel->nom) ?></p>
+            <p><strong>Prénom:</strong> <?= htmlspecialchars($personnel->prenom) ?></p>
+            <p><strong>Email:</strong> <?= htmlspecialchars($personnel->email) ?></p>
+            <p><strong>Spécialité:</strong> <?= htmlspecialchars($personnel->specialite) ?></p>
+            <p><strong>Téléphone:</strong> <?= htmlspecialchars($personnel->telephone) ?></p>
+            <p><strong>Disponibilité:</strong> <?= $personnel->est_disponible == 1 ? 'Disponible' : 'Non disponible' ?></p>
+            <p><strong>Photo:</strong> <img src="<?= htmlspecialchars($personnel->photo) ?>" alt="Photo de <?= htmlspecialchars($personnel->nom) ?>" style="width:150px;height:auto;"></p>
+            <p><strong>CV:</strong> <a href="<?= htmlspecialchars($personnel->cv) ?>" target="_blank">Voir le CV</a></p>
         </div>
     </div>
 
