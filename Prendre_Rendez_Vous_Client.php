@@ -55,7 +55,7 @@ for ($day = 1; $day <= 5; $day++) {
                     $availableSlots[$day]['PM'][] = $time;
                 }
             }
-            break; // Sortir de la boucle dès que les disponibilités du médecin pour ce jour sont trouvées
+            break;
         }
     }
 }
@@ -80,12 +80,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
 
     // Ajouter le rendez-vous au XML avec le nouvel ID
     $newAppointment = $xml->addChild('Rendez_Vous');
-    $newAppointment->addChild('id', $newID); // Utiliser le nouvel ID
-    $newAppointment->addChild('client_id', $patientID); // ID du patient
-    $newAppointment->addChild('personnel_id', $id); // ID du médecin
-    $newAppointment->addChild('jour', $day); // Jour du rendez-vous
-    $newAppointment->addChild('heure', $slot); // Heure du rendez-vous
-    $newAppointment->addChild('status', '1'); // Statut du rendez-vous (peut être modifié selon les besoins)
+    $newAppointment->addChild('id', $newID);
+    $newAppointment->addChild('client_id', $patientID);
+    $newAppointment->addChild('personnel_id', $id);
+    $newAppointment->addChild('jour', $day);
+    $newAppointment->addChild('heure', $slot);
+    $newAppointment->addChild('status', '1');
 
     // Convertir le SimpleXMLElement en chaîne XML formatée
     $xmlString = $xml->asXML();
@@ -120,10 +120,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
     <script>
         $(document).ready(function() {
             $(".time-slot.available").click(function() {
-                var slot = $(this).text().trim(); // Récupérer l'heure du créneau
-                var day = $(this).closest("td").index() - 1; // Récupérer l'indice du jour
-                var doctorID = "<?php echo $id; ?>"; // Récupérer l'ID du médecin
-                var patientID = "<?php echo uniqid(); ?>"; // Générer un ID unique pour le patient (peut être amélioré)
+                var slot = $(this).text().trim();
+                var day = $(this).closest("td").index() - 1;
+                var doctorID = "<?php echo $id; ?>";
+                var patientID = "<?php echo uniqid(); ?>";
                 // Envoyer les données à un script PHP pour enregistrer le rendez-vous
                 $.post("", { day: day, slot: slot, doctor_id: doctorID, patient_id: patientID }, function(data) {
 
@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
         });
     </script>
     <style>
-        /* Style général des boutons */
+
         .time-slot {
             display: inline-block;
             padding: 10px 20px;
@@ -148,19 +148,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
             transition: background-color 0.3s;
         }
 
-        /* Style des boutons disponibles */
         .time-slot.available {
             background-color: #4CAF50;
             color: white;
         }
 
-        /* Style des boutons non disponibles */
         .time-slot.unavailable {
             background-color: #f44336;
             color: white;
         }
 
-        /* Effet au survol */
         .time-slot:hover {
             opacity: 0.8;
         }
@@ -260,7 +257,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
                 echo "</div>";
 
 
-                // Ajout d'une ligne horizontale entre les créneaux du matin et de l'après-midi
+                // Ligne horizontale
                 echo "<hr>";
 
                 // Créneaux de l'après-midi

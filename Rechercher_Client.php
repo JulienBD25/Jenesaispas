@@ -1,5 +1,5 @@
 <?php
-// Activer l'affichage des erreurs
+// Afficher les erreurs
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 

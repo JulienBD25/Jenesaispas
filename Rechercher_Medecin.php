@@ -1,5 +1,5 @@
 <?php
-// Activer l'affichage des erreurs
+// Affciher les erreurs
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -280,7 +280,6 @@ $xml = loadXMLFile($xmlFile);
                     echo "<p> " . htmlspecialchars($member->nom) . "  " . htmlspecialchars($member->prenom) . "</p>";
                     echo "<p>Spécialité: " . htmlspecialchars($member->specialite) . "</p>";
 
-                    // Boutons cliquables
                     echo "<div class='actions'>";
                     echo "<a href='" . htmlspecialchars($member->cv) . "' class='btn'>Voir le CV</a>";
                     echo "<a href='Votre_Compte.html" . htmlspecialchars($member->telephone) . "' class='btn'>Chattez</a>";
