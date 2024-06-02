@@ -140,13 +140,13 @@ foreach ($xml->Service_Laboratoire as $service) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.php">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Medecins_specialistes_Client.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
-                        <a href="#">Médecins Spécialistes</a>
+                        <a href="Medecins_specialistes_Client.php">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
                             <li><a href="Addictologie_Client.php">Addictologie</a></li>
                             <li><a href="Andrologie_Client.php">Andrologie</a></li>
@@ -154,16 +154,21 @@ foreach ($xml->Service_Laboratoire as $service) {
                             <li><a href="Dermatologie_Client.php">Dermatologie</a></li>
                             <li><a href="Gastro-Hépato-Entérologie_Client.php">Gastro-Hépato-Entérologie</a></li>
                             <li><a href="Gynécologie_Client.php">Gynécologie</a></li>
-                            <li><a href="IST_Client.php">I.S.T.</a></li>
+                            <li><a href="I.S.T._Client.php">I.S.T.</a></li>
                             <li><a href="Ostéopathie_Client.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Client.php">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Client.php">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
             <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
-            <li><a href="Votre_Compte.html">Votre Compte</a></li>
+            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>
