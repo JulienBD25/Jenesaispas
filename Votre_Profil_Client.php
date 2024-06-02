@@ -1,5 +1,4 @@
 <?php
-
 // Démarrer la session
 session_start();
 
@@ -16,129 +15,65 @@ $xml = simplexml_load_file('BDDmedicare.xml');
 // Accéder aux informations stockées dans la session pour le client
 $id = $_SESSION['client_id'];
 
-// Fonction pour récupérer les rendez-vous du client
-function getPatientAppointments($xml, $patient_id) {
-    $appointments = [];
-    foreach ($xml->Rendez_Vous as $rdv) {
-        if ((int)$rdv->client_id == $patient_id) {
-            $appointment = [];
-            $appointment['id'] = (int)$rdv->id;
-            $appointment['personnel_id'] = (int)$rdv->personnel_id;
-            $appointment['jour'] = (int)$rdv->jour;
-            $appointment['heure'] = (string)$rdv->heure;
-            $appointment['status'] = (int)$rdv->status;
 
-            // Rechercher les informations du personnel
-            foreach ($xml->personnels_sante as $personnel) {
-                if ((int)$personnel->id == $appointment['personnel_id']) {
-                    $appointment['personnel_nom'] = (string)$personnel->nom;
-                    $appointment['personnel_prenom'] = (string)$personnel->prenom;
-                    $appointment['personnel_specialite'] = (string)$personnel->specialite;
-                    break;
-                }
-            }
+// Rechercher le client dans le fichier XML en fonction de son ID
+$client = $xml->xpath("//client[id='$id']")[0];
 
-            $appointments[] = $appointment;
-        }
-    }
-    return $appointments;
-}
-
-// Traitement de l'annulation du rendez-vous
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cancel_appointment'])) {
-    $appointment_id = (int)$_POST['appointment_id'];
-
-    foreach ($xml->Rendez_Vous as $rdv) {
-        if ((int)$rdv->id == $appointment_id && (int)$rdv->client_id == $id) {
-            $rdv->status = 0; // Mettre à jour le statut à "0" pour annuler le rendez-vous
-            break;
-        }
-    }
-
-    // Sauvegarder les modifications dans le fichier XML
-    $xml->asXML('BDDmedicare.xml');
-
-    // Rediriger pour éviter le rechargement du formulaire
-    header('Location: ' . $_SERVER['PHP_SELF']);
-    exit;
-}
-
-// Appeler la fonction pour obtenir les rendez-vous du client
-$appointments = getPatientAppointments($xml, $id);
-
-// Fonction pour traduire les noms des jours de l'anglais au français
-function translateDay($english_day) {
-    $english_days = array(
-        'Monday' => 'Lundi',
-        'Tuesday' => 'Mardi',
-        'Wednesday' => 'Mercredi',
-        'Thursday' => 'Jeudi',
-        'Friday' => 'Vendredi',
-        'Saturday' => 'Samedi',
-        'Sunday' => 'Dimanche'
-    );
-
-    return $english_days[$english_day];
-}
 
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prise de Rendez-vous - Medicare</title>
+    <title>Medicare - Accueil</title>
     <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     <!-- Bibliothèque jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     <!-- Dernier JavaScript compilé -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
 
-        main {
+
+    <!------------------------  A Remplir avec son style ------------------------>
+
+    <style>
+        /* Style pour le contenu du profil */
+        .container {
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
+            margin-top: 20px;
         }
 
-        main h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
+        .container h2 {
+            font-size: 28px;
             color: #333;
-        }
-        .cancel-btn {
-            font-size: 15px; /* ou toute autre taille de police souhaitée */
+            margin-bottom: 20px;
         }
 
-        .list-group-item {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .container p {
+            font-size: 20px;
+            line-height: 1.6;
             margin-bottom: 10px;
-            padding: 15px;
-            transition: background-color 0.3s, border-color 0.3s;
         }
 
-        .list-group-item:hover {
-            background-color: #f1f1f1;
-            border-color: #ccc;
-        }
-
-        .list-group-item strong {
+        .container p strong {
             color: #007bff;
+            font-weight: bold;
         }
-
-
     </style>
+
+    <!------------------------         Style Perso       ------------------------>
+
 </head>
+
 <body>
 <header>
     <div class="header-top">
@@ -180,36 +115,35 @@ function translateDay($english_day) {
     </nav>
 </header>
 
-
 <main>
+
+    <!------------------------  A Remplir  ------------------------>
+
     <div class="container">
-        <h2>Vos rendez-vous</h2>
-        <?php if (!empty($appointments)): ?>
-            <ul class="list-group">
-                <?php foreach ($appointments as $appointment): ?>
-                    <li class="list-group-item">
-                        <strong>Personnel et Spécialité :</strong> <?= $appointment['personnel_nom'] . " " . $appointment['personnel_prenom'] . " - " . $appointment['personnel_specialite'] ?>,
-                        <strong>Jour :</strong> <?= translateDay(date('l', strtotime("Sunday +{$appointment['jour']} days"))) ?>,
-                        <strong>Heure :</strong> <?= $appointment['heure'] ?>,
-                        <strong>Statut :</strong> <?= ($appointment['status'] == 1) ? "Confirmé" : "Annulé" ?>
-
-                        <?php if ($appointment['status'] == 1): // Afficher le bouton "Annuler" seulement si le rendez-vous est confirmé ?>
-                            <form method="post" action="" style="display:inline;">
-                                <input type="hidden" name="appointment_id" value="<?= $appointment['id'] ?>">
-                                <button type="submit" name="cancel_appointment" class="btn btn-danger btn-sm cancel-btn">Annuler</button>
-                            </form>
-                        <?php endif; ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php else: ?>
-            <p>Aucun rendez-vous trouvé.</p>
-        <?php endif; ?>
+        <h2>Votre Profil</h2>
+        <div>
+            <p><strong>Nom:</strong> <?= $client->nom ?></p>
+            <p><strong>Prénom:</strong> <?= $client->prenom ?></p>
+            <p><strong>Adresse:</strong> <?= $client->adresse ?></p>
+            <p><strong>Ville:</strong> <?= $client->ville ?></p>
+            <p><strong>Code Postal:</strong> <?= $client->code_postal ?></p>
+            <p><strong>Pays:</strong> <?= $client->pays ?></p>
+            <p><strong>Téléphone:</strong> <?= $client->telephone ?></p>
+            <p><strong>Email:</strong> <?= $client->email ?></p>
+            <p><strong>Mot de Passe:</strong> <?= $client->mot_de_passe ?></p>
+            <p><strong>Carte Vitale:</strong> <?= $client->carte_vitale ?></p>
+            <p><strong>Type de carte paiement:</strong> <?= $client->type_carte_paiement ?></p>
+            <p><strong>Numéro de carte:</strong> <?= $client->numero_carte ?></p>
+            <p><strong>Nom sur la carte:</strong> <?= $client->nom_carte ?></p>
+            <p><strong>Date d'expiration de la carte:</strong> <?= $client->date_expiration_carte ?></p>
+            <p><strong>Code de sécurité de la carte:</strong> <?= $client->code_securite_carte ?></p>
+        </div>
     </div>
+
+
+    <!------------------------             ------------------------>
+
 </main>
-
-
-
 
 <footer>
     <div class="footer-content">
@@ -226,4 +160,5 @@ function translateDay($english_day) {
 
 <script src="scripts.js"></script>
 </body>
+
 </html>

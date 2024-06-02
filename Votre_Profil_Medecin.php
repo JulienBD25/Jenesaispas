@@ -1,15 +1,12 @@
 <?php
-
 // Démarrer la session
 session_start();
 
 // Vérifier si l'ID de l'utilisateur est défini dans la session
-// if(isset($_SESSION['medecin_id'])) {
-    // Afficher l'ID de l'utilisateur
-    // echo "ID de l'utilisateur : " . $_SESSION['medecin_id'];
+// if(isset($_SESSION['client_id'])) {
+//     echo "ID de l'utilisateur : " . $_SESSION['client_id'];
 // } else {
-    // Si l'ID de l'utilisateur n'est pas défini dans la session, afficher un message d'erreur
-    // echo "ID de l'utilisateur non trouvé dans la session.";
+//     echo "ID de l'utilisateur non trouvé dans la session.";
 // }
 
 // Charger le contenu du fichier XML
@@ -18,104 +15,65 @@ $xml = simplexml_load_file('BDDmedicare.xml');
 // Accéder aux informations stockées dans la session pour le client
 $id = $_SESSION['medecin_id'];
 
-// Fonction pour récupérer les rendez-vous du medecin
-function getDoctorAppointments($xml, $doctor_id) {
-    $appointments = [];
-    foreach ($xml->Rendez_Vous as $rdv) {
-        if ((int)$rdv->personnel_id == $doctor_id) {
-            $appointment = [];
-            $appointment['id'] = (int)$rdv->id;
-            $appointment['client_id'] = (int)$rdv->client_id;
-            $appointment['jour'] = (int)$rdv->jour;
-            $appointment['heure'] = (string)$rdv->heure;
-            $appointment['status'] = (int)$rdv->status;
 
-            // Rechercher les informations du personnel
-            foreach ($xml->client as $client) {
-                if ((int)$client->id == $appointment['client_id']) {
-                    $appointment['client_nom'] = (string)$client->nom;
-                    $appointment['client_prenom'] = (string)$client->prenom;
-                    break;
-                }
-            }
+// Rechercher le personnel de santé dans le fichier XML en fonction de son ID
+$personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
 
-            $appointments[] = $appointment;
-        }
-    }
-    return $appointments;
-}
-
-
-// Appeler la fonction pour obtenir les rendez-vous du médecin
-$appointments = getDoctorAppointments($xml, $id);
-
-// Fonction pour traduire les noms des jours de l'anglais au français
-function translateDay($english_day) {
-    $english_days = array(
-        'Monday' => 'Lundi',
-        'Tuesday' => 'Mardi',
-        'Wednesday' => 'Mercredi',
-        'Thursday' => 'Jeudi',
-        'Friday' => 'Vendredi',
-        'Saturday' => 'Samedi',
-        'Sunday' => 'Dimanche'
-    );
-
-    return $english_days[$english_day];
-}
 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prise de Rendez-vous - Medicare</title>
+    <title>Medicare - Accueil</title>
     <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
     <!-- Bibliothèque jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
     <!-- Dernier JavaScript compilé -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
 
-        main {
+
+    <!------------------------  A Remplir avec son style ------------------------>
+
+    <style>
+        /* Style pour le contenu du profil */
+        .container {
             background-color: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-size: 20px;
+            margin-top: 20px;
         }
 
-        main h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
+        .container h2 {
+            font-size: 28px;
             color: #333;
+            margin-bottom: 20px;
         }
 
-        .list-group-item {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .container p {
+            font-size: 20px;
+            line-height: 1.6;
             margin-bottom: 10px;
-            padding: 15px;
-            transition: background-color 0.3s, border-color 0.3s;
         }
 
-        .list-group-item:hover {
-            background-color: #f1f1f1;
-            border-color: #ccc;
-        }
-
-        .list-group-item strong {
+        .container p strong {
             color: #007bff;
+            font-weight: bold;
         }
-
-
     </style>
+
+    <!------------------------         Style Perso       ------------------------>
+
 </head>
+
 <body>
 <header>
     <div class="header-top">
@@ -124,7 +82,7 @@ function translateDay($english_day) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.php">Accueil</a></li>
+            <li><a href="Accueil_Medecin.html">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir_Medecin.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
@@ -157,28 +115,25 @@ function translateDay($english_day) {
     </nav>
 </header>
 
-
 <main>
+
+    <!------------------------  A Remplir  ------------------------>
+
     <div class="container">
-        <h2>Vos rendez-vous</h2>
-        <?php if (!empty($appointments)): ?>
-            <ul class="list-group">
-                <?php foreach ($appointments as $appointment): ?>
-                    <li class="list-group-item">
-                        <strong>Client :</strong> <?= $appointment['client_nom'] . " " . $appointment['client_prenom']?>,
-                        <strong>Jour :</strong> <?= translateDay(date('l', strtotime("Sunday +{$appointment['jour']} days"))) ?>,
-                        <strong>Heure :</strong> <?= $appointment['heure'] ?>,
-                        <strong>Statut :</strong> <?= ($appointment['status'] == 1) ? "Confirmé" : "Annulé" ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        <?php else: ?>
-            <p>Aucun rendez-vous trouvé.</p>
-        <?php endif; ?>
+        <h2>Votre Profil</h2>
+        <div>
+            <p><strong>Nom:</strong> <?= $personnel->nom ?></p>
+            <p><strong>Prénom:</strong> <?= $personnel->prenom ?></p>
+            <p><strong>Email:</strong> <?= $personnel->email ?></p>
+            <p><strong>Mot de Passe:</strong> <?= $personnel->mot_de_passe ?></p>
+            <p><strong>Spécialité:</strong> <?= $personnel->specialite ?></p>
+            <p><strong>Téléphone:</strong> <?= $personnel->telephone ?></p>
+        </div>
     </div>
+
+    <!------------------------             ------------------------>
+
 </main>
-
-
 
 <footer>
     <div class="footer-content">
@@ -195,4 +150,5 @@ function translateDay($english_day) {
 
 <script src="scripts.js"></script>
 </body>
+
 </html>
