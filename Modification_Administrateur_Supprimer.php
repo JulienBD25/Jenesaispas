@@ -186,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_member'])) {
                             <li><a href="Ostéopathie_Administrateur.php" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Administrateur.php">Recherche</a></li>

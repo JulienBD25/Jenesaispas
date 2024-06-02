@@ -100,7 +100,7 @@ $administrateur = $xml->xpath("//administrateur[id='$id']")[0];
                             <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Administrateur.php">Recherche</a></li>

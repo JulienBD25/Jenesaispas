@@ -147,30 +147,35 @@ function translateDay($english_day) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.php">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Médecine_générale_Client.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
                         <a href="#">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
-                            <li><a href="Addictologie_Client.php">Addictologie</a></li>
-                            <li><a href="Andrologie_Client.php">Andrologie</a></li>
-                            <li><a href="Cardiologie_Client.php">Cardiologie</a></li>
-                            <li><a href="Dermatologie_Client.php">Dermatologie</a></li>
-                            <li><a href="Gastro-Hépato-Entérologie_Client.php">Gastro-Hépato-Entérologie</a></li>
-                            <li><a href="Gynécologie_Client.php">Gynécologie</a></li>
-                            <li><a href="IST_Client.php">I.S.T.</a></li>
-                            <li><a href="Ostéopathie_Client.php">Ostéopathie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Client.php">Test en Labo</a></li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Laboratoire</a></li>
                 </ul>
             </li>
-            <li><a href="Recherche.html">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte.html">Votre Compte</a></li>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>

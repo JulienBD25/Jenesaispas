@@ -158,7 +158,7 @@ foreach ($xml->Service_Laboratoire as $service) {
                             <li><a href="Ostéopathie_Medecin.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Medecin.phpr.php">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Medecin.phpr.php">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Recherche.html">Recherche</a></li>

@@ -194,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
                             <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                    <li><a href="#" onclick="showLaboratoire()">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>

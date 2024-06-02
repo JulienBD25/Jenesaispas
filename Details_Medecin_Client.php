@@ -90,7 +90,7 @@ $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
                             <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Client.php">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>

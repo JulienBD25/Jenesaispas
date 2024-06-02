@@ -105,7 +105,7 @@ foreach ($xml->personnels_sante as $personnel) {
                             <li><a href="Ostéopathie_Administrateur.php" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Administrateur.php">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Administrateur.php">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Administrateur.php">Recherche</a></li>

@@ -240,7 +240,7 @@ $xml = loadXMLFile($xmlFile);
                             <li><a href="Ostéopathie_Medecin.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Medecin">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Medecin.php">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Medecin.php">Recherche</a></li>

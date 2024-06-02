@@ -144,7 +144,7 @@ foreach ($xml->Service_Laboratoire as $service) {
             <li>
                 <a href="Tout_Parcourir.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Médecine_générale_Client.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecins_specialistes_Client.php">Médecins Généralistes</a></li>
                     <li>
                         <a href="#">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
