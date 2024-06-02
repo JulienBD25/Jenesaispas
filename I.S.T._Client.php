@@ -143,10 +143,10 @@ foreach ($xml->personnels_sante as $personnel) {
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
@@ -162,11 +162,11 @@ foreach ($xml->personnels_sante as $personnel) {
                     <div class="doctor">
                         <img src="<?= htmlspecialchars($specialiste->photo) ?>" alt="Photo de <?= htmlspecialchars($specialiste->nom) ?>">
                         <div class="doctor-info">
-                            <h3><?= htmlspecialchars($specialiste->nom . ' ' . $specialiste->prenom) ?></h3>
+                            <h3><a href="Details_Medecin_Client.php?id=<?= $specialiste->id ?>" class="doctor-name-link"><?= htmlspecialchars($specialiste->nom . ' ' . $specialiste->prenom) ?></a></h3>
                             <p><?= htmlspecialchars($specialiste->specialite) ?></p>
                             <div class="actions">
                                 <button class="btn" onclick="showCV('cv-<?= $specialiste->id ?>')">Voir CV</button>
-                                <a href="Prendre_Rendez_Vous_Client.php?id=<?= $specialiste->id ?>" class="btn">Prendre Rendez-vous</a>
+                                <a href="Prendre_Rendez_Vous_Client.php?id=<?= $specialiste->id ?>&nom=<?= urlencode($specialiste->nom . ' ' . $specialiste->prenom) ?>&specialite=<?= urlencode($specialiste->specialite) ?>" class="btn">Prendre Rendez-vous</a>
                                 <a href="Chat.php?id=<?= $specialiste->id ?>" class="btn">Chattez</a>
                             </div>
                             <div class="cv-container" id="cv-<?= $specialiste->id ?>">
