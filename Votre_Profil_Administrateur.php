@@ -82,11 +82,11 @@ $administrateur = $xml->xpath("//administrateur[id='$id']")[0];
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Medecin.html">Accueil</a></li>
+            <li><a href="Accueil_Administrateur.html">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir_Medecin.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Administrateur.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Medecin_Generaliste_Medecin.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Administrateur.php">Médecins Généralistes</a></li>
                     <li>
                         <a href="#">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
@@ -104,11 +104,13 @@ $administrateur = $xml->xpath("//administrateur[id='$id']")[0];
                 </ul>
             </li>
             <li><a href="Rechercher_Administrateur.php">Recherche</a></li>
-            <li><a href="Modification_Administrateur.php">Modifier</a></li>
+            <li><a href="Modification_Administrateur_Ajout.php">Modifier</a></li>
             <li><a href="Votre_Profil_Administrateur.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Profil_Administrateur.php">Votre Profil</a></li>
-                    <li><a href="Accueil.php">Deconnexion</a></li>
+                    <li><a href="Votre_Profil_Administrateur.php">Votre profil</a></li>
+                    <li><a href="Modification_Administrateur_Ajout.php">Ajouter un personnel de santé</a></li>
+                    <li><a href="Modification_Administrateur_Supprimer.php">Supprimer un personnel de santé</a></li>
+                    <li><a href="Accueil.php">Déconnexion</a></li>
                 </ul>
             </li>
         </ul>

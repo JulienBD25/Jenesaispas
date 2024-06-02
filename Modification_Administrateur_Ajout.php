@@ -190,12 +190,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_member'])) {
             </li>
             <li><a href="Rechercher_Administrateur.html">Recherche</a></li>
             <li><a href="Modification_Administrateur_Ajout.php">Modifier</a></li>
-            <li><a href="Votre_Compte_Administrateur.html">Votre Compte</a>
+            <li><a href="Votre_Profil_Administrateur.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                        <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre profil</a></li>
-                        <li><a href="Modification_Administrateur_Ajout.php">Ajouter un personnel de santé</a></li>
-                         <li><a href="Modification_Administrateur_Supprimer.php">Supprimer un personnel de santé</a></li>
-                        <li><a href="Accueil.php">Déconnexion</a></li>
+                    <li><a href="Votre_Profil_Administrateur.php">Votre profil</a></li>
+                    <li><a href="Modification_Administrateur_Ajout.php">Ajouter un personnel de santé</a></li>
+                    <li><a href="Modification_Administrateur_Supprimer.php">Supprimer un personnel de santé</a></li>
+                    <li><a href="Accueil.php">Déconnexion</a></li>
                 </ul>
             </li>
         </ul>
