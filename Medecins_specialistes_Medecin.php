@@ -106,14 +106,14 @@ foreach ($xml->personnels_sante as $personnel) {
                             <li><a href="Ostéopathie_Medecin.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Medecin.php">Test en Laboratoire</a></li>
+                    <li><a href="Test_Labo_Medecin">Test en Laboratoire</a></li>
                 </ul>
             </li>
             <li><a href="Rechercher_Medecin.php">Recherche</a></li>
             <li><a href="Rendez_Vous_Medecin.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte_Medecin.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Votre_Profil_Medecin.php">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>

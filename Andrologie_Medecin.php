@@ -145,7 +145,7 @@ foreach ($xml->personnels_sante as $personnel) {
             <li><a href="Rendez_Vous_Medecin.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte_Medecin.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Votre_Profil_Medecin.php">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
