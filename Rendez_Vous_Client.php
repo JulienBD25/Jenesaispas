@@ -5,11 +5,9 @@ session_start();
 
 // Vérifier si l'ID de l'utilisateur est défini dans la session
 // if(isset($_SESSION['client_id'])) {
-    // Afficher l'ID de l'utilisateur
-    // echo "ID de l'utilisateur : " . $_SESSION['client_id'];
+//     echo "ID de l'utilisateur : " . $_SESSION['client_id'];
 // } else {
-    // Si l'ID de l'utilisateur n'est pas défini dans la session, afficher un message d'erreur
-    // echo "ID de l'utilisateur non trouvé dans la session.";
+//     echo "ID de l'utilisateur non trouvé dans la session.";
 // }
 
 // Charger le contenu du fichier XML
@@ -46,8 +44,26 @@ function getPatientAppointments($xml, $patient_id) {
     return $appointments;
 }
 
+// Traitement de l'annulation du rendez-vous
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cancel_appointment'])) {
+    $appointment_id = (int)$_POST['appointment_id'];
 
-// Appeler la fonction pour obtenir les rendez-vous du médecin
+    foreach ($xml->Rendez_Vous as $rdv) {
+        if ((int)$rdv->id == $appointment_id && (int)$rdv->client_id == $id) {
+            $rdv->status = 0; // Mettre à jour le statut à "0" pour annuler le rendez-vous
+            break;
+        }
+    }
+
+    // Sauvegarder les modifications dans le fichier XML
+    $xml->asXML('BDDmedicare.xml');
+
+    // Rediriger pour éviter le rechargement du formulaire
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+// Appeler la fonction pour obtenir les rendez-vous du client
 $appointments = getPatientAppointments($xml, $id);
 
 // Fonction pour traduire les noms des jours de l'anglais au français
@@ -66,6 +82,9 @@ function translateDay($english_day) {
 }
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -160,7 +179,6 @@ function translateDay($english_day) {
 
 
 <main>
-
     <div class="container">
         <h2>Vos rendez-vous</h2>
         <?php if (!empty($appointments)): ?>
@@ -171,6 +189,13 @@ function translateDay($english_day) {
                         <strong>Jour :</strong> <?= translateDay(date('l', strtotime("Sunday +{$appointment['jour']} days"))) ?>,
                         <strong>Heure :</strong> <?= $appointment['heure'] ?>,
                         <strong>Statut :</strong> <?= ($appointment['status'] == 1) ? "Confirmé" : "Annulé" ?>
+
+                        <?php if ($appointment['status'] == 1): // Afficher le bouton "Annuler" seulement si le rendez-vous est confirmé ?>
+                            <form method="post" action="" style="display:inline;">
+                                <input type="hidden" name="appointment_id" value="<?= $appointment['id'] ?>">
+                                <button type="submit" name="cancel_appointment" class="btn btn-danger btn-sm">Annuler</button>
+                            </form>
+                        <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -179,6 +204,7 @@ function translateDay($english_day) {
         <?php endif; ?>
     </div>
 </main>
+
 
 
 

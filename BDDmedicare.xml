@@ -48,37 +48,39 @@
   </client>
   <client>
     <id>2</id>
-    <carte_vitale>123</carte_vitale>
-    <Nom>TEST</Nom>
-    <Prenom>TEST</Prenom>
-    <email>TEST@TEST.COM</email>
-    <mot_de_passe>TEST</mot_de_passe>
-    <Adresse>TEST</Adresse>
-    <Ville>TEST</Ville>
-    <Pays>TEST</Pays>
-    <Code_Postal>123</Code_Postal>
-    <Telephone>0123456789</Telephone>
-    <Type_CB>American Express</Type_CB>
-    <Numero_CB>0123456789</Numero_CB>
-    <Date_Expiration_CB>2024-05-29</Date_Expiration_CB>
-    <Code_Securite_CB>1234</Code_Securite_CB>
+    <nom>test</nom>
+    <prenom>test</prenom>
+    <adresse>test</adresse>
+    <ville>test</ville>
+    <code_postal>09453</code_postal>
+    <pays>test</pays>
+    <telephone>097656889</telephone>
+    <email>test.test@example.com</email>
+    <mot_de_passe>GL08</mot_de_passe>
+    <carte_vitale>123456789012345</carte_vitale>
+    <type_carte_paiement>Visa</type_carte_paiement>
+    <numero_carte>4111111111111111</numero_carte>
+    <nom_carte>test test</nom_carte>
+    <date_expiration_carte>2024-12-31</date_expiration_carte>
+    <code_securite_carte>454</code_securite_carte>
   </client>
   <client>
     <id>3</id>
-    <carte_vitale>123</carte_vitale>
-    <Nom>TEST</Nom>
-    <Prenom>TEST</Prenom>
-    <email>test@gmail.com</email>
-    <mot_de_passe>test</mot_de_passe>
-    <Adresse>TEST</Adresse>
-    <Ville>TEST</Ville>
-    <Pays>TEST</Pays>
-    <Code_Postal>123</Code_Postal>
-    <Telephone>0123456789</Telephone>
-    <Type_CB>American Express</Type_CB>
-    <Numero_CB>0123456789</Numero_CB>
-    <Date_Expiration_CB>2024-05-29</Date_Expiration_CB>
-    <Code_Securite_CB>1234</Code_Securite_CB>
+    <nom>test2</nom>
+    <prenom>test2</prenom>
+    <adresse>test2</adresse>
+    <ville>test2</ville>
+    <code_postal>45346</code_postal>
+    <pays>test2</pays>
+    <telephone>34235543</telephone>
+    <email>test2.test2@example.com</email>
+    <mot_de_passe>FG32</mot_de_passe>
+    <carte_vitale>123456789012345</carte_vitale>
+    <type_carte_paiement>Visa</type_carte_paiement>
+    <numero_carte>4111111111111111</numero_carte>
+    <nom_carte>test2 test2</nom_carte>
+    <date_expiration_carte>2024-12-31</date_expiration_carte>
+    <code_securite_carte>876</code_securite_carte>
   </client>
   <client>
     <id>4</id>
