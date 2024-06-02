@@ -1,10 +1,13 @@
     <?php
 // Vérifiez si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Démarrez la session
+    session_start();
+
     // Charger les données des médecins à partir du fichier XML
     $xmlFile = 'BDDmedicare.xml';
     $xml = simplexml_load_file($xmlFile);
-    $administrateur = $xml->administrateur;
+    $administrateurs = $xml->administrateur;
 
     // Récupération des informations de connexion depuis le formulaire
     $email = $_POST['email'];
@@ -12,9 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Vérifier les identifiants dans les données des médecins
     $connexion_reussie = false;
-    foreach ($administrateur as $administrateur) {
+    foreach ($administrateurs as $administrateur) {
         if ($administrateur->email == $email && $administrateur->mot_de_passe == $mot_de_passe) {
             $connexion_reussie = true;
+            // Stockez l'ID de l'admin dans une variable de session
+            $_SESSION['administrateur_id'] = (string)$administrateur->id;
             break;
         }
     }
@@ -117,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Accueil.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">

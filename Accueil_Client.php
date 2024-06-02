@@ -1,3 +1,9 @@
+<?php
+// Démarrer la session sur la page où vous souhaitez récupérer l'ID de l'utilisateur
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,12 +32,6 @@
             height: 400px;
             object-fit: cover;
         }
-        .carousel-inner .item img {
-            height: 300px;
-            width: 100%;
-            object-fit: cover;
-        }
-
 
         .welcome-text, .health-bulletin {
             text-align: center;
@@ -83,40 +83,40 @@
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="Accueil_Client.html">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Medecin_Generaliste.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
-                        <a href="Medecins_specialistes.php">Médecins Spécialistes</a>
+                        <a href="Medecins_specialistes_Client.php">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
-                            <li><a href="Addictologie.php">Addictologie</a></li>
-                            <li><a href="Andrologie.php">Andrologie</a></li>
-                            <li><a href="Cardiologie.php">Cardiologie</a></li>
-                            <li><a href="Dermatologie.php">Dermatologie</a></li>
-                            <li><a href="Gastro-Hépato-Entérologie.php">Gastro-Hépato-Entérologie</a></li>
-                            <li><a href="Gynécologie.php">Gynécologie</a></li>
-                            <li><a href="I.S.T.php">I.S.T.</a></li>
-                            <li><a href="Ostéopathie.php">Ostéopathie</a></li>
+                            <li><a href="Addictologie_Client.php">Addictologie</a></li>
+                            <li><a href="Andrologie_Client.php">Andrologie</a></li>
+                            <li><a href="Cardiologie_Client.php">Cardiologie</a></li>
+                            <li><a href="Dermatologie_Client.php">Dermatologie</a></li>
+                            <li><a href="Gastro-Hépato-Entérologie_Client.php">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="Gynécologie_Client.php">Gynécologie</a></li>
+                            <li><a href="I.S.T._Client.php">I.S.T.</a></li>
+                            <li><a href="Ostéopathie_Client.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo.php">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Client">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Rechercher.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte.html">Votre Compte</a>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.php">Client</a></li>
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.php">Médecins</a></li>
-                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.php">Administrateur</a></li>
+                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 </header>
 <main>
+
     <div class="welcome-text">
         <h2>Bienvenue sur Medicare</h2>
         <p>Votre plateforme de services médicaux en ligne. Prenez rendez-vous avec nos spécialistes de santé, accédez à vos dossiers médicaux et explorez nos services pour une meilleure prise en charge de votre santé.</p>
@@ -158,72 +158,56 @@
             <!-- Wrapper pour les images -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <a href="Addictologie.php">
-                        <img src="Images/medecin1.jpg" alt="Addictologie">
-                    </a>
+                    <img src="Images/medecin1.jpg" alt="Addictologie">
                     <div class="carousel-caption">
                         <h3>Addictologie</h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <a href="Andrologie.php">
-                        <img src="Images/medecin2.jpg" alt="Andrologie">
-                    </a>
+                    <img src="Images/medecin2.jpg" alt="Andrologie">
                     <div class="carousel-caption">
                         <h3>Andrologie</h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <a href="Cardiologie.php">
-                        <img src="Images/medecin3.jpg" alt="Cardiologie">
-                    </a>
+                    <img src="Images/medecin3.jpg" alt="Cardiologie">
                     <div class="carousel-caption">
                         <h3>Cardiologie</h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <a href="Dermatologie.php">
-                        <img src="Images/medecin4.jpg" alt="Dermatologie">
-                    </a>
+                    <img src="Images/medecin4.jpg" alt="Dermatologie">
                     <div class="carousel-caption">
                         <h3>Dermatologie</h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <a href="Gastro-Hépato-Entérologie.php">
-                        <img src="Images/medecin5.jpg" alt="Gastro-Hépato-Entérologie">
-                    </a>
+                    <img src="Images/medecin5.jpg" alt="Gastro-Hépato-Entérologie">
                     <div class="carousel-caption">
                         <h3>Gastro-Hépato-Entérologie</h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <a href="Gynécologie.php">
-                        <img src="Images/medecin6.jpg" alt="Gynécologie">
-                    </a>
+                    <img src="Images/medecin6.jpg" alt="Gynécologie">
                     <div class="carousel-caption">
                         <h3>Gynécologie</h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <a href="I.S.T.php">
-                        <img src="Images/medecin7.jpg" alt="IST">
-                    </a>
+                    <img src="Images/medecin7.jpg" alt="I.S.T.">
                     <div class="carousel-caption">
                         <h3>I.S.T.</h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <a href="Ostéopathie.php">
-                        <img src="Images/medecin8.jpg" alt="Ostéopathie">
-                    </a>
+                    <img src="Images/medecin8.jpg" alt="Ostéopathie">
                     <div class="carousel-caption">
                         <h3>Ostéopathie</h3>
                     </div>
@@ -241,6 +225,7 @@
             </a>
         </div>
     </div>
+</main>
 </main>
 
 <footer>

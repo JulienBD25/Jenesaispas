@@ -92,7 +92,7 @@ $xml = loadXMLFile($xmlFile);
             cursor: pointer;
             border-radius: 50px;
             font-size: 1.5rem;
-            margin-left: 205px;
+            margin-left: 325px;
         }
 
         .search-box button:hover {
@@ -104,6 +104,89 @@ $xml = loadXMLFile($xmlFile);
             margin: 75px;
             margin-top: 50px;
             margin-bottom: 145px;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 0 15px;
+        }
+
+        .specialists-title {
+            text-align: center;
+            color: #005f8c;
+            margin-bottom: 30px;
+        }
+
+        .doctor-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .doctor {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .doctor img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .doctor-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doctor-info h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-info p {
+            margin: 0.2rem 0;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #005f8c;
+        }
+
+        .cv-container {
+            display: none;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .cv-frame {
+            width: 100%;
+            height: 400px;
+            border: none;
         }
 
         .client, .nom_service {
@@ -139,7 +222,7 @@ $xml = loadXMLFile($xmlFile);
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Client.html">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
@@ -161,11 +244,11 @@ $xml = loadXMLFile($xmlFile);
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
             <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
                     <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
-                    <li><a href="Accueil.html">Deconnexion</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
@@ -193,13 +276,17 @@ $xml = loadXMLFile($xmlFile);
                 echo "<h2>Résultats de la recherche pour le Personnel de Santé :</h2>";
                 foreach ($results['members'] as $member) {
                     echo "<div class='client'>";
-                    echo "<p>Nom: " . htmlspecialchars($member->nom) . "</p>";
-                    echo "<p>Prénom: " . htmlspecialchars($member->prenom) . "</p>";
-                    echo "<p>Email: " . htmlspecialchars($member->email) . "</p>";
+                    echo "<p><img src='" . htmlspecialchars($member->photo) . "' alt='Photo de " . htmlspecialchars($member->nom) . "' /></p>";
+                    echo "<p> " . htmlspecialchars($member->nom) . "  " . htmlspecialchars($member->prenom) . "</p>";
                     echo "<p>Spécialité: " . htmlspecialchars($member->specialite) . "</p>";
-                    echo "<p>Téléphone: " . htmlspecialchars($member->telephone) . "</p>";
-                    echo "<p>Photo: <img src='" . htmlspecialchars($member->photo) . "' alt='Photo de " . htmlspecialchars($member->nom) . "' /></p>";
-                    echo "<p>CV: <a href='" . htmlspecialchars($member->cv) . "'>Afficher le CV</a></p>";
+
+                    // Boutons cliquables
+                    echo "<div class='actions'>";
+                    echo "<a href='" . htmlspecialchars($member->cv) . "' class='btn'>Voir le CV</a>";
+                    echo '<a href="Prendre_Rendez_Vous_Client.php?id=' .$member->id . '" class="btn">Prendre Rendez-vous</a>';
+                    echo "<a href='Chat.php" . htmlspecialchars($member->telephone) . "' class='btn'>Chattez</a>";
+                    echo "</div>";
+
                     echo "</div>";
                 }
             }

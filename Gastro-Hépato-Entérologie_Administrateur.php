@@ -140,14 +140,14 @@ foreach ($xml->personnels_sante as $personnel) {
                     <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Rechercher_Administrateur.html">Recherche</a></li>
+            <li><a href="Rechercher_Administrateur.php">Recherche</a></li>
             <li><a href="Modification_Administrateur_Ajout.php">Modifier</a></li>
             <li><a href="Votre_Compte_Administrateur.html">Votre Compte</a>
                 <ul class="dropdown-menu">
                         <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre profil</a></li>
                         <li><a href="Modification_Administrateur_Ajout.php">Ajouter un personnel de santé</a></li>
                          <li><a href="Modification_Administrateur_Supprimer.php">Supprimer un personnel de santé</a></li>
-                        <li><a href="Accueil.html">Déconnexion</a></li>
+                        <li><a href="Accueil.php">Déconnexion</a></li>
                 </ul>
             </li>
         </ul>

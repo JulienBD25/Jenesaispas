@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medicare - Accueil</title>
+    <title>Prise de Rendez-vous - Medicare</title>
     <link rel="icon" href="Images/Logo_icone.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
     <!-- Bibliothèque jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
     <!-- Dernier JavaScript compilé -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
 
 
-    <!------------------------  A Remplir avec son style ------------------------>
-
-
-
-    <!------------------------         Style Perso       ------------------------>
-
+    </style>
 </head>
-
 <body>
 <header>
     <div class="header-top">
@@ -37,7 +29,7 @@
             <li>
                 <a href="Tout_Parcourir.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste.php">Médecins Généralistes</a></li>
                     <li>
                         <a href="#">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
@@ -54,37 +46,27 @@
                     <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Recherche.html">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Accueil.php">Votre Compte</a>
+            <li><a href="Rechercher.php">Recherche</a></li>
+            <li><a href="Rendez_Vous.php">Rendez-vous</a></li>
+            <li><a href="Votre_Compte.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
-                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    <li><a href="Votre_Compte_Client_Se_Connecter.php">Client</a></li>
+                    <li><a href="Votre_Compte_Medecin_Se_Connecter.php">Médecins</a></li>
+                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.php">Administrateur</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 </header>
 
+
 <main>
 
-    <!------------------------  A Remplir  ------------------------>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!------------------------             ------------------------>
+    <h3>Connectez-vous pour voir vos rendez-vous <a href="Votre_Compte.html">ici</a>.</h3>
 
 </main>
+
+
 
 <footer>
     <div class="footer-content">
@@ -101,5 +83,4 @@
 
 <script src="scripts.js"></script>
 </body>
-
 </html>

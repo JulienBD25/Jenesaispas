@@ -1,3 +1,16 @@
+<?php
+
+// Charger le contenu du fichier XML
+$xml = simplexml_load_file('BDDmedicare.xml');
+
+// Récupérer les informations du médecin à partir de l'URL
+$id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : '';
+
+// Rechercher le personnel de santé dans le fichier XML en fonction de son ID
+$personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,7 +32,33 @@
 
     <!------------------------  A Remplir avec son style ------------------------>
 
+    <style>
+        /* Style pour le contenu du profil */
+        .container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
+        .container h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .container p strong {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
 
     <!------------------------         Style Perso       ------------------------>
 
@@ -33,9 +72,9 @@
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.php">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
                     <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
@@ -54,13 +93,12 @@
                     <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Recherche.html">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Accueil.php">Votre Compte</a>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
-                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
@@ -71,16 +109,19 @@
 
     <!------------------------  A Remplir  ------------------------>
 
-
-
-
-
-
-
-
-
-
-
+    <div class="container">
+        <h2>Détails du Médecin</h2>
+        <div>
+            <p><strong>Nom:</strong> <?= htmlspecialchars($personnel->nom) ?></p>
+            <p><strong>Prénom:</strong> <?= htmlspecialchars($personnel->prenom) ?></p>
+            <p><strong>Email:</strong> <?= htmlspecialchars($personnel->email) ?></p>
+            <p><strong>Spécialité:</strong> <?= htmlspecialchars($personnel->specialite) ?></p>
+            <p><strong>Téléphone:</strong> <?= htmlspecialchars($personnel->telephone) ?></p>
+            <p><strong>Disponibilité:</strong> <?= $personnel->est_disponible == 1 ? 'Disponible' : 'Non disponible' ?></p>
+            <p><strong>Photo:</strong> <img src="<?= htmlspecialchars($personnel->photo) ?>" alt="Photo de <?= htmlspecialchars($personnel->nom) ?>" style="width:150px;height:auto;"></p>
+            <p><strong>CV:</strong> <a href="<?= htmlspecialchars($personnel->cv) ?>" target="_blank">Voir le CV</a></p>
+        </div>
+    </div>
 
     <!------------------------             ------------------------>
 

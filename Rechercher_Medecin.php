@@ -222,34 +222,33 @@ $xml = loadXMLFile($xmlFile);
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.php">Accueil</a></li>
+            <li><a href="Accueil_Medecin.html">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Medecin.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Medecin_Generaliste.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Medecin.php">Médecins Généralistes</a></li>
                     <li>
-                        <a href="Medecins_specialistes.php">Médecins Spécialistes</a>
+                        <a href="Medecins_specialistes_Medecin.php">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
-                            <li><a href="Addictologie.php">Addictologie</a></li>
-                            <li><a href="Andrologie.php">Andrologie</a></li>
-                            <li><a href="Cardiologie.php">Cardiologie</a></li>
-                            <li><a href="Dermatologie.php">Dermatologie</a></li>
-                            <li><a href="Gastro-Hépato-Entérologie.php">Gastro-Hépato-Entérologie</a></li>
-                            <li><a href="Gynécologie.php">Gynécologie</a></li>
-                            <li><a href="I.S.T.php">I.S.T.</a></li>
-                            <li><a href="Ostéopathie.php">Ostéopathie</a></li>
+                            <li><a href="Addictologie_Medecin.php">Addictologie</a></li>
+                            <li><a href="Andrologie_Medecin.php">Andrologie</a></li>
+                            <li><a href="Cardiologie_Medecin.php">Cardiologie</a></li>
+                            <li><a href="Dermatologie_Medecin.php">Dermatologie</a></li>
+                            <li><a href="Gastro-Hépato-Entérologie_Medecin.php">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="Gynécologie_Medecin.php">Gynécologie</a></li>
+                            <li><a href="I.S.T._Medecin.php">I.S.T.</a></li>
+                            <li><a href="Ostéopathie_Medecin.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo.html">Test en Labo</a></li>
+                    <li><a href="Test_Labo_Medecin">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Rechercher.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte.html">Votre Compte</a>
+            <li><a href="Rechercher_Medecin.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Medecin.html">Rendez-vous</a></li>
+            <li><a href="Votre_Compte_Medecin.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.php">Client</a></li>
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.php">Médecins</a></li>
-                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.php">Administrateur</a></li>
+                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
@@ -284,7 +283,6 @@ $xml = loadXMLFile($xmlFile);
                     // Boutons cliquables
                     echo "<div class='actions'>";
                     echo "<a href='" . htmlspecialchars($member->cv) . "' class='btn'>Voir le CV</a>";
-                    echo "<a href='Votre_Compte.html" . "' class='btn'>Prendre Rendez-Vous</a>";
                     echo "<a href='Votre_Compte.html" . htmlspecialchars($member->telephone) . "' class='btn'>Chattez</a>";
                     echo "</div>";
 

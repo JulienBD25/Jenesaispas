@@ -113,7 +113,7 @@ foreach ($xml->personnels_sante as $personnel) {
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Client.html">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
                 <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
@@ -135,11 +135,11 @@ foreach ($xml->personnels_sante as $personnel) {
                 </ul>
             </li>
             <li><a href="Rechercher_Client.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Votre Profil</a></li>
-                    <li><a href="Accueil.html">Deconnexion</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
@@ -154,11 +154,12 @@ foreach ($xml->personnels_sante as $personnel) {
                     <div class="doctor">
                         <img src="<?= htmlspecialchars($generaliste->photo) ?>" alt="Photo de <?= htmlspecialchars($generaliste->nom) ?>">
                         <div class="doctor-info">
-                            <h3><?= htmlspecialchars($generaliste->nom . ' ' . $generaliste->prenom) ?></h3>
+                            <h3><a href="Details_Medecin_Client.php?id=<?= $generaliste->id ?>" class="doctor-name-link"><?= htmlspecialchars($generaliste->nom . ' ' . $generaliste->prenom) ?></a>
+                            </h3>
                             <p><?= htmlspecialchars($generaliste->specialite) ?></p>
                             <div class="actions">
                                 <button class="btn" onclick="showCV('cv-<?= $generaliste->id ?>')">Voir CV</button>
-                                <a href="Rendez_Vous_Client.php?id=<?= $generaliste->id ?>" class="btn">Prendre Rendez-vous</a>
+                                <a href="Prendre_Rendez_Vous_Client.php?id=<?= $generaliste->id ?>&nom=<?= urlencode($generaliste->nom . ' ' . $generaliste->prenom) ?>&specialite=<?= urlencode($generaliste->specialite) ?>" class="btn">Prendre Rendez-vous</a>
                                 <a href="Chat.php?id=<?= $generaliste->id ?>" class="btn">Chattez</a>
                             </div>
                             <div class="cv-container" id="cv-<?= $generaliste->id ?>">

@@ -1,3 +1,26 @@
+<?php
+// Démarrer la session
+session_start();
+
+// Vérifier si l'ID de l'utilisateur est défini dans la session
+// if(isset($_SESSION['client_id'])) {
+//     echo "ID de l'utilisateur : " . $_SESSION['client_id'];
+// } else {
+//     echo "ID de l'utilisateur non trouvé dans la session.";
+// }
+
+// Charger le contenu du fichier XML
+$xml = simplexml_load_file('BDDmedicare.xml');
+
+// Accéder aux informations stockées dans la session pour le client
+$id = $_SESSION['client_id'];
+
+
+// Rechercher le client dans le fichier XML en fonction de son ID
+$client = $xml->xpath("//client[id='$id']")[0];
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,7 +42,33 @@
 
     <!------------------------  A Remplir avec son style ------------------------>
 
+    <style>
+        /* Style pour le contenu du profil */
+        .container {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
+        .container h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .container p strong {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
 
     <!------------------------         Style Perso       ------------------------>
 
@@ -33,9 +82,9 @@
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.php">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
                     <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
@@ -54,13 +103,12 @@
                     <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Recherche.html">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Accueil.php">Votre Compte</a>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
-                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
@@ -71,15 +119,26 @@
 
     <!------------------------  A Remplir  ------------------------>
 
-
-
-
-
-
-
-
-
-
+    <div class="container">
+        <h2>Votre Profil</h2>
+        <div>
+            <p><strong>Nom:</strong> <?= $client->nom ?></p>
+            <p><strong>Prénom:</strong> <?= $client->prenom ?></p>
+            <p><strong>Adresse:</strong> <?= $client->adresse ?></p>
+            <p><strong>Ville:</strong> <?= $client->ville ?></p>
+            <p><strong>Code Postal:</strong> <?= $client->code_postal ?></p>
+            <p><strong>Pays:</strong> <?= $client->pays ?></p>
+            <p><strong>Téléphone:</strong> <?= $client->telephone ?></p>
+            <p><strong>Email:</strong> <?= $client->email ?></p>
+            <p><strong>Mot de Passe:</strong> <?= $client->mot_de_passe ?></p>
+            <p><strong>Carte Vitale:</strong> <?= $client->carte_vitale ?></p>
+            <p><strong>Type de carte paiement:</strong> <?= $client->type_carte_paiement ?></p>
+            <p><strong>Numéro de carte:</strong> <?= $client->numero_carte ?></p>
+            <p><strong>Nom sur la carte:</strong> <?= $client->nom_carte ?></p>
+            <p><strong>Date d'expiration de la carte:</strong> <?= $client->date_expiration_carte ?></p>
+            <p><strong>Code de sécurité de la carte:</strong> <?= $client->code_securite_carte ?></p>
+        </div>
+    </div>
 
 
     <!------------------------             ------------------------>
