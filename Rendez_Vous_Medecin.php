@@ -1,9 +1,22 @@
 <?php
+
+// Démarrer la session
+session_start();
+
+// Vérifier si l'ID de l'utilisateur est défini dans la session
+// if(isset($_SESSION['medecin_id'])) {
+    // Afficher l'ID de l'utilisateur
+    // echo "ID de l'utilisateur : " . $_SESSION['medecin_id'];
+// } else {
+    // Si l'ID de l'utilisateur n'est pas défini dans la session, afficher un message d'erreur
+    // echo "ID de l'utilisateur non trouvé dans la session.";
+// }
+
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
 
-// Informations du medecin
-$id = 1;
+// Accéder aux informations stockées dans la session pour le client
+$id = $_SESSION['medecin_id'];
 
 // Fonction pour récupérer les rendez-vous du medecin
 function getDoctorAppointments($xml, $doctor_id) {

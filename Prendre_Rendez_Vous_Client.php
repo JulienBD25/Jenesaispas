@@ -1,5 +1,8 @@
 <?php
 
+// Démarrer la session
+session_start();
+
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
 
@@ -61,7 +64,7 @@ for ($day = 1; $day <= 5; $day++) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST['slot'])) {
     $day = $_POST['day'];
     $slot = $_POST['slot'];
-    $patientID = uniqid(); // Générer un ID unique pour le patient (peut être amélioré)
+    $patientID = $_SESSION['client_id'];
 
     // Trouver le plus grand ID existant
     $maxID = 0;
@@ -173,9 +176,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil.php">Accueil</a></li>
+            <li><a href="Accueil_Client.php">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
                     <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
                     <li>
@@ -194,13 +197,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['day']) && isset($_POST
                     <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Recherche.html">Recherche</a></li>
-            <li><a href="Rendez_Vous.html">Rendez-vous</a></li>
-            <li><a href="Accueil.php">Votre Compte</a>
+            <li><a href="Rechercher_Client.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
+            <li><a href="Votre_Compte_Client.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Compte_Client_Se_Connecter.html">Client</a></li>
-                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Médecins</a></li>
-                    <li><a href="Votre_Compte_Administrateur_Se_Connecter.html">Administrateur</a></li>
+                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
+                    <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
         </ul>
