@@ -176,7 +176,7 @@ foreach ($xml->personnels_sante as $personnel) {
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <p>Aucun spécialiste en addictologie trouvé.</p>
+                <p>Aucun spécialiste en I.S.T. trouvé.</p>
             <?php endif; ?>
         </div>
     </section>

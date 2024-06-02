@@ -9,6 +9,7 @@ if ($xml === false) {
 }
 
 // Récupérer les spécialités autres que "Médecine Générale"
+
 $specialites = [];
 foreach ($xml->personnels_sante as $personnel) {
     $specialite = (string) $personnel->specialite;
