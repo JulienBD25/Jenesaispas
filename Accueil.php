@@ -111,7 +111,7 @@ session_destroy();
                 </ul>
             </li>
             <li><a href="Rechercher.php">Recherche</a></li>
-            <li><a href="Rendez_Vous.php">Rendez-vous</a></li>
+            <li><a href="Votre_Compte.html">Rendez-vous</a></li>
             <li><a href="Votre_Compte.html">Votre Compte</a>
                 <ul class="dropdown-menu">
                     <li><a href="Votre_Compte_Client_Se_Connecter.php">Client</a></li>
