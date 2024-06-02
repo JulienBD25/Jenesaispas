@@ -8,7 +8,6 @@ if ($xml === false) {
     die('Erreur de chargement du fichier XML.');
 }
 
-// Récupérer les médecins spécialistes en addictologie
 $gynecologie = [];
 foreach ($xml->personnels_sante as $personnel) {
     $specialite = (string) $personnel->specialite;

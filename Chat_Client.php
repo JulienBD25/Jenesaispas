@@ -1,21 +1,18 @@
 <?php
 
-// Démarrer la session
 session_start();
 
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
 
-// Récupérer les informations du médecin à partir de l'URL
 $personnel_id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : '';
 $nom = isset($_GET['nom']) ? htmlspecialchars($_GET['nom']) : '';
 $specialite = isset($_GET['specialite']) ? htmlspecialchars($_GET['specialite']) : '';
 
-// Accéder aux informations stockées dans la session pour le client
 $client_id = $_SESSION['client_id'];
 
 
-// Fonction pour enregistrer un message dans le fichier XML
+// Fonction pour enregistrer un message
 function saveMessageToXML($client_id, $personnel_id, $utilisateur, $contenu, $heure_envoie, $date_envoie) {
     global $xml;
 
@@ -28,7 +25,7 @@ function saveMessageToXML($client_id, $personnel_id, $utilisateur, $contenu, $he
     $messages->addChild('date_envoie', $date_envoie);
     $messages->addChild('lu', 0); // Message non lu par défaut
 
-    // Enregistrer le fichier XML
+
     $xml->asXML('BDDmedicare.xml');
 
     // Retourner le contenu du message pour l'afficher dans le chat
@@ -37,7 +34,7 @@ function saveMessageToXML($client_id, $personnel_id, $utilisateur, $contenu, $he
 
 
 
-// Enregistrer un nouveau message si le formulaire est soumis
+// Enregistrer un nouveau message
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['message'])) {
         $message = htmlspecialchars($_POST['message']);
@@ -45,11 +42,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response = saveMessageToXML($client_id, $personnel_id, 0, $message, date('H:i'), date('Y-m-d'));
         // Répondre avec le contenu du message pour l'affichage en temps réel dans le chat
         echo $response;
-        exit(); // Terminer le script après avoir répondu avec le contenu du message
+        exit();
     }
 }
 
-// Fonction pour charger les messages précédents avec ce médecin à partir du fichier XML
 function loadPreviousMessages($client_id, $personnel_id) {
     global $xml;
     $messages = $xml->xpath("//Messages[client_id='$client_id' and personnel_id='$personnel_id']");
@@ -227,7 +223,7 @@ $previousMessages = loadPreviousMessages($client_id, $personnel_id)
     });
 
 
-    // Charger les messages précédents dans la boîte de chat lors du chargement de la page
+    // Charger les messages précédents
     document.addEventListener("DOMContentLoaded", function() {
         var previousMessages = <?php echo json_encode($previousMessages); ?>;
         previousMessages.forEach(function(message) {
@@ -242,23 +238,18 @@ $previousMessages = loadPreviousMessages($client_id, $personnel_id)
             addMessageToChat('user', message);
             input.value = '';
 
-            // Envoyer le message au serveur via AJAX
             $.ajax({
-                url: window.location.href, // Utiliser l'URL actuelle pour soumettre le message
+                url: window.location.href,
                 type: 'POST',
                 data: {
                     message: message
                 },
-                //success: function (response) {
-                    // Mise à jour de l'affichage du chat avec le nouveau message
-                    //addMessageToChat('doctor', response);
-                //},
+
                 error: function (xhr, status, error) {
                     console.error(error);
                 }
             });
 
-            // Simuler une réponse du médecin après 1 seconde
             setTimeout(function () {
                 addMessageToChat('doctor', 'Merci pour votre message. Comment puis-je vous aider?');
             }, 1000);

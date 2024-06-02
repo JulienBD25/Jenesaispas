@@ -3,10 +3,9 @@
 // Charger le contenu du fichier XML
 $xml = simplexml_load_file('BDDmedicare.xml');
 
-// Récupérer les informations du médecin à partir de l'URL
 $id = isset($_GET['id']) ? htmlspecialchars($_GET['id']) : '';
 
-// Rechercher le personnel de santé dans le fichier XML en fonction de son ID
+// Rechercher le personnel en fonction de son ID
 $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
 
 ?>
@@ -33,7 +32,6 @@ $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
     <!------------------------  A Remplir avec son style ------------------------>
 
     <style>
-        /* Style pour le contenu du profil */
         .container {
             background-color: #f9f9f9;
             padding: 20px;
@@ -72,32 +70,32 @@ $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
     </div>
     <nav>
         <ul>
-            <li><a href="Accueil_Client.php">Accueil</a></li>
+            <li><a href="Accueil_Medecin.html">Accueil</a></li>
             <li>
-                <a href="Tout_Parcourir_Client.html">Tout Parcourir</a>
+                <a href="Tout_Parcourir_Medecin.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Medecin_Generaliste_Client.php">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Medecin.php">Médecins Généralistes</a></li>
                     <li>
-                        <a href="#">Médecins Spécialistes</a>
+                        <a href="Medecins_specialistes_Medecin.php">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
-                            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
-                            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                            <li><a href="Addictologie_Medecin.php">Addictologie</a></li>
+                            <li><a href="Andrologie_Medecin.php">Andrologie</a></li>
+                            <li><a href="Cardiologie_Medecin.php">Cardiologie</a></li>
+                            <li><a href="Dermatologie_Medecin.php">Dermatologie</a></li>
+                            <li><a href="Gastro-Hépato-Entérologie_Medecin.php">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="Gynécologie_Medecin.php">Gynécologie</a></li>
+                            <li><a href="I.S.T._Medecin.php">I.S.T.</a></li>
+                            <li><a href="Ostéopathie_Medecin.php">Ostéopathie</a></li>
                         </ul>
                     </li>
-                    <li><a href="Test_Labo_Client.php">Test en Laboratoire</a></li>
+                    <li><a href="Test_Labo_Medecin">Test en Laboratoire</a></li>
                 </ul>
             </li>
-            <li><a href="Rechercher_Client.php">Recherche</a></li>
-            <li><a href="Rendez_Vous_Client.php">Rendez-vous</a></li>
-            <li><a href="Votre_Profil_Client.php">Votre Compte</a>
+            <li><a href="Rechercher_Medecin.php">Recherche</a></li>
+            <li><a href="Rendez_Vous_Medecin.html">Rendez-vous</a></li>
+            <li><a href="Votre_Compte_Medecin.html">Votre Compte</a>
                 <ul class="dropdown-menu">
-                    <li><a href="Votre_Profil_Client.php">Votre Profil</a></li>
+                    <li><a href="Votre_Compte_Medecin_Se_Connecter.html">Votre Profil</a></li>
                     <li><a href="Accueil.php">Deconnexion</a></li>
                 </ul>
             </li>
@@ -134,10 +132,7 @@ $personnel = $xml->xpath("//personnels_sante[id='$id']")[0];
             <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
             <li><i class="fas fa-map-marker-alt"></i> 16 rue Sextius Michel, Paris, France</li>
         </ul>
-        <div id="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5250.742223981441!2d2.285609375121745!3d48.85113330121908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6701b49fa6195%3A0x7e3a16fc394bc943!2s16%20Rue%20Sextius%20Michel%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1716811550264!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
+
 </footer>
 
 <script src="scripts.js"></script>

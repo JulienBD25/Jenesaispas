@@ -144,7 +144,6 @@ session_start();
         <h2 style="text-align: center;">Nos Spécialistes de Santé</h2>
 
         <div id="myCarousel" class="carousel slide carousel-container" data-ride="carousel">
-            <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -155,7 +154,6 @@ session_start();
                 <li data-target="#myCarousel" data-slide-to="6"></li>
                 <li data-target="#myCarousel" data-slide-to="7"></li>
             </ol>
-            <!-- Wrapper pour les images -->
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="Images/medecin1.jpg" alt="Addictologie">
