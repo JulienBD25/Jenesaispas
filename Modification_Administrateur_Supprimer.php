@@ -170,27 +170,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_member'])) {
     <nav>
         <ul>
             <li><a href="Accueil_Administrateur.html">Accueil</a></li>
-            <li class="dropdown-menu">
-            <li><a href="Tout_Parcourir.html">Tout Parcourir</a>
+            <li><a href="Tout_Parcourir_Administrateur.html">Tout Parcourir</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
+                    <li><a href="Medecin_Generaliste_Administrateur.php" onclick="showSpecialty('Médecine générale')">Médecins Généralistes</a></li>
                     <li>
-                        <a href="#">Médecins Spécialistes</a>
+                        <a href="Medecins_specialistes_Administrateur.php">Médecins Spécialistes</a>
                         <ul class="dropdown-submenu">
-                            <li><a href="#" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
-                            <li><a href="#" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
-                            <li><a href="#" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
+                            <li><a href="Andrologie_Administrateur.php" onclick="showSpecialty('Addictologie')">Addictologie</a></li>
+                            <li><a href="Andrologie_Administrateur.php" onclick="showSpecialty('Andrologie')">Andrologie</a></li>
+                            <li><a href="Cardiologie_Administrateur.php" onclick="showSpecialty('Cardiologie')">Cardiologie</a></li>
+                            <li><a href="Dermatologie_Administrateur.php" onclick="showSpecialty('Dermatologie')">Dermatologie</a></li>
+                            <li><a href="Gastro-Hépato-Entérologie_Administrateur.php" onclick="showSpecialty('Gastro-Hépato-Entérologie')">Gastro-Hépato-Entérologie</a></li>
+                            <li><a href="Gynécologie_Administrateur.php " onclick="showSpecialty('Gynécologie')">Gynécologie</a></li>
+                            <li><a href="I.S.T._Administrateur.php" onclick="showSpecialty('I.S.T.')">I.S.T.</a></li>
+                            <li><a href="Ostéopathie_Administrateur.php" onclick="showSpecialty('Ostéopathie')">Ostéopathie</a></li>
                         </ul>
                     </li>
                     <li><a href="#" onclick="showLaboratoire()">Test en Labo</a></li>
                 </ul>
             </li>
-            <li><a href="Rechercher_Administrateur.html">Recherche</a></li>
+            <li><a href="Rechercher_Administrateur.php">Recherche</a></li>
             <li><a href="Modification_Administrateur_Ajout.php">Modifier</a></li>
             <li><a href="Votre_Profil_Administrateur.php">Votre Compte</a>
                 <ul class="dropdown-menu">
